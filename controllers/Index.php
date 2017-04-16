@@ -12,5 +12,9 @@ class Index extends Controller{
            $this->view->render($this,'index'); 
         }
     }
+
+    public function vistaProyecto(){
+        $this->view->render($this,'vistaProyecto'); 
+    }
 }
 ?>

@@ -1,0 +1,197 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+}
+h1{
+	text-align: center;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 4.5vw;
+	margin: 3vw;
+}
+#media{
+	/*margin-left: 10%;*/
+	/*background-color: red;*/
+/*	width: 100%;
+	height: 50vw;*/
+}
+#media img{
+	width: 100%;
+	height: auto;
+}
+#info{
+	float: left;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	}
+	#puntaje{
+		padding: 1.5vw;
+		float: left;
+		/*background-color: purple;*/
+		width: calc(70% - 3vw);
+	}
+	#puntaje p{
+		font-size: 3vw;
+		font-family: 'segoe ui', sans-serif;
+	}
+		#likes{
+			display: flex;
+  			align-items: center;
+			height: 100%;
+			float: left;
+			/*background-color: green;*/
+			width: calc(50% - 1px);
+		}
+		#dislikes{
+			border-width: 0px;
+			border-right: 1px;
+			border-color: grey;
+			border-style: solid;
+
+			display: flex;
+  			align-items: center;
+			height: 100%;
+			float: left;
+			/*background-color: brown;*/
+			width: calc(50% - 1px);
+		}
+	#autor{
+		border: 0px solid grey;
+		padding: 1.5vw;
+		float: left;
+		width: calc(30% - 3vw);
+		height: 100%;
+	}
+	#autor>p{
+		display: flex;
+  		align-items: center;
+		height: 100%;
+		font-family: 'segoe ui', sans-serif;
+		font-size: 2vw;
+	}
+
+#fondoDescripcion{
+	background-color: #2ABB9B;
+	width: 100%;
+	padding-bottom: 5vw;
+	overflow: auto;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+}
+
+#descripcion{
+	border-bottom-right-radius: 2vw;
+	border-bottom-left-radius: 2vw;
+	border: 0px solid grey;
+	border-top-width: 0px;
+	float: left;
+	padding: 5vw;
+	margin-left: calc(10% - 5vw);
+	box-shadow: inset 0px 0px 20px rgba(0,0,0,0.3);
+	background-color: white;
+	width: 80%;
+	min-height: 50px;
+}
+#descripcion p{
+	font-family: 'segoe ui', sans-serif;
+	font-size: 20px;
+}
+
+#fondoComentarios{
+	/*background-color: #EEEEEE;*/
+	width: 100%;
+	overflow: auto;
+}
+	#fondoComentarios h2{
+		margin-top: 10vw;
+		text-align: center;
+		font-family: 'segoe ui', sans-serif;
+		font-size: 7vw;
+		margin-bottom: 2vw;
+	}
+#comentarios{
+	margin-left: 15%;
+	text-align: center;
+	float: left;
+	/*background: blue;*/
+	margin-top: 2vw;
+	padding-bottom: 2vw;
+	width: 70%;
+}
+	#comentario{
+		position: relative;
+		float: left;
+		/*background-color: pink;*/
+		margin-top: 4vw;
+		width: 100%;
+		/*min-height: 20px;*/
+	}
+		#calificacion{
+			/*box-shadow: inset 0px 0px 13px rgba(27,188,155,0.9);*/
+			box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+			float: left;
+			border-radius: 5vw;
+			background-color: white;
+			width: 7vw;
+			height: 7vw;
+			margin-right: 1vw;
+		}
+			#calificacion img{
+				/*margin-top: 20%;*/
+				width: 100%;
+				height: 100%;
+			}
+		#contenido{
+			box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+			padding: 1.3vw 2vw 2vw 2vw;
+			float: left;
+			border-radius: 2vw;
+			background-color: white;
+			width: calc(100% - 12vw);
+			min-height: 3vw;
+		}
+			#contenido h3{
+				margin-bottom: 0.5vw;
+				font-family: 'Helvetica neue', sans-serif;
+				font-size: 18px;
+			}
+			#contenido p{
+				text-align: justify;
+				font-family: 'segoe ui', sans-serif;
+				font-size: 16px;
+			}
+		#commentLike{
+			font-size: 1vw;
+			text-orientation: center;
+			font-family: 'segoe ui', sans-serif;
+
+			box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+			z-index: 4;
+			position: absolute;
+			border-radius: 2.5vw;
+			background-color: white;
+			width: 3vw;
+			height: 3vw;
+			right: 5.5vw;
+			bottom: -2vw;
+		}
+		#commentDislike{
+			font-size: 1vw;
+			text-orientation: center;
+			font-family: 'segoe ui', sans-serif;
+
+			box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+			z-index: 4;
+			position: absolute;
+			border-radius: 2.5vw;
+			background-color: white;
+			width: 3vw;
+			height: 3vw;
+			right: 2vw;
+			bottom: -2vw;
+		}
