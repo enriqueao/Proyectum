@@ -9,7 +9,7 @@ class Index extends Controller{
         if(Session::exist()){
             header("location:".URL."Usuario/");
         }else{
-           $this->view->render($this,'index'); 
+           $this->view->render($this,'principal'); 
         }
     }
 
