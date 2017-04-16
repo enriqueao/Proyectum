@@ -22,20 +22,14 @@
 		document.head.appendChild(imported);' . PHP_EOL);
 	@fclose($file);
 
-	//Constantes de la base de datos
-	define( 'DB_HOST' ,'148.220.52.120');
-	define( 'DB_USER' ,'prueba_jp');
-	define( 'DB_PASS' ,'prueba_jp');
-	define( 'DB_NAME' ,'salud_p');
-
-	// define( 'DB_HOST' ,'localhost');
-	// define( 'DB_USER' ,'root');
-	// define( 'DB_PASS' ,'');
-	// define( 'DB_NAME' ,'salud_p');
+	define( 'DB_HOST' ,'localhost');
+	define( 'DB_USER' ,'root');
+	define( 'DB_PASS' ,'');
+	define( 'DB_NAME' ,'');
 	
 	define( 'DB_CHARSET' ,'utf8');
 
 	define( 'ALGOR' ,'sha512');
-	define( 'KEY' ,'sac2016');
-	define( 'ID_SESSION', 'saludUAQ');
+	define( 'KEY' ,'spjecs');
+	define( 'ID_SESSION', 'spaceProjects');
 ?>
