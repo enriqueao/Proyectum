@@ -13,8 +13,7 @@
 	<div class="blanco"></div>
 	<div class="top-bar">
 		<div class="logo-top-bar">
-			<img class="invert" src="<?=IMG?>logo.png">
-			<!-- <p>Proyectum</p> -->
+			<img src="<?=IMG?>logoOK.svg">
 		</div>
 		<div class="top-buscador">
 			<input type="search" name="busqueda" placeholder="Introduce una palabra clave para comenzar">
