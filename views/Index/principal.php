@@ -13,7 +13,7 @@
 	<div class="blanco"></div>
 	<div class="top-bar">
 		<div class="logo-top-bar">
-			<img src="<?=IMG?>logoOK.svg">
+			<img src="<?=IMG?>logo.png">
 		</div>
 		<div class="top-buscador">
 			<input type="search" name="busqueda" placeholder="Introduce una palabra clave para comenzar">
