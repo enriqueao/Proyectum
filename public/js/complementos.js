@@ -8,11 +8,6 @@ window.addEventListener('load',function() {
 	favicon.rel='shortcut icon';
 	favicon.href=config['url']+'favicon.ico';
 	document.head.appendChild(favicon);
-
-	var alerta = document.createElement("script");
-	alerta.src = config['url']+"public/js/alertas.js";
-	alerta.type="text/javascript";
-	document.head.appendChild(alerta);
 },false);
 
 function addFunctionWindowOnload(callback){
