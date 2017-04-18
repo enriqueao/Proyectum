@@ -1,5 +1,7 @@
 var slide = setInterval('next()',10000);
 window.addEventListener('load',slide,false);
+
+
 function atras() {
 	var elemento = document.getElementById('slide');
 	var margin = elemento.style.marginLeft;

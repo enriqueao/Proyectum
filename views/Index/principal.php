@@ -13,7 +13,7 @@
 	<div class="blanco"></div>
 	<div class="top-bar">
 		<div class="logo-top-bar">
-			<img src="<?=IMG?>logo.png">
+			<a href="<?=URL?>"><img src="<?=IMG?>logo.png"></a>
 		</div>
 		<div class="top-buscador">
 			<div class="top-buscador-input">                
