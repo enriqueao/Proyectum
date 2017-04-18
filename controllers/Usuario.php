@@ -64,6 +64,10 @@ class Usuario extends Controller{
             }
         }
     }
+
+    public function perfil(){
+        $this->view->render($this,'perfil');
+    }
     
     public function cerrarSesion(){
         Session::destroy();

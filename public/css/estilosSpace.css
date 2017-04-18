@@ -67,24 +67,40 @@ body,html{
         height:100%;
     }
 
-    .top-buscador > input[type="search"]{
+    .top-buscador-input{
+        position: relative;
+        float: left;
+        width: 80%;
+        height:100%;
+    }
+
+    .top-buscador-input > input[type="search"]{
         font-size: 15px;
         letter-spacing: -1px;
         margin: 15px 0px 10px 0px;
-        height: 30px;
-        width: 300px;
+        height: 50%;
+        width: 100%;
         border-radius: 5px;
         outline: none;
         border: none;
         padding-left: 3px;
     }
+	
+	.top-buscador-search{
+		height: 100%;
+	}
 
-    .top-buscador img{
+    .top-buscador-search img{
         height: 30px;
         width: 30px;
+        margin-top: 15px;
+        margin-left:5px;
+        transition: 2s all;
     }
 
      .top-buscador img:hover{
+     	-webkit-transform:scale(1.2);
+		box-shadow: 15px 15px 30px 0px rgba(0,0,0,.2);
         -webkit-filter:sepia(100%) brightness(180%) saturate(60%);
     }
 
@@ -399,3 +415,14 @@ footer > p{
 .sepia {-webkit-filter: sepia(100%); filter: sepia(100%);}
 .huerotate {-webkit-filter: hue-rotate(180deg); filter: hue-rotate(180deg);}
 .rss.opacity {-webkit-filter: opacity(50%); filter: opacity(50%);}
+
+
+/***********************************PERFIL****************************/
+
+.perfil{
+	width: 100%;
+	height: 40%;
+	position: relative;
+	float: right;
+	background-color:#e3e0da; 
+}
