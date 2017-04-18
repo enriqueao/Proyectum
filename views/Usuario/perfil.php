@@ -17,10 +17,7 @@
 		</div>
 		<div class="top-buscador">
 			<div class="top-buscador-input">                
-				<input type="search" name="busqueda" placeholder="Introduce una palabra clave para comenzar">
-			</div>
-			<div class="top-buscador-search">
-				<a href="#"><img src="<?=IMG?>search.svg"></a>
+				<input type="search" name="busqueda" placeholder="Buscar">
 			</div>
 		</div>
         <div class="top-SignIn">

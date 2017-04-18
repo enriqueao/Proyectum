@@ -17,11 +17,11 @@
 		</div>
 		<div class="top-buscador">
 			<div class="top-buscador-input">                
-				<input type="search" name="busqueda" placeholder="Introduce una palabra clave para comenzar">
+				<input type="search" name="busqueda" placeholder="Buscar">
 			</div>
-			<div class="top-buscador-search">
+			<!-- <div class="top-buscador-search">
 				<a href="#"><img src="<?=IMG?>search.svg"></a>
-			</div>
+			</div> -->
 		</div>
         <div class="top-SignIn">
             <a href="#proyectos">Unirme Ahora</a>
