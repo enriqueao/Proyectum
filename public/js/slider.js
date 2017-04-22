@@ -1,4 +1,4 @@
-var slide = setInterval('next()',10000);
+var slide = setInterval('next()',8000);
 window.addEventListener('load',slide,false);
 
 
@@ -15,7 +15,7 @@ function atras() {
 		elemento.style = 'margin-left:100%';
 	}
 	clearInterval(slide);
-	slide = setInterval('next()',10000);
+	slide = setInterval('next()',8000);
 }
 
 function next() {
@@ -31,5 +31,5 @@ function next() {
 		elemento.style = 'margin-left:-100%';
 	}
 	clearInterval(slide);
-	slide = setInterval('next()',10000);
+	slide = setInterval('next()',8000);
 }

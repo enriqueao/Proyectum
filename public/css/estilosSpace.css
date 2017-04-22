@@ -8,8 +8,8 @@ body,html{
 	height: 100%;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 .blanco{
 	width: 100%;
@@ -21,20 +21,17 @@ body,html{
 	background-image: url('../images/develop-1d.png');
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 	background-position: center center;
 }
 
 .top-bar{
-	top: 0px;
-	left: 0px;
-	right: 0px;
+	top: 0;
+	left: 0;
+	right: 0;
 	position: fixed;
 	width: 100%;
-	height: 10%;	
+	height: 10%;
 	background: -webkit-linear-gradient(left,#001c40, #333e47,#ce530d);
 	z-index: 99;
 }
@@ -45,7 +42,7 @@ body,html{
         width: 25%;
         height:100%;
     }
-    
+
     .logo-top-bar > p{
         color: white;
         font-size: 2em;
@@ -59,7 +56,7 @@ body,html{
     	height: 70%;
     	-webkit-filter: invert(100%); filter: invert(100%);
     }
-    
+
     .top-buscador{
         position: relative;
         float: left;
@@ -76,8 +73,8 @@ body,html{
 
     .top-buscador-input > input[type="search"]{
         font-size: 15px;
-        letter-spacing: 0px;
-        margin: 15px 0px 10px 0px;
+        letter-spacing: 0;
+        margin: 15px 0 10px 0;
         height: 48%;
         width: 98%;
         /*border-radius: 5px;*/
@@ -94,31 +91,29 @@ body,html{
         border-bottom:1px solid #e3e0da;
     }
 
-    .top-buscador-input > input[type="search"]::-webkit-input-placeholder { 
-    	color: #e3e0da; 
+    .top-buscador-input > input[type="search"]::-webkit-input-placeholder {
+    	color: #e3e0da;
     }
-	
-	.top-buscador-input > input[type="search"]:focus::-webkit-input-placeholder { 
-		color:transparent; 
+
+	.top-buscador-input > input[type="search"]:focus::-webkit-input-placeholder {
+		color:transparent;
 	}
 
     .top-buscador-input > input[type="search"]:focus{
 		color: rgba(210,93,19,1);
 		background-color: #e3e0da;
-		/*opacity: .6;*/
 		padding-left: 1%;
-		/*background-image: url();*/
 		background-image: url('../images/search.svg');
-        background-repeat: no-repeat;
-        background-position: right center;
-     	padding-right: 24px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 24px;
 		background-size: 20px 20px;
 		transition: .5s all;
 		height: 50%;
         width: 100%
 
     }
-	
+
 	.top-buscador-search{
 		height: 100%;
 	}
@@ -133,8 +128,9 @@ body,html{
 
      .top-buscador img:hover{
      	-webkit-transform:scale(1.2);
-		box-shadow: 15px 15px 30px 0px rgba(0,0,0,.2);
-        -webkit-filter:sepia(100%) brightness(180%) saturate(60%);
+			transform:scale(1.2);
+			box-shadow: 15px 15px 30px 0 rgba(0,0,0,.2);
+      -webkit-filter:sepia(100%) brightness(180%) saturate(60%);
     }
 
     .top-SignIn{
@@ -142,7 +138,7 @@ body,html{
         float: right;
         width: 29%;
         height:100%;
-        padding: 1% 0px;
+        padding: 1% 0;
     }
         .top-SignIn > a{
             margin-right: 30px;
@@ -154,17 +150,17 @@ body,html{
         	width: 45px;
         	height: 45px;
         	float: right;
-        	margin-right:20%; 
+        	margin-right:20%;
         	border-radius: 100%;
         }
 
         .top-perfil{
-        	margin-top:10px; 
+        	margin-top:10px;
         }
 
         .top-perfil > a{
 			color: #e3e0da;
-			margin-right:20px; 
+			margin-right:20px;
         }
 
 input[type="submit"]{
@@ -195,9 +191,6 @@ a:hover{
 
 img{
 	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 	background-position: center;
 }
@@ -206,7 +199,7 @@ img{
 		position: absolute;
 		height: 100%;
 		width:8%;
-		left: 0px;
+		left: 0;
 		z-index: 1;
 		line-height:400px;
 	}
@@ -215,44 +208,50 @@ img{
 			width: 60%;
 			height: 100%;
 			vertical-align:middle;
-			animation: 2s all;
+			-webkit-animation: 2s all;
+			        animation: 2s all;
 			cursor: pointer;
 		}
 
 		.prev > a > img:hover{
 			-webkit-transform:scale(1.2);
-			box-shadow: 15px 15px 30px 0px rgba(0,0,0,.2);
+			-ms-transform:scale(1.2);
+			-moz-transform:scale(1.2);
+			-o-transform:scale(1.2);
+			box-shadow: 15px 15px 30px 0 rgba(0,0,0,.2);
 			-webkit-filter:sepia(100%) brightness(180%) saturate(60%);
 		}
 	.next{
 		position: absolute;
 		height: 100%;
 		width:8%;
-		right: 0px;
+		right: 0;
 		z-index: 1;
 		line-height:400px;
 		margin-right: -40px;
 		margin-top: 12px;
 	}
-	
+
 		.next > a > img{
 			width: 60%;
 			height: 100%;
 			vertical-align:middle;
-			animation: 2s all;
+			-webkit-animation: 2s all;
+			        animation: 2s all;
 			cursor: pointer;
 		}
 
 		.next > a > img:hover{
 			-webkit-transform:scale(1.2);
+			transform:scale(1.2);
 			box-shadow: -15px 15px 30px 0px rgba(0,0,0,.2);
 			-webkit-filter:sepia(100%) brightness(180%) saturate(60%);
 		}
 
 .slider{
 	/*top: 10%;*/
-	left: 0px;
-	right: 0px;
+	left: 0;
+	right: 0;
 	position: relative;
 	float: right;
 	width: 100%;
@@ -267,16 +266,14 @@ img{
 
 	.slider ul{
 		position: relative;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		width: 300%;
-		margin-left: 0%;
+		margin-left: 0;
 		/*animation: slide 20s infinite alternate;*/
 		/*animation-timing-function:ease-in;*/
-		-webkit-transition: all 5s ease-in;
-		   -moz-transition: all 5s ease-in;
-		    -ms-transition: all 5s ease-in;
-		     -o-transition: all 5s ease-in;
-		        transition: all 5s ease-in;
+		transition: all 2s;
 	}
 
 	.slider img{
@@ -285,7 +282,7 @@ img{
 
 	.titulos-slider{
 		position: absolute;
-		margin: 4% 7% 0% 7%;
+		margin: 4% 7% 0 7%;
 		width: 20%;
 		height: 80%;
 		/*margin:100px 10%;*/
@@ -293,8 +290,8 @@ img{
 		/*background-color: red;*/
 	}
 
-	.titulos-slider > h2,h4,h6{
-		color:white !important;
+	.titulos-slider > h2,h6{
+		color:white;
 		text-align: center;
 	}
 
@@ -303,18 +300,30 @@ img{
 	}
 
 	.titulos-slider > h4{
-		margin-top:10px; 
+		color:white;
+		text-align: center;
+		font-weight: lighter;
+		margin-top:10px;
 		font-size: 2em;
 	}
 
 	.titulos-slider > h6{
-		margin-top:10px; 
+		margin-top:10px;
 		font-size: 1em;
 	}
 
 	.titulos-slider > h6 > input{
 		width: 150px;
 		height: 60px;
+	}
+
+	@-webkit-keyframes slide{
+		0% {margin-left: 0;}
+		20% {margin-left: 0;}
+		40% {margin-left: -100%;}
+		60% {margin-left: -100%;}
+		80% {margin-left: -200%;}
+		100% {margin-left: -200%;}
 	}
 
 	@keyframes slide{
@@ -337,16 +346,16 @@ img{
 		color: #313e48;
 		background-color: #e3e0da;
 		opacity: .9;
-	}	
+	}
 
 	.contenido-proyectos{
 		width: 100%;
 		height: 50%;
 		position: relative;
 		/*background-color: #021e41;*/
-		padding: 0px 4%; 
+		padding: 0px 4%;
 	}
-	
+
 	.proyecto{
 		width: 20%;
 		height: 400px;
@@ -378,7 +387,7 @@ img{
 	 .detalles-proyecto{
 	 	width: 100%;
 	 	height: 15%;
-	 	bottom: 0px;
+	 	bottom: 0;
 	 	position: relative;
 	 	float: right;
 	 }
@@ -403,7 +412,7 @@ img{
 	 	color: #d25d13;
 	 	text-align: right;
 	 	margin-right: 5px;
-	 }	 
+	 }
 
 	 .icono-detalles-ver > p{
 	 	text-align: center;
@@ -444,8 +453,8 @@ img{
 	}
 
 footer{
-	left: 0px;
-	right: 0px;
+	left: 0;
+	right: 0;
 	float: left;
 	position: relative;
 	width: 100%;
@@ -483,9 +492,6 @@ footer > p{
 	background-image: url('../images/perfil-fondo.jpg');
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 	background-position: center center;
 }
@@ -495,7 +501,7 @@ footer > p{
 	/*height: 40%;*/
 	position: relative;
 	float: left;
-	background-color:#e3e0da; 
+	background-color:#e3e0da;
 	opacity: .98;
 }
 
@@ -512,13 +518,21 @@ footer > p{
 		margin-bottom: 20px;
 	}
 
-	.perfil-informacion > h2,h3,h4{
+	.perfil-informacion > h2{
 		text-align: center;
 		color: #112842;
 	}
 
-	.perfil-informacion > h3,h4{
+	.perfil-informacion > h3 {
 		font-weight: lighter;
+		text-align: center;
+		color: #112842;
+	}
+
+	.perfil-informacion > h4 {
+		font-weight: lighter;
+		text-align: center;
+		color: #112842;
 	}
 
 .perfil-contenido{
@@ -551,5 +565,5 @@ footer > p{
 	width: 80%;
 	height: 50%;
 /*	margin: 10px 10%;*/
-	background-color: red; 
+	background-color: red;
 }
