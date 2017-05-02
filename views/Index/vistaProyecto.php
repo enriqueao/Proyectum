@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>PROYECTO</title>
 	<link rel="stylesheet" type="text/css" href=<?php echo CSS.'vistaProyecto.css' ?>>
+	<script defer src="<?=JS?>vistaProyecto.js"></script>
 </head>
 <body>
 	<h1>App que te da la hora</h1>
@@ -12,6 +13,10 @@
 	</div>
 	<div id="info">
 		<div id="puntaje">
+			<div id="visitas">
+				<img src="<?=IMG?>eye.svg" alt="">
+				<p>129</p>
+			</div>
 			<div id="likes">
 				<p>172 likes</p>
 			</div>
@@ -104,7 +109,15 @@ Traducción hecha por H. Rackham en 1914
 					<p>Dislike</p>
 				</div>
 			</div>
-
+			<hr id="saltoDeLinea">
+			<h4>Nueva evaluacion</h4>
+			<div id="nuevoComentario">
+				<h3>@edgarOsoVel</h3>
+				<textarea maxlength="7" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent"></textarea>
+				<input type="radio" name="eval" id="nuevoComentEval">
+				<input type="radio" name="eval" id="nuevoComentEval">
+				<button id="nuevoComentSend">Evaluar</button>
+			</div>
 		</div>
 	</div>
 </body>

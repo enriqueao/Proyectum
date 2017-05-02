@@ -16,5 +16,9 @@ class Index extends Controller{
     public function vistaProyecto(){
         $this->view->render($this,'vistaProyecto'); 
     }
+
+    public function vistaSubirProyecto(){
+        $this->view->render($this,'subirProyecto'); 
+    }
 }
 ?>

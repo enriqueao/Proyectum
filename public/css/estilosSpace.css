@@ -38,7 +38,7 @@ body,html{
 	background: -o-linear-gradient(left,#001c40, #333e47,#ce530d);
 	background: -ms-linear-gradient(left,#001c40, #333e47,#ce530d);
 	background: gradient(left,#001c40, #333e47,#ce530d);
-	background: linear-gradient(left,#001c40, #333e47,#ce530d);
+	background: linear-gradient(left,#df5349, #333e47,#ce530d);
 	z-index: 99;
 }
 
