@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Usuario extends Controller{
     function __construct() {
@@ -11,15 +11,19 @@ class Usuario extends Controller{
             $this->view->render($this,'principal');
         }
     }
-    
+
     public function iniciarSesion(){
         if(isset($_POST["username"], $_POST["password"]) ){
             $inicio = $this->model->iniciarSesion($_POST["username"], $_POST["password"]);
             echo $inicio;
-            if($inicio == '1' || $inicio == '4'){
-                $this->initLog($_POST['username'],1,$_POST['username'],'Inicio de Sesión');
-            }
         }
+    }
+
+    public function registro(){
+      if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
+        $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass']);
+        return $this->model->registro($registro);
+      }
     }
 
     /**
@@ -31,7 +35,7 @@ class Usuario extends Controller{
           if ($_FILES['imagen']['size'] < 16777216) {
             $imagenType = $_FILES['imagen']['type'];
             if ($imagenType == "image/jpeg" || $imagenType == "image/jpg" || $imagenType == "image/png"){
-                $ext     = explode(".", $_FILES['imagen']['name']); 
+                $ext     = explode(".", $_FILES['imagen']['name']);
                 $dir     = 'IMG_'.$this->getKeyImg(Session::getValue('idUsuario')).".".end($ext);
                 $dirmove = "public/images/".$dir;
 
@@ -68,7 +72,7 @@ class Usuario extends Controller{
     public function perfil(){
         $this->view->render($this,'perfil');
     }
-    
+
     public function cerrarSesion(){
         Session::destroy();
         $this->initLog(Session::getValue('idUsuario'),2,Session::getValue('idUsuario'),'Cierre de Sesión');
