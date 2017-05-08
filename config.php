@@ -10,9 +10,9 @@
 	define( 'IMG', URL."public/images/");
 	define( 'LIB', URL."libs/");
 
-	//Crean el archivo de config.js 
+	//Crean el archivo de config.js
 	@$file = fopen("public/js/config.js", "w");
-	@fwrite($file, 
+	@fwrite($file,
 		'var config = {
 			url: "'.URL.'",
 			img: "'.URL.'public/images/"
@@ -25,8 +25,8 @@
 	define( 'DB_HOST' ,'localhost');
 	define( 'DB_USER' ,'root');
 	define( 'DB_PASS' ,'');
-	define( 'DB_NAME' ,'');
-	
+	define( 'DB_NAME' ,'proyectum');
+
 	define( 'DB_CHARSET' ,'utf8');
 
 	define( 'ALGOR' ,'sha512');

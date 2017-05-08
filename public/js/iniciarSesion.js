@@ -6,12 +6,11 @@ function iniciarSesion() {
 		if (validarUser()) {
 			var url = config['url']+"Usuario/iniciarSesion/";
 		    var datos = "username=" + username + "&password=" + password;
-		    
+
 			logIn = new XMLHttpRequest();
 			logIn.open("POST", url ,true);
 			logIn.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			logIn.send(datos);
-			carga();
 			logIn.onreadystatechange = function (){
 				if (logIn.readyState == 4) {
 					switch(parseInt(logIn.responseText)){
@@ -21,24 +20,21 @@ function iniciarSesion() {
 		                break;
 
 		                case 1:
-		                mensaje();
 		                location.reload();
 		                break;
 
 		                case 4:
-		                alertFlotante('Bienvenido',1,'primerInicio()');
 		                break;
 
 		                default:
-		                alertFlotante('Verifica tu usuario y/o Contraseña',3);
-		                mensaje();
+		                alert('Verifica tu usuario y/o Contraseña');
 		                break;
 		        	}
 				}
 			}
-		}	   
+		}
 	} else {
-		alertFlotante('Completa los campos',1);
+		alert('Completa los campos');
 	}
 }
 
@@ -57,7 +53,7 @@ function validarUser() {
 function carga() {
 	var mensaje = document.getElementById('mensajeLogin');
 	mensaje.innerHTML = '<img width="20%" src="'+config['url']+'/public/images/uploading.gif">';
-	
+
 }
 
 function mensaje() {
@@ -69,34 +65,4 @@ function mensaje() {
 
 function primerInicio(){
 	location.href = config['url']+"Usuario/index";
-}
-
-window.addEventListener('load', backSize, true);
-window.addEventListener('resize', backSize, true);
-
-function backSize() {
-    if (window.innerWidth > window.innerHeight) {
-        size = window.innerWidth
-    } else {
-        size = window.innerHeight
-    }
-    
-    size = size*3
-    
-    x = document.querySelectorAll('.wave');
-    
-    x[0].style.width=size+"px"
-    x[0].style.height=size+"px"
-    x[0].style.top=(size*0.17)+"px";
-    x[0].style.left=((size/3)*-1)+"px";
-    
-    x[1].style.width=size+"px"
-    x[1].style.height=size+"px"
-    x[1].style.top=(size*0.17)+"px";
-    x[1].style.left=((size/3)*-1)+"px";
-    
-    x[2].style.width=size+"px"
-    x[2].style.height=size+"px"
-    x[2].style.top=(size*0.17)+"px";
-    x[2].style.left=((size/3)*-1)+"px";
 }
