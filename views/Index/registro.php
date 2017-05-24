@@ -14,17 +14,17 @@
     <div class="registro">
       <div class="formulario-regitro">
         <p>Nombre Completo</p>
-        <input class="registroInput" type="text" id="nombreCompleto">
+        <input class="registro-inputs" type="text" id="nombreCompleto">
         <p>Nombre de Usuario</p>
-        <input class="registroInput" type="text" id="user">
-        <p class="disponible" id="estado">nombre de usuario Disponible</p>
+        <input class="registro-inputs" type="text" id="user">
+        <p class="disponible" id="estado">Disponible</p>
         <p>Correo</p>
-        <input class="registroInput" type="text" id="correo" value="">
+        <input class="registro-inputs" type="text" id="correo" value="">
         <p>Contraseña</p>
-        <input class="registroInput" type="password" id="pass" value="">
+        <input class="registro-inputs" type="password" id="pass" value="">
         <p>Confirma Tu Contraseña</p>
-        <input class="registroInput" type="password" value="">
-        <input class="registroSubmit" type="submit" id="botonSu" value="Registrarme" onclick="registrar()">
+        <input class="registro-inputs" type="password" value="">
+        <input class="registro-submit" type="submit" id="botonSu" value="Registrarme" onclick="registrar()">
       </div>
     </div>
     <?=$this->render('Index','footer',true);?>

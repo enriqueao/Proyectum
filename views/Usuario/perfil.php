@@ -15,7 +15,7 @@
 			<a href="<?=URL?>"><img src="<?=IMG?>logo.png"></a>
 		</div>
 		<div class="top-buscador">
-			<div class="top-buscador-input">                
+			<div class="top-buscador-input">
 				<input type="search" name="busqueda" placeholder="Buscar">
 			</div>
 		</div>
@@ -35,16 +35,224 @@
 			<h3>Estudiante</h3>
 		</div>
 	</div>
-	<div class="perfil-contenido">
-		<div class="perfil-proyectos">
-			<div class="perfil-proyecto"></div>
-			<div class="perfil-proyecto"></div>
-			<div class="perfil-proyecto"></div>
-			<div class="perfil-proyecto"></div>
-			<div class="perfil-proyecto"></div>
-			<div class="perfil-proyecto"></div>
+	<div class="proyectos-perfil" style="padding:0 5%;">
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
 		</div>
-		<div class="perfil-tops"></div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="proyecto">
+			<img src="<?=IMG?>pruebaP.jpg">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+			<div class="detalles-proyecto">
+				<div class="icono-detalles">
+					<img src="<?=IMG?>likeup.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>dislike.svg">
+					<p>0</p>
+				</div>
+				<div class="icono-detalles">
+					<img src="<?=IMG?>chat.svg">
+					<p>100</p>
+				</div>
+				<div class="icono-detalles-ver">
+					<p><a href="#">Ver Más...</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 	<footer>
 		<img src="<?=IMG?>logo.png">
