@@ -22,9 +22,9 @@
 		document.head.appendChild(imported);' . PHP_EOL);
 	@fclose($file);
 
-	define( 'DB_HOST' ,'localhost');
-	define( 'DB_USER' ,'root');
-	define( 'DB_PASS' ,'');
+	define( 'DB_HOST' ,'177.231.44.78');
+	define( 'DB_USER' ,'proyectum');
+	define( 'DB_PASS' ,'desarrolloweb');
 	define( 'DB_NAME' ,'proyectum');
 
 	define( 'DB_CHARSET' ,'utf8');

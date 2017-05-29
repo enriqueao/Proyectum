@@ -11,13 +11,16 @@
 	<h1>Nuevo Proyecto</h1>
 	<div id="fondo">
 		<p>Escoge una categoría para tu proyecto:</p>
-		<select>
-			<option value="">1</option>
-			<option value="">2</option>
-			<option value="">3</option>
-			<option value="">4</option>
-			<option value="">5</option>
-		</select>
+		<div id="divSelect">
+			<!-- <p id="selectImg">&#8964</p> -->
+			<select>
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+			</select>
+		</div>
 		<p>Escribe un título para tu proyecto:</p>
 		<input type="text" placeholder="¡Mi proyecto genial!">
 
