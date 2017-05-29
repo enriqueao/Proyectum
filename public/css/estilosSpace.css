@@ -303,6 +303,7 @@ img{
 		margin: 4% 7% 0 7%;
 		width: 20%;
 		height: 80%;
+		text-shadow: -0.1em 0 0 #F22613,  0.1em 0 0 #00FFFF;
 		z-index: 10;
 	}
 
@@ -374,7 +375,7 @@ img{
 
 	.proyecto{
 		width: 30%;
-		height: 400px;
+		height: 600px;
 		/*position: relative;*/
 		float: left;
 		background-color: rgba(2,30,65,.9);
@@ -588,7 +589,7 @@ footer > p{
 	right: 10%;
 	background-color: #f2f1ef;
 	z-index: 99;
-	transition: 5s all;
+	transition: 10s all;
 	border-radius: 10px 0 10px 10px;
 }
 
@@ -621,7 +622,7 @@ footer > p{
 
 .registro{
 	width: 100%;
-	height: 75%;
+	height: 100%;
 }
 
 .formulario-regitro{
@@ -635,30 +636,31 @@ footer > p{
 	box-shadow: 5px 4px 20px 0px rgba(0,0,0,.5);
 }
 
-.formulario-regitro > input[type="text"],input[type="password"] {
-	width: 200px;
-	height: 10px;
-	display: block;
-	margin: 10px auto;
-	/*border-radius: 2px;*/
-	border: none;
-	outline: none;
-	background-color: transparent;
-	border-bottom: 1px solid #d25d13;
-	padding-left: 2px;
-	transition: 1s all;
-	color: #172b43;
+.registro-inputs{
+	width: 350px !important;
+  height: 10px !important;
+  display: block !important;
+  margin: 10px auto !important;
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid #1c2f44 !important;
+  padding-left: 2px !important;
+  transition: 1s all !important;
+  color: #172b43 !important;
+  margin-top: 10px;
+  padding: 10px 10px 5px 10px;
+  font-size: 1em;
 }
 
-.formulario-regitro > input[type="submit"]{
-	border: 1px solid #d25d13;
-	display: block;
-	margin: 30px auto;
+.registro-submit{
+	border: 1px solid #d25d13 !important;
+	display: block !important;
+	margin: 30px auto !important;
 }
 
-.formulario-regitro > input[type="text"]:focus,input[type="password"]:focus{
-	background-color:#fff;
-	/*border-radius: 10px;*/
+.registro-inputs:focus{
+	background-color:#fff !important;
 }
 
 .formulario-regitro > p{
@@ -666,6 +668,10 @@ footer > p{
 	text-align: center;
 	color: #d25d13;
 	font-size: 1em;
+}
+
+#estado{
+	color: #fff;
 }
 
 .disponible{
