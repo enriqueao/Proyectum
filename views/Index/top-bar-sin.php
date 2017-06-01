@@ -9,8 +9,8 @@
     </div>
   </div>
       <div class="top-SignIn">
-          <a href="<?=URL;?>Index/registro">Únirme Ahora</a>
-          <input type="submit" value="Iniciar Sesión" id="boton">
+        <a href="<?=URL;?>Index/registro">Únirme Ahora</a>
+        <input type="submit" value="Iniciar Sesión" id="boton">
       </div>
 </div>
 <div class="inicio-sesion" id="capa" style="display:none;">
