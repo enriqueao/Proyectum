@@ -53,16 +53,16 @@
 			for ($i=0; $i < 23; $i++) { 
 				echo ' 
 				<div class="proyecto">
-				<img src="'.IMG.'perfil.jpg">
+				<img src="'.IMG.'6.jpg">
 				<h3>Titulo</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum leo metus, quis tristique tellus posuere a. Nullam aliquet quis urna a nullam.</p>
 				<div class="detalles-proyecto">
 					<div class="icono-detalles">
-						<img src="'.IMG.'eye.svg">
+						<img src="'.IMG.'vistas.svg">
 						<p>100</p>
 					</div>
 					<div class="icono-detalles">
-						<img src="'.IMG.'likeup.svg">
+						<img src="'.IMG.'like.svg">
 						<p>100</p>
 					</div>
 					<div class="icono-detalles">
@@ -70,7 +70,7 @@
 						<p>0</p>
 					</div>
 					<div class="icono-detalles">
-						<img src="'.IMG.'chat.svg">
+						<img src="'.IMG.'mensajes.svg">
 						<p>100</p>
 					</div>
 					<div class="icono-detalles-ver">

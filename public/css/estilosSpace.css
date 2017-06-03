@@ -1,3 +1,23 @@
+@font-face { 
+    font-family: 'Muli';
+    src: url(../fonts/Muli.ttf);
+}
+@font-face {
+    font-family: 'Aller';
+    src: url(../fonts/Aller.ttf);
+}
+@font-face {
+    font-family: 'Pathway';
+    src: url(../fonts/PathwayGO.ttf);
+}
+@font-face {
+    font-family: 'Muli-light';
+    src: url(../fonts/Muli-Light.ttf);
+}
+@font-face {
+    font-family: 'Lato-Light';
+    src: url(../fonts/Lato-Light.ttf);
+}
 *{ 
 	padding: 0;
 	margin: 0;
@@ -380,7 +400,7 @@ img{
 		100% {margin-left: -200%;}
 	}
 #proyectos{
-	background-color: #ECF0F1;
+	background-color: #fff;
 	position: relative;
 	float: left;
 	width: 100%;
@@ -388,10 +408,12 @@ img{
 }
 
 	#titulo{
+		font-family: 'Aller';
 		float: left;
-		font-size: 3vw;
-		padding-top: 5vw;
-		padding-left: 6vw;
+		font-size: 40px;
+		padding-top: 6vw;
+		padding-bottom: 1VW; 
+		padding-left: 7vw;
 		color: #313e48;
 		/*background-color: #e3e0da;*/
 		opacity: .9;
@@ -399,7 +421,7 @@ img{
 
 	.contenido-proyectos{
 		box-sizing: border-box;
-		padding: 0px 3vw;
+		padding: 0px 6vw;
 		padding-bottom: 40px;
 		width: 100%;
 		display: flex;
@@ -412,12 +434,16 @@ img{
 	}
 
 	.proyecto{ 
+		border-radius: 5px;
+		border-top-left-radius: 40px;
 		background-color: white;
 		position: relative;
-		margin: 15px 0px;
-		width: 29vw;
-		height: 32vw;
-		box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,.3);
+		margin: 30px 20px;
+		/*width: 25vw;
+		height: 35vw;*/
+		width: 330px;
+		height: 400px;		
+		box-shadow: 0px 0px 0.6vw 0px rgba(0,0,0,.3);
     	/*overflow: hidden;*/
 		/*background-color: #333e47;*/
 		/*opacity: .9;*/
@@ -426,10 +452,12 @@ img{
 	}
 
 	 .proyecto > img{
+	 	border-top-left-radius: 40px;
 		width: 100%;
 		object-fit: cover;
-		height: 18vw;
-		opacity: .7;
+		/*height: 18vw;*/
+		height: 200px;
+		opacity: .9;
 		cursor: pointer;
 	 }
 
@@ -438,23 +466,28 @@ img{
 	 }
 
 	 .proyecto > p{
-	 	margin:10px;
+	 	font-family: 'Muli-Light';
+	 	margin: 0px 30px;
 	 	/*color: #e3e0da;*/
-	 	/*height: 49%;*/
-	 	font-size: 1.2vw;
+	 	line-height: 135%;
+	 	font-size: 14px;
 	 	text-align: justify;
 	 }
 
 	 .proyecto > h3{
-	 	margin:10px;
-	 	font-size: 1.5vw;
+	 	font-family: 'Aller';
+	 	margin: 13px 30px;
+	 	font-size: 17px;
 	 }
 
 	 .detalles-proyecto{
+	 	background: -webkit-linear-gradient(#fff,#F2F1EF); 
 	 	width: 100%;
-	 	height: 4vw;
-	 	bottom: 0;
+	 	height: 40px;
+	 	bottom: 0px;
 	 	position: absolute;
+	 	border-bottom-left-radius: 5px;
+	 	border-bottom-right-radius: 5px;
 	 	/*display: flex;
 	 	align-items: space-around;*/
 	 	/*float: right;*/
@@ -471,7 +504,7 @@ img{
 	 }
 
 	 .icono-detalles > img {
-	 	-webkit-filter: invert(100%); filter: invert(50%);
+	 	/*-webkit-filter: invert(100%); filter: invert(50%);*/
 	 	height: 50%;
 	 	/*margin-left: 10px;*/
 	 	width: 50%;
@@ -479,7 +512,7 @@ img{
 	 }
 
 	 .icono-detalles > p {
-	 	font-size: 1vw;
+	 	font-size: 10px;
 	 	color: #f1521a;
 	 	text-align: center;
 	 	/*margin-right: 5px;*/
@@ -502,12 +535,12 @@ img{
 	 }*/
 
 	 .icono-detalles-ver a{
-	 	padding: 0.8vw 0.3vw;
-	 	border-radius: 0.5vw;
+	 	padding: 8px 5px;
+	 	border-radius: 4px;
 	 	background-color: #3A6073;
 	 	color: white;
 	 	text-align: center;
-		font-size: 1.1vw;
+		font-size: 12px;
 	 }
 
 	 .icono-detalles-ver a:hover{
@@ -522,14 +555,15 @@ img{
 	text-align: center;
 	/*background-color: #e3e0da;
 	opacity: .8;*/
+	margin-top: 2vw;
 	margin-bottom: 75px;
 }
 	.proyectos-ver-mas > a{
 		background-color: #40a3c1;
-		padding: 1vw;
-		border-radius: 0.4vw;
+		padding: 10px;
+		border-radius: 7px;
 		color: white;
-		font-size: 1.4vw;
+		font-size: 16px;
 		text-align: center;
 		transition: .9s all;
 	}
