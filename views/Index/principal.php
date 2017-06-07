@@ -15,10 +15,10 @@
 	<?=$this->render('Index','top-bar-sin',true);?>
 	<div class="slider" id="slider">
 		<div class="prev">
-			<a href="#" onclick="atras()" ><img src="<?=IMG?>back.svg"></a>
+			<a href="#" onclick="slider(0)" ><img src="<?=IMG?>back.svg"></a>
 		</div>
 		<div class="next">
-			<a href="#" onclick="next()" ><img src="<?=IMG?>next.svg"></a>
+			<a href="#" onclick="slider(1)" ><img src="<?=IMG?>next.svg"></a>
 		</div>
 			<ul id="slide">
 				<li>
@@ -49,9 +49,9 @@
 	<div class="proyectos" id="proyectos">
 	<p id="titulo">Proyectos</p>
 		<div class="contenido-proyectos">
-			<?php 
-			for ($i=0; $i < 23; $i++) { 
-				echo ' 
+			<?php
+			for ($i=0; $i < 23; $i++) {
+				echo '
 				<div class="proyecto">
 				<img src="'.IMG.'6.jpg">
 				<h3>Titulo</h3>
