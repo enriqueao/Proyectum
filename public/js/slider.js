@@ -1,5 +1,10 @@
 var slide = setInterval('slider(1)',8000);
 window.addEventListener('load',slide,false);
+window.addEventListener('load',function(){
+	var items = document.querySelectorAll('#slide > li').length;
+	var elemento = document.getElementById('slide');
+	elemento.style.width = (items*(100))+'%';
+},false);
 
 /**
  * [slider description]
@@ -16,29 +21,30 @@ function slider(way){
 	var margin = elemento.style.marginLeft;
 	var intMargin = parseInt((margin == '') ? 0 : margin);
 	var limitMargin = (items*(-100))+100;
+	elemento.style.width = (items*(100))+'%';
 
 	if(way === 1){
 		if(intMargin <= 0 && intMargin > limitMargin){
 			intMargin -=100;
 			margin = intMargin+'%';
-			elemento.style = 'margin-left:'+margin;
+			elemento.style = 'width:'+(items*(100))+'%'+';margin-left:'+margin;
 		} else{
-			elemento.style = 'margin-left:0%';
+			elemento.style = 'width:'+(items*(100))+'%'+';margin-left:0%';
 		}
 	}
 	if(way === 0){
 		if(intMargin >= 0 && intMargin < limitMargin){
 			intMargin +=100;
 			margin = intMargin+'%';
-			elemento.style = 'margin-left:'+margin;
+			elemento.style = 'width:'+(items*(100))+'%'+';margin-left:'+margin;
 		} else{
 			if(intMargin === 0){
-				elemento.style = 'margin-left:'+limitMargin+'%';
+				elemento.style = 'width:'+(items*(100))+'%'+';margin-left:'+limitMargin+'%';
 			} else {
-				elemento.style = 'margin-left:0%';
+				elemento.style = 'width:'+(items*(100))+'%'+';margin-left:0%';
 			}
 		}
 	}
 	clearInterval(slide);
-	slide = setInterval('next()',8000);
+	slide = setInterval('slider(1)',8000);
 }
