@@ -1,124 +1,149 @@
+<?php 
+$info=$this->info;
+$vistas=$this->vistas;
+$comentarios=$this->comentarios;
+$reacciones=$this->reacciones;
+$tiposReacciones=$this->tiposReacciones;
+// print_r($reacciones);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>PROYECTO</title>
+	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href=<?php echo CSS.'vistaProyecto.css' ?>>
+	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
+	<script defer type="text/javascript" src="<?=JS;?>config.js"></script>
 	<script defer src="<?=JS?>vistaProyecto.js"></script>
 </head>
 <body>
-	<h1>App que te da la hora</h1>
-	<div id="media">
-			<img src=<?php echo IMG.'pruebaP.jpg' ?> alt="">	
+<?=$this->render('Index','top-bar-sin',true);?>
+	<h1><?echo $info['nombrePublicacion']?></h1>
+
+	<!-- slider -->
+	<div class="slider" id="slider">
+		<div class="prev">
+			<a onclick="slider(0)" ><img src="<?=IMG?>back.svg"></a>
+		</div>
+		<div class="next">
+			<a onclick="slider(1)" ><img src="<?=IMG?>next.svg"></a>
+		</div>
+			<ul id="slide">
+			<?php 
+
+			for ($i=1; $i <= 5; $i++) { 
+				if($info['media'.$i]!=""){
+					echo '<li>
+					<img src="'.IMG.$info['media'.$i].'">
+					</li>';
+				}
+			}
+
+			 ?>
+			</ul>
 	</div>
+
+<div id="fondoGeneral">
 	<div id="info">
 		<div id="puntaje">
-			<div id="visitas">
+			<div class="reacciones">
 				<img src="<?=IMG?>eye.svg" alt="">
-				<p>129</p>
+				<p><?php echo $vistas['count(idVista)']?></p>
 			</div>
-			<div id="likes">
-				<p>172 likes</p>
+			<div class="reacciones">
+				<img src="<?=IMG?>reacciones/excelente.svg" alt="">
+				<p><?=(isset($reacciones['Excelente']))?$reacciones['Excelente']:0?></p>
 			</div>
-			<div id="dislikes">
-				<p>15 dislikes</p>
+			<div class="reacciones">
+				<img src="<?=IMG?>reacciones/bien.svg" alt="">
+				<p><?=(isset($reacciones['Bueno']))?$reacciones['Bueno']:0?></p>
+			</div>
+			<div class="reacciones">
+				<img src="<?=IMG?>reacciones/regular.svg" alt="">
+				<p><?=(isset($reacciones['Regular']))?$reacciones['Regular']:0?></p>
+			</div>
+			<div class="reacciones">
+				<img src="<?=IMG?>reacciones/malo.svg" alt="">
+				<p><?=(isset($reacciones['Malo']))?$reacciones['Malo']:0?></p>
+			</div>
+			<div class="reacciones">
+				<img src="<?=IMG?>reacciones/wacala.svg" alt="">
+				<p><?=(isset($reacciones['Wacala']))?$reacciones['Wacala']:0?></p>
 			</div>
 		</div>
 		<div id="autor">
-			<p>Autor</p>
-			<p>Edgar Osornio Velázquez</p>
+			<p>Autor:</p>
+			<p><?php echo $info['nombreCompleto']?></p>
 		</div>
 	</div>
 
 
 	<div id="fondoDescripcion">
 	<div id="descripcion">
-		<p>El pasaje estándar Lorem Ipsum, usado desde el año 1500.
-
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-Sección 1.10.32 de "de Finibus Bonorum et Malorum", escrito por Cicero en el 45 antes de Cristo
-
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-
-Traducción hecha por H. Rackham en 1914
-
-"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-
-Sección 1.10.33 de "de Finibus Bonorum et Malorum", escrito por Cicero en el 45 antes de Cristo
-
-"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-
-Traducción hecha por H. Rackham en 1914
-
-"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</p>
+		<h2>Descripción del proyecto</h2>
+		<p><?echo nl2br($info['descripcionLarga'])?></p>
 	</div>
 	</div>
 	<div id="fondoComentarios">
 		<h2>Evaluaciones de la comunidad</h2>
 		<div id="comentarios">
 
-			<div id="comentario">
-				<div id="calificacion">
-					<img src=<?php echo IMG.'like3.svg' ?> alt="">
-				</div>
-				<div id="contenido">
-					<h3>@edgarOsoVel</h3>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+			<?php
+				function formatoComent($coment){
+					return	'<div id="comentario">
+					<div id="calificacion">
+						<img src='.IMG.$coment['img'].' alt="">
+					</div>
+					<div id="contenido">
+						<h3>'.$coment['nombrecompleto'].' | @'.$coment['username'].'</h3>
+						<p>'.$coment['comentario'].'</p>
 
-				</div>
-				<div id="commentLike">
-					<p>Like</p>
-				</div>
-				<div id="commentDislike">
-					<p>Dislike</p>
-				</div>
-			</div>
+					</div>
+					</div>';
+					// <div id="commentLike">
+					// 	<p>Like</p>
+					// </div>
+					// <div id="commentDislike">
+					// 	<p>Dislike</p>
+					// </div>
+				}
 
-			<div id="comentario">
-				<div id="calificacion">
-					<img src=<?php echo IMG.'like.svg' ?> alt="">
-				</div>
-				<div id="contenido">
-					<h3>@edgarOsoVel</h3>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditatte non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
 
-				</div>
-				<div id="commentLike">
-					<p>Like</p>
-				</div>
-				<div id="commentDislike">
-					<p>Dislike</p>
-				</div>
-			</div>
-			
-			<div id="comentario">
-				<div id="calificacion">
-					<img src=<?php echo IMG.'like2.svg' ?> alt="">
-				</div>
-				<div id="contenido">
-					<h3>@edgarOsoVel</h3>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium dsggsd jrstj aeheh earhrj jaetj voluptatum deleniti.</p>
+				if (!is_array($comentarios)){
+					echo "<p>No hay evaluciones en este proyecto. ¡Haz una nueva!</p>";
+				}
+				elseif (isset($comentarios['comentario'])) {
+					echo formatoComent($comentarios);
+				}
+				else{
+					foreach ($comentarios as $coment) {
+						echo formatoComent($coment);
+					}
+				}
+				
+			 ?>
 
-				</div>
-				<div id="commentLike">
-					<p>Like</p>
-				</div>
-				<div id="commentDislike">
-					<p>Dislike</p>
-				</div>
-			</div>
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
-				<h3>@edgarOsoVel</h3>
-				<textarea maxlength="7" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent"></textarea>
-				<input type="radio" name="eval" id="nuevoComentEval">
-				<input type="radio" name="eval" id="nuevoComentEval">
-				<button id="nuevoComentSend">Evaluar</button>
+				<form name=nuevoComentario onsubmit="return false">
+					<h3>@edgarOsoVel</h3>
+					<textarea maxlength="400" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent" name="comentario"></textarea>
+					<h5>Seleccione una reacción</h5>
+					<?php 
+					foreach ($tiposReacciones as $tr) {
+						echo '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].'><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
+					}
+					 ?>
+					 <input type="hidden" name="idPublicacion" value=<?=$info['idPublicacion']?>>
+					<!-- <input type="radio" name="eval" id="nuevoComentEval"> -->
+					<button id="nuevoComentSend" onclick="comentar()">Evaluar</button>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
+<?=$this->render('Index','footer',true);?>
 </body>
 </html>

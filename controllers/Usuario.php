@@ -79,5 +79,10 @@ class Usuario extends Controller{
         header("location:".URL);
     }
 
+    public function comentar(){
+        $this->loadOtherModel('Comentarios');
+        echo $this->Comentarios->comentar(Session::getValue('idUsuario'), $_POST['idPublicacion'], $_POST['comentario'], $_POST['idTipoReaccion']);
+    }
+
 }
 ?>

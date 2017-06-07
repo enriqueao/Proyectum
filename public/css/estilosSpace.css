@@ -399,6 +399,7 @@ img{
 		80% {margin-left: -200%;}
 		100% {margin-left: -200%;}
 	}
+	
 #proyectos{
 	background-color: #fff;
 	position: relative;
@@ -580,7 +581,7 @@ footer{
 	float: left;
 	position: relative;
 	width: calc(100% - 4vw);
-	height: 25%;
+	height: 60px;
 	padding: 10px 2vw;
 	/*opacity: .8;*/
 	background: -webkit-linear-gradient(left,#16222A,#3A6073);
