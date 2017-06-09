@@ -659,12 +659,6 @@ footer > p{
 		color: #112842;
 	}
 
-.perfil-contenido{
-	width: 100%;
-	min-height: 40%;
-	position: relative;
-	float: left;
-}
 
 	.perfil-proyectos{
 		width: 80%;
@@ -808,6 +802,34 @@ footer > p{
   width: 30%;
   min-height: 500px;
   background: #2b4654;
+  opacity: .9;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.perfil-contenido h2{
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.perfil-contenido li{
+  list-style: none;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+}
+
+.perfil-contenido a{
+  color: white;
+  transition: .2 all;
+}
+
+.perfil-contenido a:hover{
+  color: #d25d13;
+  font-size: 1.01em;
 }
 
 .perfil-proyecto{

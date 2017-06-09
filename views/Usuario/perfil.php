@@ -44,7 +44,16 @@
 				</div>
 		</div>
 		<div class="perfil-contenido">
-
+			<h2>Mapa del sitio</h2>
+			<ul>
+				<li><a href="#">Top Proyectos</a></li>
+				<li><a href="#">Perfil destacado</a></li>
+				<li><a href="#">Más Vistos</a></li>
+				<li><a href="#">Más Comentados</a></li>
+				<li><a href="#">204k Usuarios en Proyectum</a></li>
+				<li><a href="#">100k+ vistas en Proyectum</a></li>
+				<li><a href="#">10k+ Proyectos</a></li>
+			</ul>
 		</div>
 	</div>
 	</div>
