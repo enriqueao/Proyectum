@@ -194,7 +194,7 @@ body,html{
         	width: 45px;
         	height: 45px;
         	float: right;
-        	margin-right:20%;
+        	margin-right:20px;
         	border-radius: 100%;
         }
 
@@ -203,8 +203,8 @@ body,html{
         }
 
         .top-perfil > a{
-			color: #F9690E;
-			margin-right:20px;
+    			color: white;
+    			margin-right:20px;
         }
 
 input[type="submit"]{
@@ -560,7 +560,7 @@ img{
 	margin-bottom: 75px;
 }
 	.proyectos-ver-mas > a{
-		background-color: #40a3c1;
+		background-color: #3a6073;
 		padding: 10px;
 		border-radius: 7px;
 		color: white;
@@ -634,7 +634,7 @@ footer > p{
 		height: 100px;
 		border-radius: 100%;
 		margin-left: 46%;
-		margin-top:70px;
+		margin-top:20px;
 	}
 
 	.perfil-informacion{
@@ -691,14 +691,14 @@ footer > p{
 .inicio-sesion{
 	position: absolute;
 	width: 30%;
-	height: 30%;
-	top: 10%;
+	/*height: 30%;*/
+	top: 20%;
 	padding: 20px;
 	right: 10%;
 	background-color: #f2f1ef;
 	z-index: 99;
 	transition: 10s all;
-	border-radius: 10px 0 10px 10px;
+	border-radius: 0px 0 10px 10px;
 }
 
 .inicio-sesion > label {
@@ -807,7 +807,7 @@ footer > p{
   float: left;
   width: 30%;
   min-height: 500px;
-  background: yellow;
+  background: #2b4654;
 }
 
 .perfil-proyecto{
