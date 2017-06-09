@@ -1,4 +1,4 @@
-@font-face { 
+@font-face {
     font-family: 'Muli';
     src: url(../fonts/Muli.ttf);
 }
@@ -18,14 +18,14 @@
     font-family: 'Lato-Light';
     src: url(../fonts/Lato-Light.ttf);
 }
-*{ 
+*{
 	padding: 0;
 	margin: 0;
 	font-family: 'Muli',sans-serif;
 }
 body,html{
 	min-height: 100%;
-	max-width: 100%; 
+	max-width: 100%;
 	/*overflow:auto;*/
 }
 
@@ -399,7 +399,7 @@ img{
 		80% {margin-left: -200%;}
 		100% {margin-left: -200%;}
 	}
-	
+
 #proyectos{
 	background-color: #fff;
 	position: relative;
@@ -413,7 +413,7 @@ img{
 		float: left;
 		font-size: 40px;
 		padding-top: 6vw;
-		padding-bottom: 1VW; 
+		padding-bottom: 1VW;
 		padding-left: 7vw;
 		color: #313e48;
 		/*background-color: #e3e0da;*/
@@ -434,7 +434,7 @@ img{
 		/*padding: 0 4%;*/
 	}
 
-	.proyecto{ 
+	.proyecto{
 		border-radius: 5px;
 		border-top-left-radius: 40px;
 		background-color: white;
@@ -443,7 +443,7 @@ img{
 		/*width: 25vw;
 		height: 35vw;*/
 		width: 330px;
-		height: 400px;		
+		height: 400px;
 		box-shadow: 0px 0px 0.6vw 0px rgba(0,0,0,.3);
     	/*overflow: hidden;*/
 		/*background-color: #333e47;*/
@@ -482,7 +482,7 @@ img{
 	 }
 
 	 .detalles-proyecto{
-	 	background: -webkit-linear-gradient(#fff,#F2F1EF); 
+	 	background: -webkit-linear-gradient(#fff,#F2F1EF);
 	 	width: 100%;
 	 	height: 40px;
 	 	bottom: 0px;
@@ -518,7 +518,7 @@ img{
 	 	text-align: center;
 	 	/*margin-right: 5px;*/
 	 }
-	
+
 	.icono-detalles-ver{
 	 	display: flex;
 	 	flex-direction: column;
@@ -739,6 +739,7 @@ footer > p{
 	float: left;
 	margin-top: 20px;
 	margin-left: 25%;
+  margin-bottom: 50px;
 	width: 50%;
 	height: 75%;
 	box-shadow: 5px 4px 20px 0px rgba(0,0,0,.5);
@@ -790,4 +791,44 @@ footer > p{
 .ocupado {
 	color:red;
 	opacity: .8;
+}
+
+
+.perfil-lateral{
+   position: relative;
+   float: left;
+   width: 70%;
+   min-height: 500px;
+   /*background: red;*/
+}
+
+.perfil-contenido{
+  position: relative;
+  float: left;
+  width: 30%;
+  min-height: 500px;
+  background: yellow;
+}
+
+.perfil-proyecto{
+  margin-top: 20px;
+  position: relative;
+  float: left;
+  width: 90%;
+  margin-left: 5%;
+  min-height: 100px;
+  max-height: 500px;
+  background-color: #dddad4;
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.perfil-proyecto > h5{
+  text-align: right;
+}
+
+.perfil-proyecto > p{
+  text-align: justify;
 }

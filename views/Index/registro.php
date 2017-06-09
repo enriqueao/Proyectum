@@ -14,12 +14,12 @@
     <div class="registro">
       <div class="formulario-regitro">
         <p>Nombre Completo</p>
-        <input class="registro-inputs" type="text" id="nombreCompleto">
+        <input class="registro-inputs" type="text" id="nombreCompleto" autocomplete="off">
         <p>Nombre de Usuario</p>
-        <input class="registro-inputs" type="text" id="user">
+        <input class="registro-inputs" type="text" id="user" autocomplete="off">
         <p class="disponible" id="estado">Disponible</p>
         <p>Correo</p>
-        <input class="registro-inputs" type="text" id="correo" value="">
+        <input class="registro-inputs" type="text" id="correo" value="" autocomplete="off">
         <p>Contraseña</p>
         <input class="registro-inputs" type="password" id="pass" value="">
         <p>Confirma Tu Contraseña</p>
