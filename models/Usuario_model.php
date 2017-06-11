@@ -59,10 +59,17 @@ class Usuario_model extends Model
 		Session::setValue('nombreUsuario', $informacion['nombrecompleto']);
 	}
 
-	public function actualizarPassword($idUsuario, $password){
-		$data['IdUsuario'] = $curp;
-		return $this->db->insert($data,'persona');
+	public function editarPerfil($datos, $idUsuario){
+		if(isset($datos['pass'])){
+			$datos['pass'] = Hash::create(ALGOR, $datos['pass'], KEY);
+		}
+		return($this->db->update($datos,'usuarios','idUsuario='.$idUsuario))?0:1;
 	}
 
+	public function revisarPass($idUsuario,$pass){
+		$pass = Hash::create(ALGOR, $pass, KEY);
+		$res = $this->db->select("idUsuario","usuarios","idUsuario=".$idUsuario." AND pass=".$pass);
+		return(is_array($res))?0:1;
+	}
 }
 ?>

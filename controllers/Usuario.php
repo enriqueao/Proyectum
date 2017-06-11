@@ -84,5 +84,25 @@ class Usuario extends Controller{
         echo $this->Comentarios->comentar(Session::getValue('idUsuario'), $_POST['idPublicacion'], $_POST['comentario'], $_POST['idTipoReaccion']);
     }
 
+    public function subirProyecto(){
+        $this->loadOtherModel('Publicaciones');
+        echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['idCategoria'], $_POST['nombrePublicacion'], $_POST['descripcionCorta'], $_POST['descripcionLarga'], $_POST['imgs']);
+    }
+
+    public function subeProyecto(){
+        $this->view->render($this,'subirProyecto');
+    }
+
+    public function editaPerfil(){
+        $this->view->render($this,'editarPerfil');
+    }
+
+    public function editarPerfil(){
+        echo $this->model->editarPerfil($_POST,Session::getValue('idUsuario'));
+    }
+
+    public function revisarPass(){
+        echo $this->model->revisarPass(Session::getValue('idUsuario'),$_POST['pass']);
+    }
 }
 ?>

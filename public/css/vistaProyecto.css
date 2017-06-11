@@ -342,8 +342,8 @@ h1{
 	text-align: center;
 	/*float: left;*/
 	/*background: blue;*/
-	margin-top: 2vw;
-	padding-bottom: 2vw;
+	margin-top: 20px;
+	padding-bottom: 100px;
 	width: 600px;
 }
 #comentarios>p{
@@ -357,7 +357,7 @@ h1{
 		position: relative;
 		float: left;
 		/*background-color: pink;*/
-		margin-top: 4vw;
+		margin-top: 25px;
 		width: 100%;
 		/*min-height: 20px;*/
 	}

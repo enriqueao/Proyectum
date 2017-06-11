@@ -1,4 +1,7 @@
 <?php 
+if(!is_array($this->info)){
+	header("Location: ".URL);
+}
 $info=$this->info;
 $vistas=$this->vistas;
 $comentarios=$this->comentarios;
@@ -88,7 +91,7 @@ $tiposReacciones=$this->tiposReacciones;
 	<div id="fondoComentarios">
 		<h2>Evaluaciones de la comunidad</h2>
 		<div id="comentarios">
-
+		<div id="divComents">
 			<?php
 				function formatoComent($coment){
 					return	'<div id="comentario">
@@ -111,7 +114,7 @@ $tiposReacciones=$this->tiposReacciones;
 
 
 				if (!is_array($comentarios)){
-					echo "<p>No hay evaluciones en este proyecto. ¡Haz una nueva!</p>";
+					echo '<p id="noHayComents">No hay evaluciones en este proyecto. ¡Haz una nueva!</p>';
 				}
 				elseif (isset($comentarios['comentario'])) {
 					echo formatoComent($comentarios);
@@ -123,7 +126,7 @@ $tiposReacciones=$this->tiposReacciones;
 				}
 				
 			 ?>
-
+			</div>
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
@@ -133,7 +136,7 @@ $tiposReacciones=$this->tiposReacciones;
 					<h5>Seleccione una reacción</h5>
 					<?php 
 					foreach ($tiposReacciones as $tr) {
-						echo '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].'><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
+						echo '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
 					}
 					 ?>
 					 <input type="hidden" name="idPublicacion" value=<?=$info['idPublicacion']?>>

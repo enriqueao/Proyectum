@@ -13,7 +13,7 @@ class Index extends Controller{
         }
     }
 
-    public function vistaProyecto($idPublicacion){    
+    public function proyecto($idPublicacion){    
         $this->loadOtherModel('Vistas');
         $this->loadOtherModel('Publicaciones');
         $this->loadOtherModel('Comentarios');
@@ -35,11 +35,7 @@ class Index extends Controller{
             }
         }
         $this->view->reacciones=$reac;
-        $this->view->render($this,'vistaProyecto');
-    }
-
-    public function vistaSubirProyecto(){
-        $this->view->render($this,'subirProyecto');
+        $this->view->render($this,'proyecto');
     }
 
     public function registro(){

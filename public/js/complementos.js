@@ -6,7 +6,7 @@
 window.addEventListener('load',function() {
 	var favicon = document.createElement('link');
 	favicon.rel='shortcut icon';
-	favicon.href=config['url']+'favicon.png';
+	favicon.href=config['url']+'favicon.ico';
 	document.head.appendChild(favicon);
 },false);
 
