@@ -10,7 +10,21 @@ class Comentarios_model extends Model
 		return $this->db->select('c.*, t.img, u.nombrecompleto, u.username','comentarios c, tiposreacciones t, usuarios u','c.idPublicacion='.$idPublicacion.' AND t.idTipoReaccion=c.idTipoReaccion AND u.idUsuario=c.idUsuario');
 	}
 	public function obtenerReaccionesPublicacion($idPublicacion){
-		return $this->db->select('count(c.idTipoReaccion) as num, t.reaccion','comentarios c, tiposreacciones t','c.idPublicacion='.$idPublicacion.' AND t.idTipoReaccion=c.idTipoReaccion GROUP BY c.idTipoReaccion',"c.idTipoReaccion");
+		$reac = null;
+		$reacciones = $this->db->select('count(c.idTipoReaccion) as num, t.reaccion','comentarios c, tiposreacciones t','c.idPublicacion='.$idPublicacion.' AND t.idTipoReaccion=c.idTipoReaccion GROUP BY c.idTipoReaccion',"c.idTipoReaccion");
+		if (!is_array($reacciones)){
+            // $reac=array();
+        }
+        elseif (isset($reacciones['num'])) {
+            $reac=array( $reacciones['reaccion']=> $reacciones['num']);
+        }
+        else{
+            $reac=array();
+            foreach ($reacciones as $r) {
+                $reac[$r['reaccion']]=$r['num'];
+            }
+        }
+        return $reac;
 	}
 	
 	public function obtenerTiposDeReacciones(){

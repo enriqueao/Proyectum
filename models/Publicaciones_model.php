@@ -10,6 +10,10 @@ class Publicaciones_model extends Model
 		return $this->db->select('p.*, u.nombreCompleto, u.username','publicaciones p, usuarios u','p.idPublicacion='.$idPublicacion.' AND p.idUsuario=u.idUsuario');
 	}
 
+	public function tarjetasPublicacion(){
+		return $this->db->select('idPublicacion, idCategoria, nombrePublicacion, descripcionCorta, media1','publicaciones','','fechaDePublicacion');
+	}
+
 	public function subirPublicacion($idUsuario, $idCategoria, $nombrePublicacion, $descripcionCorta, $descripcionLarga, $imgs){
 		$datos = array('idUsuario' => $idUsuario, 'idCategoria'=>$idCategoria, 'nombrePublicacion'=>$nombrePublicacion, 'descripcionCorta'=>$descripcionCorta, 'descripcionLarga');
 		$i = 1;

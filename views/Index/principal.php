@@ -1,3 +1,7 @@
+<?php 
+$t = $this->tarjetas;
+// echo var_dump($t);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +14,15 @@
 	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
 </head>
 <body class="principal">
+	<div id="alert">
+		<div>
+			<div>
+				<h1>Título</h1>
+				<p>Mensaje de alert asfasfas fasf asfas fa fas fahdfhad fdhdfajdfj dfahad haf fdahdhaf </p>
+				<button>Ok</button>
+			</div>
+		</div>
+	</div>
 	<?=$this->render('Default','userorlogin',true);?>
 	<div class="slider" id="slider">
 		<div class="prev">
@@ -48,35 +61,73 @@
 	<p id="titulo">Proyectos</p>
 		<div class="contenido-proyectos">
 			<?php
-			for ($i=0; $i < 23; $i++) {
-				echo '
+
+			function formatoTarjeta($t){
+				$coments = 0;
+				if (!is_null($t['reacciones'])) {
+					foreach ($t['reacciones'] as $v) {
+						$coments+=(int)$v;
+					}
+				}
+				$e = isset($t['reacciones']['Excelente'])?$t['reacciones']['Excelente']:'0';
+				$b = isset($t['reacciones']['Bueno'])?$t['reacciones']['Bueno']:'0';
+				$r = isset($t['reacciones']['Regular'])?$t['reacciones']['Regular']:'0';
+				$m = isset($t['reacciones']['Malo'])?$t['reacciones']['Malo']:'0';
+				$w = isset($t['reacciones']['Wacala'])?$t['reacciones']['Wacala']:'0';
+
+				return '
 				<div class="proyecto">
-				<img src="'.IMG.'6.jpg">
-				<h3>Titulo</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras fermentum leo metus, quis tristique tellus posuere a. Nullam aliquet quis urna a nullam.</p>
+				<img src="'.IMG.$t['media1'].'">
+				<h3>'.$t['nombrePublicacion'].'</h3>
+				<p>'.$t['descripcionCorta'].'</p>
 				<div class="detalles-proyecto">
 					<div class="icono-detalles">
 						<img src="'.IMG.'vistas.svg">
-						<p>100</p>
+						<p>'.$t['vistas']['num'].'</p>
 					</div>
 					<div class="icono-detalles">
-						<img src="'.IMG.'like.svg">
-						<p>100</p>
+						<img src="'.IMG.'/reacciones/excelente.svg">
+						<p>'.$e.'</p>
 					</div>
 					<div class="icono-detalles">
-						<img src="'.IMG.'dislike.svg">
-						<p>0</p>
+						<img src="'.IMG.'/reacciones/bien.svg">
+						<p>'.$b.'</p>
+					</div>
+					<div class="icono-detalles">
+						<img src="'.IMG.'/reacciones/regular.svg">
+						<p>'.$r.'</p>
+					</div>
+					<div class="icono-detalles">
+						<img src="'.IMG.'/reacciones/malo.svg">
+						<p>'.$m.'</p>
+					</div>
+					<div class="icono-detalles">
+						<img src="'.IMG.'/reacciones/wacala.svg">
+						<p>'.$w.'</p>
 					</div>
 					<div class="icono-detalles">
 						<img src="'.IMG.'mensajes.svg">
-						<p>100</p>
+						<p>'.$coments.'</p>
 					</div>
 					<div class="icono-detalles-ver">
-						<a href="#">Ver Más</a>
+						<a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
 					</div>
 				</div>
 			</div>';
 			}
+
+
+			if (!is_array($t)){
+            	echo("No hay ningún proyecto");
+	        }
+	        elseif (isset($t['idPublicacion'])) {
+	            echo formatoTarjeta($t);
+	        }
+	        else{
+	            foreach ($t as $ta) {
+	                echo formatoTarjeta($ta);
+	            }
+	        }
 			 ?>
 
 		</div>

@@ -7,7 +7,7 @@ class Vistas_model extends Model
 	}
 
 	public function obtenerVistasPublicacion($idPublicacion){
-		return $this->db->select('count(idVista)','vistas','idPublicacion='.$idPublicacion);
+		return $this->db->select('count(idVista) as num','vistas','idPublicacion='.$idPublicacion);
 	}
 }
 

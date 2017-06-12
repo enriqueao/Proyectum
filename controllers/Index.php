@@ -6,8 +6,34 @@ class Index extends Controller{
     }
 
     public function index(){
-      $this->view->render($this,'principal');
+        $this->loadOtherModel('Publicaciones');
+        $tar = $this->Publicaciones->tarjetasPublicacion();
+        if (!is_array($tar)){
+            $tar = null;
+        }
+        elseif (isset($tar['idPublicacion'])) {
+            $tar['vistas'] = $this->vistasTarjeta($tar['idPublicacion']);
+            $tar['reacciones'] = $this->reaccionesTarjeta($tar['idPublicacion']);
+        }
+        else{
+            foreach ($tar as &$t) {
+                $t['vistas'] = $this->vistasTarjeta($t['idPublicacion']);
+                $t['reacciones'] = $this->reaccionesTarjeta($t['idPublicacion']);
+            }
+        }
+        $this->view->tarjetas = $tar;
+        $this->view->render($this,'principal');
     }
+        //Obtiene el número de vistas de cada tarjeta
+        private function vistasTarjeta($idP){
+            $this->loadOtherModel('Vistas');
+            return $this->Vistas->obtenerVistasPublicacion($idP);
+        }
+        //Obtiene el número de reacciones de cada tarjeta    
+        private function reaccionesTarjeta($idP){
+            $this->loadOtherModel('Comentarios');
+            return $this->Comentarios->obtenerReaccionesPublicacion($idP);
+        } 
 
     public function proyecto($idPublicacion){
         $this->loadOtherModel('Vistas');
@@ -18,19 +44,7 @@ class Index extends Controller{
         $this->view->info=$this->Publicaciones->obtenerInfoPublicacion($idPublicacion);
         $this->view->tiposReacciones=$this->Comentarios->obtenerTiposDeReacciones();
         $reacciones=$this->Comentarios->obtenerReaccionesPublicacion($idPublicacion);
-        if (!is_array($reacciones)){
-            $reac=array();
-        }
-        elseif (isset($reacciones['num'])) {
-            $reac=array( $reacciones['reaccion']=> $reacciones['num']);
-        }
-        else{
-            $reac=array();
-            foreach ($reacciones as $r) {
-                $reac[$r['reaccion']]=$r['num'];
-            }
-        }
-        $this->view->reacciones=$reac;
+        $this->view->reacciones=$reacciones;
         $this->view->render($this,'proyecto');
     }
 

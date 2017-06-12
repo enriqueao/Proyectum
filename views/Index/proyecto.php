@@ -52,7 +52,7 @@ $tiposReacciones=$this->tiposReacciones;
 		<div id="puntaje">
 			<div class="reacciones">
 				<img src="<?=IMG?>eye.svg" alt="">
-				<p><?php echo $vistas['count(idVista)']?></p>
+				<p><?php echo $vistas['num']?></p>
 			</div>
 			<div class="reacciones">
 				<img src="<?=IMG?>reacciones/excelente.svg" alt="">
