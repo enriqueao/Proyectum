@@ -685,8 +685,7 @@ footer > p{
 .inicio-sesion{
 	position: absolute;
 	width: 30%;
-	/*height: 30%;*/
-	top: 20%;
+	top: 70px;
 	padding: 20px;
 	right: 10%;
 	background-color: #f2f1ef;
@@ -774,17 +773,18 @@ footer > p{
 }
 
 #estado{
-	color: #fff;
+	color: #2d4b5a !important;
+  transition: .2 all;
 }
 
 .disponible{
-	color: green;
-	opacity: .8;
+	color: green !important;
+	opacity: .8 !important;
 }
 
-.ocupado {
-	color:red;
-	opacity: .8;
+.ocupado{
+	color:red !important;
+	opacity: .8 !important;
 }
 
 

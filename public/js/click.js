@@ -25,3 +25,14 @@ document.addEventListener("click", function(e){
     div.style.display = "none";
   }
 }, false);
+
+var lastScrollTop = 0;
+window.addEventListener("scroll", function(){
+   var st = window.pageYOffset || document.documentElement.scrollTop;
+   if (st > lastScrollTop){
+     div.style.display = "none";
+   } else {
+     div.style.display = "none";
+   }
+   lastScrollTop = st;
+}, false);

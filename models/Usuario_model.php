@@ -20,26 +20,17 @@ class Usuario_model extends Model
 	*/
 	public function iniciarSesion($idUsuario,$password){
 
-		$registro = $this->db->select('*', 'usuarios', "username='".$idUsuario."' OR correo='".$idUsuario."'");
+		$registro = $this->db->select('*', 'usuarios', "username='{$idUsuario}' OR correo='{$idUsuario}'");
 
 		if( is_array($registro) ) {
-			if(true){
 				if( $registro['pass'] == Hash::create(ALGOR, $password,KEY)){
 					$this->crearSesion($idUsuario);
-					if(true) {
-						return 1;
-					} else {
-						return 4;
-					}
+					return 1;
 				} else {
-					//	$resultado = $this->db->query("CALL intentosFallidos($idUsuario);");
 					return 2;
 				}
-			} else {
-				return 0;
-			}
 		} else {
-			return 3;
+			return 2;
 		}
 	}
 
@@ -51,12 +42,11 @@ class Usuario_model extends Model
 			}
 	}
 	private function crearSesion($idUsuario){
-		$registro    = $this->db->select('primerApellido, segundoApellido, nombre, idAdscripcion, imagen', 'personas', "folio LIKE '$idUsuario'");
-		$informacion = $this->db->select('*','usuarios','username="'.$idUsuario.'" OR correo="'.$idUsuario.'"');
-		// $carrera     = $this->db->select('nombre','carreras','idAdscripcion="'.$informacion['idAdscripcion'].'" AND idCarrera="'.$informacion['idCarrera'].'"');
+		$informacion = $this->db->select('*','usuarios',"username='{$idUsuario}' OR correo='{$idUsuario}'");
 		Session::setValue('idUsuario', $informacion['idUsuario']);
 		Session::setValue('imagenPerfil',$informacion['imgProfile']);
 		Session::setValue('nombreUsuario', $informacion['nombrecompleto']);
+		Session::setValue('username', $informacion['username']);
 	}
 
 	public function editarPerfil($datos, $idUsuario){
@@ -70,6 +60,15 @@ class Usuario_model extends Model
 		$pass = Hash::create(ALGOR, $pass, KEY);
 		$res = $this->db->select("idUsuario","usuarios","idUsuario=".$idUsuario." AND pass=".$pass);
 		return(is_array($res))?0:1;
+	}
+
+	public function statusUsername($username){
+		return $this->db->select('*','usuarios',"username='{$username}'");
+	}
+
+	public function publicacionesPerfil($username){
+		$idUsuario = $this->db->select('idUsuario','usuarios',"username='{$username}'");
+		return $this->db->selectStrict('*','publicaciones',"idUsuario='{$idUsuario['idUsuario']}'");
 	}
 }
 ?>

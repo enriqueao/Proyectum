@@ -6,14 +6,10 @@ class Index extends Controller{
     }
 
     public function index(){
-        if(Session::exist()){
-            header("location:".URL."Usuario/");
-        }else{
-           $this->view->render($this,'principal');
-        }
+      $this->view->render($this,'principal');
     }
 
-    public function proyecto($idPublicacion){    
+    public function proyecto($idPublicacion){
         $this->loadOtherModel('Vistas');
         $this->loadOtherModel('Publicaciones');
         $this->loadOtherModel('Comentarios');
@@ -41,5 +37,6 @@ class Index extends Controller{
     public function registro(){
         $this->view->render($this,'registro');
     }
+    
 }
 ?>

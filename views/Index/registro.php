@@ -2,22 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Regitrar</title>
+    <title>Únete - Proyectum</title>
     <link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 
   	<script type="text/javascript" src="<?=JS;?>config.js"></script>
-    <script defer type="text/javascript" src="<?=JS;?>click.js"></script>
     <script defer type="text/javascript" src="<?=JS;?>registro.js"></script>
   </head>
   <body>
-    <?=$this->render('Index','top-bar-sin',true);?>
+    <?=$this->render('Default','userorlogin',true);?>
     <div class="registro">
       <div class="formulario-regitro">
         <p>Nombre Completo</p>
         <input class="registro-inputs" type="text" id="nombreCompleto" autocomplete="off">
         <p>Nombre de Usuario</p>
         <input class="registro-inputs" type="text" id="user" autocomplete="off">
-        <p class="disponible" id="estado">Disponible</p>
+        <p id="usernamecomp">Introduce tu nombre de usuario mayor a 5 caracteres</p>
         <p>Correo</p>
         <input class="registro-inputs" type="text" id="correo" value="" autocomplete="off">
         <p>Contraseña</p>

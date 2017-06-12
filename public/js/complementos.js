@@ -8,6 +8,16 @@ window.addEventListener('load',function() {
 	favicon.rel='shortcut icon';
 	favicon.href=config['url']+'favicon.ico';
 	document.head.appendChild(favicon);
+
+	var iniciarSesion = document.createElement("script");
+	iniciarSesion.src = config['url']+"public/js/iniciarSesion.js";
+	iniciarSesion.type="text/javascript";
+	document.head.appendChild(iniciarSesion);
+
+	var click = document.createElement("script");
+	click.src = config['url']+"public/js/click.js";
+	click.type="text/javascript";
+	document.head.appendChild(click);
 },false);
 
 function addFunctionWindowOnload(callback){

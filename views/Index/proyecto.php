@@ -1,4 +1,4 @@
-<?php 
+<?php
 if(!is_array($this->info)){
 	header("Location: ".URL);
 }
@@ -33,9 +33,9 @@ $tiposReacciones=$this->tiposReacciones;
 			<a onclick="slider(1)" ><img src="<?=IMG?>next.svg"></a>
 		</div>
 			<ul id="slide">
-			<?php 
+			<?php
 
-			for ($i=1; $i <= 5; $i++) { 
+			for ($i=1; $i <= 5; $i++) {
 				if($info['media'.$i]!=""){
 					echo '<li>
 					<img src="'.IMG.$info['media'.$i].'">
@@ -124,7 +124,7 @@ $tiposReacciones=$this->tiposReacciones;
 						echo formatoComent($coment);
 					}
 				}
-				
+
 			 ?>
 			</div>
 			<hr id="saltoDeLinea">
@@ -134,7 +134,7 @@ $tiposReacciones=$this->tiposReacciones;
 					<h3>@edgarOsoVel</h3>
 					<textarea maxlength="400" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent" name="comentario"></textarea>
 					<h5>Seleccione una reacción</h5>
-					<?php 
+					<?php
 					foreach ($tiposReacciones as $tr) {
 						echo '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
 					}

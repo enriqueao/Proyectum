@@ -7,22 +7,23 @@ class Usuario extends Controller{
     }
 
     public function index(){
-        if($this->sessionExist()){
-            $this->view->render($this,'principal');
-        }
+      $this->view->render($this,'perfil');
     }
 
     public function iniciarSesion(){
         if(isset($_POST["username"], $_POST["password"]) ){
-            $inicio = $this->model->iniciarSesion($_POST["username"], $_POST["password"]);
-            echo $inicio;
+            echo $this->model->iniciarSesion($_POST["username"], $_POST["password"]);
         }
     }
 
     public function registro(){
       if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
-        $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass']);
-        return $this->model->registro($registro);
+        if($this->checkStatusUsername($_POST['username'])){
+          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass']);
+          echo $this->model->registro($registro);
+        } else {
+          echo '0';
+        }
       }
     }
 
@@ -69,14 +70,53 @@ class Usuario extends Controller{
         }
     }
 
-    public function perfil(){
-        $this->view->render($this,'perfil');
+    public function perfil($user = ''){
+      $username = ($user == '') ? Session::getValue('username') : $user ;
+      if($this->perfilExist($username)){
+          $this->view->publicaciones = $this->publicacionesPerfil($username);
+          $this->view->datos = $this->model->statusUsername($username);
+          $this->view->render($this,'perfil');
+        } else {
+          $this->pageHistoryBack();
+        }
     }
+
+    public function perfilExist($username){
+      return is_array($this->model->statusUsername($username));
+    }
+
+    public function publicacionesPerfil($username){
+      $publicaciones = $this->model->publicacionesPerfil($username);
+      $proyectos = '';
+      if(is_array($publicaciones)){
+        foreach ($publicaciones as $key => $value) {
+          $proyectos .=
+          "<div class='perfil-lateral'>
+      				<div class='perfil-proyecto'>
+      					<h2>{$value['nombrePublicacion']}</h2>
+      					<p>{$value['descripcionCorta']}</p>
+      					<h5><a href='".URL."'>Haz click aqui para ver más</a></h5>
+      				</div>
+      		</div>";
+        }
+        return $proyectos;
+      } else {
+        #Corregir ruta para ver proyectos *************************************
+        return $proyectos .=
+        '<div class="perfil-lateral">
+            <div class="perfil-proyecto">
+              <h2>Aún No tiene proyectos</h2>
+              <p>Para comenzar Con esta gran comunidad sube un proyecto.</p>
+              <h5><a href="#">Haz click aqui para ver más</a></h5>
+            </div>
+        </div>';
+      }
+    }
+
 
     public function cerrarSesion(){
         Session::destroy();
-        $this->initLog(Session::getValue('idUsuario'),2,Session::getValue('idUsuario'),'Cierre de Sesión');
-        header("location:".URL);
+        echo '1';
     }
 
     public function comentar(){
@@ -103,6 +143,26 @@ class Usuario extends Controller{
 
     public function revisarPass(){
         echo $this->model->revisarPass(Session::getValue('idUsuario'),$_POST['pass']);
+    }
+
+    public function statusUsername(){
+      if(isset($_POST['username'])){
+        if(is_array($this->model->statusUsername($_POST['username']))){
+          echo 'No Disponible';
+          return 0;
+        } else {
+          echo 'Disponible';
+          return 1;
+        }
+      }
+    }
+
+    public function checkStatusUsername($username){
+        if(is_array($this->model->statusUsername($username))){
+          return 0;
+        } else {
+          return 1;
+        }
     }
 }
 ?>

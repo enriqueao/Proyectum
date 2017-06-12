@@ -8,11 +8,9 @@
 
 	<script type="text/javascript" src="<?=JS;?>config.js"></script>
 	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
-	<script defer type="text/javascript" src="<?=JS;?>click.js"></script>
-	<script defer type="text/javascript" src="<?=JS;?>iniciarSesion.js"></script>
 </head>
 <body class="principal">
-	<?=$this->render('Index','top-bar-sin',true);?>
+	<?=$this->render('Default','userorlogin',true);?>
 	<div class="slider" id="slider">
 		<div class="prev">
 			<a href="#" onclick="slider(0)" ><img src="<?=IMG?>back.svg"></a>
