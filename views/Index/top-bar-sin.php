@@ -12,11 +12,11 @@
         <a href="<?=URL;?>Index/registro">Únirme Ahora</a>
         <input type="submit" value="Iniciar Sesión" id="boton">
       </div>
-</div>
-<div class="inicio-sesion" id="capa" style="display:none;">
-  <label for="username">Correo o Nombre de Usuario</label>
-  <input id="username" type="text" name="" value="">
-  <label for="password">Constraseña</label>
-  <input id="password" type="password" name="" value="">
-  <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
+      <div class="inicio-sesion" id="capa" style="display:none;">
+        <label for="username">Correo o Nombre de Usuario</label>
+        <input id="username" type="text" name="" value="">
+        <label for="password">Constraseña</label>
+        <input id="password" type="password" name="" value="">
+        <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
+      </div>
 </div>

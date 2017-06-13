@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectum | Editar perfil</title>
+	<meta http-equiv="pragma" content="no-cache">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>editarPerfil.css">
 	<script defer src="<?=JS?>editarPerfil.js"></script>
 	<script defer src="<?=JS?>config.js"></script>
-	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
 <?=$this->render('Default','userorlogin',true);?>

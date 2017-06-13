@@ -685,7 +685,8 @@ footer > p{
 
 .inicio-sesion{
 	position: absolute;
-	width: 30%;
+  max-width: 30%;
+  min-width: 10%;
 	top: 70px;
 	padding: 20px;
 	right: 10%;
@@ -693,10 +694,14 @@ footer > p{
 	z-index: 99;
 	transition: 10s all;
 	border-radius: 0px 0 10px 10px;
+  box-shadow: 2px 1px 9px 0px rgba(0, 0, 0, 0.5);
 }
 
 .inicio-sesion > label {
 	text-align: center;
+}
+.inicio-sesion ul{
+  list-style: none;
 }
 
 .inicio-sesion > input[type="text"],input[type="password"] {

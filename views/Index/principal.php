@@ -1,4 +1,4 @@
-<?php 
+<?php
 $t = $this->tarjetas;
 // echo var_dump($t);
  ?>
@@ -7,6 +7,7 @@ $t = $this->tarjetas;
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectum</title>
+  <meta http-equiv="pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 

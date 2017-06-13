@@ -11,8 +11,16 @@
       <div class="top-SignIn">
         <img src="<?=IMG.Session::getValue('imagenPerfil')?>">
         <div class="top-perfil">
-            <a href="#proyectos"><?=Session::getValue('nombreUsuario')?></a>
+            <a href="" id="boton"><?=Session::getValue('nombreUsuario')?></a>
             <a href="" onclick="cerrarSesion()">Cerrar Sesión</a>
           </div>
+      </div>
+      <div class="inicio-sesion" id="capa" style="display:none;">
+        <ul>
+          <li><a href="<?=URL?>Usuario/Perfil">Mi Perfil</a></li>
+          <li><a href="<?=URL?>Usuario/editaPerfil">Editar Mi Perfil</a></li>
+          <li><a href="<?=URL?>Usuario/subeProyecto">Subir Proyecto</a></li>
+          <li><a href="#"></a></li>
+        </ul>
       </div>
 </div>
