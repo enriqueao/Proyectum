@@ -10,7 +10,7 @@
 	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
-<?=$this->render('Index','top-bar-sin',true);?>
+<?=$this->render('Default','userorlogin',true);?>
 <div id="fakeBody">
 <div id="contenedorPrincipal">
 	<h1>Nuevo Proyecto</h1>

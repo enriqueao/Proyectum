@@ -26,7 +26,7 @@ $tiposReacciones=$this->tiposReacciones;
 </head>
 <body>
 <?=$this->render('Default','alert',true);?>
-<?=$this->render('Index','top-bar-sin',true);?>
+<?=$this->render('Default','userorlogin',true);?>
 	<h1><?echo $info['nombrePublicacion']?></h1>
 
 	<!-- slider -->
@@ -135,7 +135,7 @@ $tiposReacciones=$this->tiposReacciones;
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
-				<?php 
+				<?php
 					if (isset($username)) {
 						$s='
 						<form name=nuevoComentario onsubmit="return false">
@@ -155,7 +155,7 @@ $tiposReacciones=$this->tiposReacciones;
 						echo "<p>Inicia sesión para evaluar el proyecto</p>";
 					}
 				 ?>
-				
+
 			</div>
 		</div>
 	</div>

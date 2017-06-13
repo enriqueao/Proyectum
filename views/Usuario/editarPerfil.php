@@ -10,7 +10,7 @@
 	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
-<?=$this->render('Index','top-bar-sin',true);?>
+<?=$this->render('Default','userorlogin',true);?>
 <div id="fakeBody">
 <div id="contenedorPrincipal">
 	<h1>Editar perfil</h1>
@@ -34,7 +34,7 @@
 		<p>Descripción de usuario:</p>
 		<textarea maxlength="250" size="250" type="text" name="desc" placeholder="Ej. Empresa S.A. de C.V. es una empresa vanguardista dedicada a la innovación en el campo de las tecnologías de información, comprometida 100% con la sociedad..." class="inputDesc" id="inputDesc"></textarea>
 		<p>Cambio de contraseña</p>
-		<div id="pass">		
+		<div id="pass">
 			<p>Contraseña antigüa:</p>
 			<input type="password" name="lastPass" onchange="estLPass()">
 			<p>Nueva contraseña:</p>
