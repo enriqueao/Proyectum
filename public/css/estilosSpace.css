@@ -623,18 +623,17 @@ footer > p{
 }
 
 .perfil{
-	width: 100%;
+	width: 25%;
 	position: relative;
 	float: left;
-	background-color:#e3e0da;
-	opacity: .98;
+	background-color:rgba(43,70,84,.6);
 }
 
 	.perfil > img {
 		width: 100px;
 		height: 100px;
 		border-radius: 100%;
-		margin-left: 46%;
+		margin-left: calc(50% - 50px);
 		margin-top:20px;
 	}
 
@@ -645,13 +644,13 @@ footer > p{
 
 	.perfil-informacion > h2{
 		text-align: center;
-		color: #112842;
+		color: white;
 	}
 
 	.perfil-informacion > h3 {
 		font-weight: lighter;
 		text-align: center;
-		color: #112842;
+		color: #dddad4;
 	}
 
 	.perfil-informacion > h4 {
@@ -667,6 +666,31 @@ footer > p{
 		position: relative;
 		float: left;
 	}
+
+  .perfil-proyecto a{
+    color: #1f323d;
+  }
+
+  .inicio-sesion a{
+    color: #1f323d;
+  }
+
+  .perfil-proyecto a:hover{
+    color: #d25d13;
+  }
+
+  .inicio-sesion a:hover{
+    color: #d25d13;
+  }
+
+  .perfil-proyecto h2{
+    color: #1f323d;
+  }
+
+  .perfil-parrafo{
+    color: rgba(210,93,19,.8);
+  }
+
 
 	.perfil-tops{
 		width: 20%;
@@ -796,19 +820,20 @@ footer > p{
 
 .perfil-lateral{
    position: relative;
-   float: left;
-   width: 70%;
-   min-height: 500px;
-   /*background: red;*/
+   float: right;
+   width: 75%;
+}
+
+.perfil-contenedor{
+  background: rgba(0,0,0,0.6);
+  position: relative;
+  float: left;
+  width: 100%;
 }
 
 .perfil-contenido{
   position: relative;
   float: left;
-  width: 30%;
-  min-height: 500px;
-  background: #2b4654;
-  opacity: .9;
   padding: 40px;
   box-sizing: border-box;
 }
@@ -816,7 +841,7 @@ footer > p{
 .perfil-contenido h2{
   text-align: center;
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
@@ -825,7 +850,7 @@ footer > p{
   margin-bottom: 8px;
   color: white;
   font-size: 1em;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .perfil-contenido a{

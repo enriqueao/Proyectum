@@ -74,10 +74,20 @@ class Usuario extends Controller{
       if($this->perfilExist($username)){
           $this->view->publicaciones = $this->publicacionesPerfil($username);
           $this->view->datos = $this->model->statusUsername($username);
+          $this->view->perfilDestacado = $this->model->perfilDestacado();
+          $this->view->numUsers = $this->model->numUsers();
+          $this->view->numVistas = $this->model->numVistas();
+          $this->view->numProyectos = $this->model->numProyectos();
+
           $this->view->render($this,'perfil');
         } else {
           $this->pageHistoryBack();
         }
+    }
+
+    public function datos($username){
+      $this->view->proyectoDestacado = $this->model->proyectoDestacado($username);
+      $this->view->proyectoMasVisto = $this->model->proyectoMasVisto($username);
     }
 
     public function perfilExist($username){
@@ -86,19 +96,17 @@ class Usuario extends Controller{
 
     public function publicacionesPerfil($username){
       $publicaciones = $this->model->publicacionesPerfil($username);
-      $proyectos = '';
+      $proyectos = "<div class='perfil-lateral'>";
       if(is_array($publicaciones)){
         foreach ($publicaciones as $key => $value) {
           $proyectos .=
-          "<div class='perfil-lateral'>
-      				<div class='perfil-proyecto'>
+          "<div class='perfil-proyecto'>
       					<h2>{$value['nombrePublicacion']}</h2>
-      					<p>{$value['descripcionCorta']}</p>
-      					<h5><a href='".URL."'>Haz click aqui para ver más</a></h5>
-      				</div>
-      		</div>";
+      					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>
+      					<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>
+      				</div>";
         }
-        return $proyectos;
+        return $proyectos.="</div>";
       } else {
         #Corregir ruta para ver proyectos *************************************
         return $proyectos .=
@@ -106,7 +114,7 @@ class Usuario extends Controller{
             <div class="perfil-proyecto">
               <h2>Aún No tiene proyectos</h2>
               <p>Para comenzar Con esta gran comunidad sube un proyecto.</p>
-              <h5><a href="#">Haz click aqui para ver más</a></h5>
+              <h5><a href="'.URL.'Usuario/subeProyecto">Haz click aqui para ver más</a></h5>
             </div>
         </div>';
       }

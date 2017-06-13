@@ -15,7 +15,7 @@
       <div class="inicio-sesion" id="capa" style="display:none;">
         <label for="username">Correo o Nombre de Usuario</label>
         <input id="username" type="text" name="" value="">
-        <label for="password">Constraseña</label>
+        <label for="password">Contraseña</label>
         <input id="password" type="password" name="" value="">
         <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
       </div>

@@ -70,5 +70,48 @@ class Usuario_model extends Model
 		$idUsuario = $this->db->select('idUsuario','usuarios',"username='{$username}'");
 		return $this->db->selectStrict('*','publicaciones',"idUsuario='{$idUsuario['idUsuario']}'");
 	}
+
+	public function proyectoDestacado($username){
+		$idUsuario = $this->db->select('idUsuario','usuarios',"username='{$username}'");
+		return $this->db->queryStrict("SELECT idPublicacion,COUNT(idPublicacion) FROM comentarios WHERE idUsuario = {$idUsuario['idUsuario']} GROUP BY idPublicacion ORDER BY COUNT(idPublicacion) DESC LIMIT 1");
+	}
+
+	public function perfilDestacado(){
+		return $this->db->queryStrict("SELECT u.username, pub.idUsuario, COUNT(pub.idUsuario) FROM publicaciones pub, usuarios u WHERE pub.idUsuario = u.idUsuario GROUP BY u.username ORDER BY COUNT(pub.idUsuario) DESC LIMIT 1");
+	}
+
+	public function proyectoMasVisto($username){
+		$idUsuario = $this->db->select('idUsuario','usuarios',"username='{$username}'");
+		return $this->db->queryStrict("SELECT idPublicacion,COUNT(idPublicacion) FROM vistas WHERE idUsuario = {$idUsuario['idUsuario']} GROUP BY idPublicacion ORDER BY COUNT(idPublicacion) DESC LIMIT 1");
+	}
+
+	public function numUsers(){
+		return $this->db->select('COUNT(*) AS numUsers','usuarios');
+	}
+
+	public function numVistas(){
+		return $this->db->select('COUNT(*) AS numVistas','vistas');
+	}
+
+	public function numProyectos(){
+		return $this->db->select('COUNT(*) AS numProyectos','publicaciones');
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 ?>
