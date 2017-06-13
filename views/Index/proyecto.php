@@ -2,6 +2,10 @@
 if(!is_array($this->info)){
 	header("Location: ".URL);
 }
+if (isset($this->username)) {
+	$username=$this->username;
+	$nombreCompleto = $this->nombreCompleto;
+}
 $info=$this->info;
 $vistas=$this->vistas;
 $comentarios=$this->comentarios;
@@ -21,6 +25,7 @@ $tiposReacciones=$this->tiposReacciones;
 	<script defer src="<?=JS?>vistaProyecto.js"></script>
 </head>
 <body>
+<?=$this->render('Default','alert',true);?>
 <?=$this->render('Index','top-bar-sin',true);?>
 	<h1><?echo $info['nombrePublicacion']?></h1>
 
@@ -130,19 +135,27 @@ $tiposReacciones=$this->tiposReacciones;
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
-				<form name=nuevoComentario onsubmit="return false">
-					<h3>@edgarOsoVel</h3>
+				<?php 
+					if (isset($username)) {
+						$s='
+						<form name=nuevoComentario onsubmit="return false">
+					<h3>'.$nombreCompleto.' | @'.$username.'</h3>
 					<textarea maxlength="400" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent" name="comentario"></textarea>
-					<h5>Seleccione una reacción</h5>
-					<?php
+					<h5>Seleccione una reacción</h5>';
 					foreach ($tiposReacciones as $tr) {
-						echo '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
+						$s.= '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
 					}
-					 ?>
-					 <input type="hidden" name="idPublicacion" value=<?=$info['idPublicacion']?>>
-					<!-- <input type="radio" name="eval" id="nuevoComentEval"> -->
+					$s.='
+					<input type="hidden" name="idPublicacion" value="'.$info['idPublicacion'].'">
 					<button id="nuevoComentSend" onclick="comentar()">Evaluar</button>
-				</form>
+					</form>';
+						echo $s;
+					}
+					else{
+						echo "<p>Inicia sesión para evaluar el proyecto</p>";
+					}
+				 ?>
+				
 			</div>
 		</div>
 	</div>

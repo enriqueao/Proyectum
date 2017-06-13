@@ -50,18 +50,38 @@ function comentar() {
       if (coment.readyState == 4) {
         // console.log(coment.responseText)
         if (parseInt(coment.responseText)==0) {
-          agregarComent();
+          cargarComents(idPublicacion);
         	alert('ok');
         	// renderComentario();
         }else{
-          agregarComent();
         	alert("Ocurrió un problema al registrar su evaluación. Por favor intente más tarde.");
         }
       }
     }
 }
-function agregarComent(){
+
+function cargarComents(idPublicacion){
   document.forms.nuevoComentario.innerHTML = "<p>Proyecto ya evaluado</p>";
+  
+  var data = "id"+idPublicacion;
+  var url = config['url']+"Usuario/comentariosPublicacion";
+  coments = new XMLHttpRequest();
+    coments.open("POST", url ,true);
+    coments.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    coments.send(data);
+
+    coments.onreadystatechange = function (){
+      if (coments.readyState == 4) {
+        console.log(coment.responseText)
+        if ((coments.responseText)!="") {
+
+        }else{
+          
+        }
+      }
+    }
+
+  
   foo='<div id="comentario"><div id="calificacion"><img src='+idTipoReaccion+' alt=""></div><div id="contenido"><h3>'+idTipoReaccion+' | @'+idTipoReaccion+'</h3><p>'+comentario+'</p></div></div>';
   if (noHayComents==null) {
     divComents.innerHTML += foo;

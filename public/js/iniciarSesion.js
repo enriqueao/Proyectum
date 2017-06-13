@@ -42,7 +42,6 @@ function cerrarSesion() {
 	logOut.send();
 	logOut.onreadystatechange = function (){
 		if (logOut.readyState == 4) {
-			console.log(logOut.responseText);
 			if(logOut.responseText == '1'){
 				location.reload();
 			}

@@ -36,6 +36,10 @@ class Index extends Controller{
         } 
 
     public function proyecto($idPublicacion){
+        if (Session::exist()) {
+            $this->view->username = Session::getValue('username');
+            $this->view->nombreCompleto = Session::getValue('nombrecompleto');
+        }
         $this->loadOtherModel('Vistas');
         $this->loadOtherModel('Publicaciones');
         $this->loadOtherModel('Comentarios');

@@ -14,15 +14,7 @@ $t = $this->tarjetas;
 	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
 </head>
 <body class="principal">
-	<div id="alert">
-		<div>
-			<div>
-				<h1>Título</h1>
-				<p>Mensaje de alert asfasfas fasf asfas fa fas fahdfhad fdhdfajdfj dfahad haf fdahdhaf </p>
-				<button>Ok</button>
-			</div>
-		</div>
-	</div>
+	<?=$this->render('Default','alert',true);?>
 	<?=$this->render('Default','userorlogin',true);?>
 	<div class="slider" id="slider">
 		<div class="prev">

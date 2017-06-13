@@ -3,7 +3,6 @@
 class Usuario extends Controller{
     function __construct() {
         parent::__construct();
-
     }
 
     public function index(){
@@ -128,6 +127,11 @@ class Usuario extends Controller{
         $this->loadOtherModel('Publicaciones');
         echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['idCategoria'], $_POST['nombrePublicacion'], $_POST['descripcionCorta'], $_POST['descripcionLarga'], $_POST['imgs']);
     }
+
+    // public function comentariosPublicacion(){
+    //   $this->loadOtherModel("Comentarios");
+    //   echo $this->Comentarios->obtenerComentariosPublicacion($_POST['id']);
+    // }
 
     public function subeProyecto(){
         $this->view->render($this,'subirProyecto');

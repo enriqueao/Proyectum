@@ -33,54 +33,6 @@ body,html{
     display: none;
 }
 
-#alert{
-	background-color: rgba(0,0,0,0.4);
-	z-index: 100;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	display: flex;
-}
-#alert > div{
-	background: -webkit-linear-gradient(left,#16222A,#3A6073);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 400px;
-	height: 300px;
-	/*border: solid 15px;*/
-/*	border-top-color: red;
-	border-bottom-color: blue;*/
-	border-radius: 30px;
-}
-#alert > div > div{
-	text-align: center;
-	background: white;
-	padding: 15px 30px;
-	width: 300px;
-	height: calc(100% - 70px);
-	/*border: solid 15px;*/
-/*	border-top-color: red;
-	border-bottom-color: blue;*/
-	border-radius: 15px;
-}
-#alert p{
-	margin: 20px;
-}
-
-#alert button{
-	margin: 10px;
-	border-radius: 10px;
-	padding: 10px;
-	border: none;
-	outline: none;
-	background-color: blue;
-	color: white;
-	width: 100px;
-}
-
 .blanco{
 	width: 100%;
 	position: relative;
