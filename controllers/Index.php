@@ -29,16 +29,20 @@ class Index extends Controller{
             $this->loadOtherModel('Vistas');
             return $this->Vistas->obtenerVistasPublicacion($idP);
         }
-        //Obtiene el número de reacciones de cada tarjeta    
+        //Obtiene el número de reacciones de cada tarjeta
         private function reaccionesTarjeta($idP){
             $this->loadOtherModel('Comentarios');
             return $this->Comentarios->obtenerReaccionesPublicacion($idP);
-        } 
+        }
 
     public function proyecto($idPublicacion){
+        $this->loadOtherModel('Usuario');
         if (Session::exist()) {
             $this->view->username = Session::getValue('username');
             $this->view->nombreCompleto = Session::getValue('nombrecompleto');
+            $this->Usuario->registroVista(Session::getValue('idUsuario'),$idPublicacion);
+        } else {
+            $this->Usuario->registroVista('18',$idPublicacion);
         }
         $this->loadOtherModel('Vistas');
         $this->loadOtherModel('Publicaciones');
@@ -55,6 +59,6 @@ class Index extends Controller{
     public function registro(){
         $this->view->render($this,'registro');
     }
-    
+
 }
 ?>

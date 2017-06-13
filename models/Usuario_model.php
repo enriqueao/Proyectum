@@ -97,20 +97,10 @@ class Usuario_model extends Model
 		return $this->db->select('COUNT(*) AS numProyectos','publicaciones');
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	public function registroVista($idUsuario,$idPublicacion){
+		$data = array('idPublicacion'=>$idPublicacion,'idUsuario'=>$idUsuario);
+		return $this->db->printInsert($data,'vistas');
+	}
 
 
 }

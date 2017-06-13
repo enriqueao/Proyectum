@@ -708,17 +708,22 @@ footer > p{
 }
 
 .inicio-sesion{
-	position: absolute;
-  max-width: 30%;
+  position: absolute;
+  max-width: 20%;
   min-width: 10%;
-	top: 70px;
-	padding: 20px;
-	right: 10%;
-	background-color: #f2f1ef;
-	z-index: 99;
-	transition: 10s all;
-	border-radius: 0px 0 10px 10px;
+  top: 70px;
+  padding: 15px;
+  right: 25px;
+  background-color: #f2f1ef;
+  z-index: 99;
+  transition: 10s all;
+  border-radius: 0px 0 10px 10px;
   box-shadow: 2px 1px 9px 0px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.perfil-menu{
+  right: 10%;
 }
 
 .inicio-sesion > label {
@@ -742,8 +747,8 @@ footer > p{
 }
 
 .inicio-sesion > input[type="submit"]{
-	border: 1px solid #d25d13;
-	margin: 10px 30%;
+  border: 1px solid #d25d13;
+  margin: 10px calc(50% - 70px);
 }
 
 .inicio-sesion > input[type="text"]:focus,input[type="password"]:focus{

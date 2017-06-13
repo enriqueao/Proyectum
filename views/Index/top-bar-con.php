@@ -15,7 +15,7 @@
             <a href="" onclick="cerrarSesion()">Cerrar Sesión</a>
           </div>
       </div>
-      <div class="inicio-sesion" id="capa" style="display:none;">
+      <div class="inicio-sesion perfil-menu" id="capa" style="display:none;">
         <ul>
           <li><a href="<?=URL?>Usuario/Perfil">Mi Perfil</a></li>
           <li><a href="<?=URL?>Usuario/editaPerfil">Editar Mi Perfil</a></li>
