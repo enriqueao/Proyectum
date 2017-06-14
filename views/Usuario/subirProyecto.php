@@ -6,11 +6,11 @@ $categorias = $this->categorias;
 <head>
 	<meta charset="UTF-8">
 	<title>Subir proyecto</title>
+	<meta http-equiv="pragma" content="no-cache">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>subirProyecto.css">
 	<script defer src="<?=JS?>subirProyecto.js"></script>
 	<script defer src="<?=JS?>config.js"></script>
-	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
 <?=$this->render('Default','userorlogin',true);?>
@@ -79,7 +79,7 @@ $categorias = $this->categorias;
 		<p>Descripción corta del proyecto:</p>
 		<textarea maxlength="150" size="150" type="text" name="descCorta" placeholder="Descripción resumida en 150 caracteres de tu proyecto" class="inputDesc" id="inputDescCorta" onchange="estDC()"></textarea>
 		<p>Descripción completa del proyecto:</p>
-		<!-- <h5>Escriba un símbolo de gato "#" al principio de una oración para convertirla en un título.</h5> -->
+		<h5>Escriba un símbolo de gato "#" al principio de una oración para convertirla en un título.</h5>
 		<textarea maxlength="2000" name="descLarga" placeholder="Escriba una descripción para su proyecto" class="inputDesc" id="inputDescLarga" onchange="estDL()"></textarea>
 		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe> -->
 		<div id="contFinal">

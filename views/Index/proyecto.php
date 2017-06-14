@@ -173,7 +173,7 @@ if (!is_null($reacciones)) {
 						echo "<p>Inicia sesión para evaluar el proyecto</p>";
 					}
 				 ?>
-				
+
 			</div>
 		</div>
 	</div>

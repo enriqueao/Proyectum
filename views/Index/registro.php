@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
     <title>Únete - Proyectum</title>
     <link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 

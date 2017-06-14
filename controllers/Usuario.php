@@ -74,11 +74,19 @@ class Usuario extends Controller{
       if($this->perfilExist($username)){
           $this->view->publicaciones = $this->publicacionesPerfil($username);
           $this->view->datos = $this->model->statusUsername($username);
+          $this->view->proyectoDestacado = $this->model->proyectoDestacado($username);
+          $this->view->proyectoMasVisto = $this->model->proyectoMasVisto($username);
+          $this->view->perfilDestacado = $this->model->perfilDestacado();
+          $this->view->numUsers = $this->model->numUsers();
+          $this->view->numVistas = $this->model->numVistas();
+          $this->view->numProyectos = $this->model->numProyectos();
+
           $this->view->render($this,'perfil');
         } else {
           $this->pageHistoryBack();
         }
     }
+
 
     public function perfilExist($username){
       return is_array($this->model->statusUsername($username));
@@ -86,29 +94,25 @@ class Usuario extends Controller{
 
     public function publicacionesPerfil($username){
       $publicaciones = $this->model->publicacionesPerfil($username);
-      $proyectos = '';
+      $proyectos = "<div class='perfil-lateral'>";
       if(is_array($publicaciones)){
         foreach ($publicaciones as $key => $value) {
           $proyectos .=
-          "<div class='perfil-lateral'>
-      				<div class='perfil-proyecto'>
+          "<div class='perfil-proyecto'>
       					<h2>{$value['nombrePublicacion']}</h2>
-      					<p>{$value['descripcionCorta']}</p>
-      					<h5><a href='".URL."'>Haz click aqui para ver más</a></h5>
-      				</div>
-      		</div>";
+      					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>
+      					<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>
+      				</div>";
         }
-        return $proyectos;
+        return $proyectos.="</div>";
       } else {
         #Corregir ruta para ver proyectos *************************************
         return $proyectos .=
-        '<div class="perfil-lateral">
-            <div class="perfil-proyecto">
-              <h2>Aún No tiene proyectos</h2>
-              <p>Para comenzar Con esta gran comunidad sube un proyecto.</p>
-              <h5><a href="#">Haz click aqui para ver más</a></h5>
-            </div>
-        </div>';
+        '<div class="perfil-proyecto">
+            <h2>Aún No tiene proyectos</h2>
+            <p>Para comenzar Con esta gran comunidad sube un proyecto.</p>
+            <h5><a href="'.URL.'Usuario/subeProyecto">Haz click aqui para ver más</a></h5>
+          </div>';
       }
     }
 
@@ -158,10 +162,10 @@ class Usuario extends Controller{
     public function statusUsername(){
       if(isset($_POST['username'])){
         if(is_array($this->model->statusUsername($_POST['username']))){
-          echo 'No Disponible';
+          echo '<p class="ocupado">No Disponible</p>';
           return 0;
         } else {
-          echo 'Disponible';
+          echo '<p class="disponible">Disponible</p>';
           return 1;
         }
       }
@@ -174,5 +178,6 @@ class Usuario extends Controller{
           return 1;
         }
     }
+
 }
 ?>

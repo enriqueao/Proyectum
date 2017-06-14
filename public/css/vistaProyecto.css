@@ -1,4 +1,4 @@
-@font-face { 
+@font-face {
     font-family: 'Muli';
     src: url(../fonts/Muli.ttf);
 }
@@ -355,7 +355,7 @@ h1{
 	overflow: auto;
 }
 	#fondoComentarios h2{
-		margin-top: 10vw;
+		margin-top: 5vw;
 		text-align: center;
 		font-family: 'Aller', sans-serif;
 		font-size: 40px;
@@ -526,7 +526,7 @@ h1{
 
 		.nuevoComentEval:checked + label>img{
 			/*background-color: #ce5e0d;*/
-			
+
 			transition: all 300ms ease-in-out;
 			width: 50px;
 		}

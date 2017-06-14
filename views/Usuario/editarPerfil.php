@@ -6,11 +6,11 @@ $datos=$this->datos;
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectum | Editar perfil</title>
+	<meta http-equiv="pragma" content="no-cache">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>editarPerfil.css">
 	<script defer src="<?=JS?>editarPerfil.js"></script>
 	<script defer src="<?=JS?>config.js"></script>
-	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
 <?=$this->render('Default','alert',true);?>
@@ -38,7 +38,7 @@ $datos=$this->datos;
 		<p>Descripción de usuario:</p>
 		<textarea maxlength="250" size="250" type="text" name="desc" placeholder="Ej. Empresa S.A. de C.V. es una empresa vanguardista dedicada a la innovación en el campo de las tecnologías de información, comprometida 100% con la sociedad..." class="inputDesc" id="inputDesc"><?=$datos['descripcion']?></textarea>
 		<p>Cambio de contraseña</p>
-		<div id="pass">		
+		<div id="pass">
 			<p>Contraseña antigüa:</p>
 			<input type="password" name="lastPass" onchange="estLPass()">
 			<p>Nueva contraseña:</p>

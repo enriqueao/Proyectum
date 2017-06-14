@@ -1,4 +1,4 @@
-<?php 
+<?php
 $t = $this->tarjetas;
 // echo var_dump($t);
  ?>
@@ -7,6 +7,7 @@ $t = $this->tarjetas;
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectum</title>
+  <meta http-equiv="pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 
@@ -27,13 +28,13 @@ $t = $this->tarjetas;
 				<li>
 					<div class="titulos-slider">
 						<h2>Miles de proyectos</h2>
-						<h4>comparte tu proyecto para buscar ayuda y consejos</4>
+						<h4>Comparte tu proyecto para buscar ayuda y consejos</4>
 						<h6><input type="submit" value="Unirme Ahora" onclick="registro()"></h6>
 					</div>
 					<img src="<?=IMG?>2.png"></li>
 				<li>
 					<div class="titulos-slider">
-						<h2>Haz que tu proyecto crezca y sea un Éxito</h2>
+						<h2>Haz que tu proyecto crezca y sea un éxito</h2>
 						<h4>Solo publicalo y deja que la comunitad te ayude</4>
 						<h6></h6>
 					</div>
@@ -41,7 +42,7 @@ $t = $this->tarjetas;
 				</li>
 				<li>
 					<div class="titulos-slider">
-						<h2>Únete a Esta Gran Comunidad</h2>
+						<h2>Únete a esta gran comunidad</h2>
 						<h4>Se parte de Proyectum</4>
 						<h6></h6>
 					</div>
@@ -124,7 +125,7 @@ $t = $this->tarjetas;
 
 		</div>
 		<div class="proyectos-ver-mas">
-			<a href="#">Quiero ver más proyectos</a>
+			<a href="#">Ver más proyectos</a>
 		</div>
 	</div>
 <?=$this->render('Index','footer',true)?>
