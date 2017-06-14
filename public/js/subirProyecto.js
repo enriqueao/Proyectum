@@ -35,6 +35,8 @@ var objImgs = Array.from(document.forms.subirProyecto.img);
 var colorImg = objImgs[0].nextSibling.nextSibling.style.borderColor;
 
 function subir(){
+	var btn = document.getElementsByName("btnSend")[0];
+	btn.disabled=true;
 	var categoria = objCategoria.value;
 	var titulo = objTitulo.value;
 	var descCorta = objDescCorta.value;
@@ -42,12 +44,14 @@ function subir(){
 
 	if (categoria=="") {
 		objCategoria.style.backgroundColor="red";
-		alert("Seleccione una categoria para su proyecto");
+		btn.disabled=false;
+		alertP("Categoría no seleccionada.","Seleccione la categoría que mejor represente su proyecto.");
 		return;
 	}
 	if (titulo=="") {
 		objTitulo.style.borderColor="red";
-		alert("Escriba un título para su proyecto");
+		btn.disabled=false;
+		alertP("Título vacío.","Escriba un título para su proyecto.");
 		return;
 	}
 
@@ -58,7 +62,8 @@ function subir(){
 		if (imgs[i]!="") {
 			if (imgs[i].indexOf(".jpeg")==-1 && imgs[i].indexOf(".jpg")==-1 && imgs[i].indexOf(".png")==-1){
 				objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
-				alert("El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
+				btn.disabled=false;
+				alertP("Formato no soportado.","El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
 				return;
 			}
 		}
@@ -70,24 +75,26 @@ function subir(){
 		for (var i = objImgs.length - 1; i >= 0; i--) {
 			objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
 		}
-		alert("Seleccione al menos una imagen para su proyecto");
+		btn.disabled=false;
+		alertP("Ninguna imagen seleccionada.","Seleccione al menos una imagen para su proyecto.");
 		return;
 	}
 
 	if (descCorta=="") {
 		objDescCorta.style.borderColor="red";
-		alert("Escriba una descripción corta para su proyecto");
+		btn.disabled=false;
+		alertP("Descripción corta vacía.","Escriba una descripción corta para su proyecto (Hasta 150 caracteres).");
 		return;
 	}
 	if (descLarga=="" || descLarga.length < 150) {
 		objDescLarga.style.borderColor="red";
-		alert("Escriba una descripción completa para su proyecto de al menos 150 caracteres");
+		btn.disabled=false;
+		alertP("Descripción larga vacía o incompleta.","Escriba una descripción completa para su proyecto de al menos 150 caracteres (Hasta 2000 caracteres).");
 		return;
 	}
 
 	var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+"&imgs="+imgs;
   	var url = config['url']+"Usuario/subirProyecto";
-  	alert(data);
   	proyecto = new XMLHttpRequest();
     proyecto.open("POST", url ,true);
     proyecto.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -95,11 +102,12 @@ function subir(){
 
     proyecto.onreadystatechange = function (){
       if (proyecto.readyState == 4) {
-        console.log(proyecto.responseText)
         if (parseInt(proyecto.responseText)==0) {
-        	alert('Proyecto registrado exitosamente');
+        	alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
+        	window.location.href = config['url']+"/usuario/perfil";
         }else{
-        	alert("Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
+        	btn.disabled=false;
+        	alertP("Error al registrar proyecto.","Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
         }
       }
     }
@@ -124,7 +132,7 @@ function estImg(){
 		if (imgs[i]!="") {
 			if (imgs[i].indexOf(".jpeg")==-1 && imgs[i].indexOf(".jpg")==-1 && imgs[i].indexOf(".png")==-1){
 				objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
-				alert("El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
+				alertP("Formato no soportado.","El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
 				return;
 			}
 			else{
@@ -139,7 +147,7 @@ function estImg(){
 		for (var i = objImgs.length - 1; i >= 0; i--) {
 			objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
 		}
-		alert("Seleccione al menos una imagen para su proyecto");
+		alertP("Ninguna imagen seleccionada.","Seleccione al menos una imagen para su proyecto");
 		return;
 	}
 	else{

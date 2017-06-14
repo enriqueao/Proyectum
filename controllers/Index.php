@@ -36,16 +36,21 @@ class Index extends Controller{
         } 
 
     public function proyecto($idPublicacion){
+        $this->loadOtherModel('Comentarios');
+        $this->loadOtherModel('Vistas');
+        $this->loadOtherModel('Publicaciones'); 
+        $this->view->info=$this->Publicaciones->obtenerInfoPublicacion($idPublicacion);
+        if(!is_array($this->view->info)){
+            header("Location: ".URL);
+        }
         if (Session::exist()) {
             $this->view->username = Session::getValue('username');
-            $this->view->nombreCompleto = Session::getValue('nombrecompleto');
+            $this->view->nombreCompleto = Session::getValue('nombreUsuario');
+            $this->view->yaComentado=$this->Comentarios->yaComentado(Session::getValue('idUsuario'),$idPublicacion);
+            $this->Vistas->registrarVista($idPublicacion,Session::getValue('idUsuario'));
         }
-        $this->loadOtherModel('Vistas');
-        $this->loadOtherModel('Publicaciones');
-        $this->loadOtherModel('Comentarios');
         $this->view->comentarios=$this->Comentarios->obtenerComentariosPublicacion($idPublicacion);
         $this->view->vistas=$this->Vistas->obtenerVistasPublicacion($idPublicacion);
-        $this->view->info=$this->Publicaciones->obtenerInfoPublicacion($idPublicacion);
         $this->view->tiposReacciones=$this->Comentarios->obtenerTiposDeReacciones();
         $reacciones=$this->Comentarios->obtenerReaccionesPublicacion($idPublicacion);
         $this->view->reacciones=$reacciones;

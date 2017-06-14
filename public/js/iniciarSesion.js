@@ -42,7 +42,7 @@ function cerrarSesion() {
 	logOut.send();
 	logOut.onreadystatechange = function (){
 		if (logOut.readyState == 4) {
-			if(logOut.responseText == '1'){
+			if(parseInt(logOut.responseText) == 1){
 				location.reload();
 			}
 		}

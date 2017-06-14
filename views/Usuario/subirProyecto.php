@@ -1,3 +1,6 @@
+<?php 
+$categorias = $this->categorias;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,8 @@
 	<script defer src="<?=JS?>complementos.js"></script>
 </head>
 <body>
-<?=$this->render('Index','top-bar-sin',true);?>
+<?=$this->render('Default','userorlogin',true);?>
+<?=$this->render('Default','alert',true);?>
 <div id="fakeBody">
 <div id="contenedorPrincipal">
 	<h1>Nuevo Proyecto</h1>
@@ -21,11 +25,24 @@
 			<!-- <p id="selectImg">&#8964</p> -->
 			<select name="categoria" onchange="estCat()">
 				<option value="">Seleccione una categoría</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
+				<?php 
+
+				function formatoCat($id,$nom){
+					return '<option value="'.$id.'">'.$nom.'</option>';
+				}
+
+				if (!is_array($categorias)){
+					echo '<p>No hay categorias</p>';
+				}
+				elseif (isset($categorias['idCategoria'])) {
+					echo formatoCat($categorias['idCategoria'],$categorias['categoria']);
+				}
+				else{
+					foreach ($categorias as $cat) {
+						echo formatoCat($cat['idCategoria'],$cat['categoria']);
+					}
+				}
+				 ?>
 			</select>
 		</div>
 		<p>Escriba un título para tu proyecto:</p>
@@ -66,8 +83,8 @@
 		<textarea maxlength="2000" name="descLarga" placeholder="Escriba una descripción para su proyecto" class="inputDesc" id="inputDescLarga" onchange="estDL()"></textarea>
 		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe> -->
 		<div id="contFinal">
-			<button id="btnSend">Cancelar</button>
-			<button id="btnSend" onclick="subir()">Subir</button>
+			<button id="btnSend" onclick="window.history.back()">Cancelar</button>
+			<button id="btnSend" name="btnSend" onclick="subir()">Subir</button>
 		</div>
 		</form>
 	</div>

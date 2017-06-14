@@ -25,8 +25,9 @@ var objNewPass = document.forms.editarPerfil.newPass;
 var objNewPass2 = document.forms.editarPerfil.newPass2;
 
 function editar(){
+	var btn = document.getElementsByName("btnSend")[0];
+	btn.disabled=true;
 	var data = "";
-
 	var nombre = document.forms.editarPerfil.nombre.value;
 	var correo = document.forms.editarPerfil.correo.value;
 	var img = baseName(objImg.value);
@@ -45,7 +46,8 @@ function editar(){
 
 	if (img!="" && img.indexOf(".jpeg")==-1 && img.indexOf(".jpg")==-1 && img.indexOf(".png")==-1) {
 		objImg.nextSibling.nextSibling.style.borderColor="red";
-		alert("La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
+		btn.disabled=false;
+		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
 		return;
 	}
 	else if(img!=""){
@@ -59,13 +61,15 @@ function editar(){
 	if (lastPass!="" || newPass!="" || newPass2!="") {
 		if (!(lastPass!="" && newPass!="" && newPass2!="")) {
 			divPass.style.borderColor="red";
-			alert("Hacen falta campos de cambio de contraseña");
+			btn.disabled=false;
+			alertP("Campos vacíos de contraseña.","Hacen falta campos de cambio de contraseña.");
 			return;
 		}
 		if(newPass != newPass2){
 				objNewPass.style.borderColor="red";
 				objNewPass2.style.borderColor="red";
-				alert("La nueva contraseña no concuerda con la verificacion");
+				btn.disabled=false;
+				alertP("Verificación incorrecta.","La nueva contraseña no concuerda con la escrita en el campo de verificación.");
 				return;
 		}
 		else{ 
@@ -89,13 +93,15 @@ function editar(){
 		    }
 			if (!isThePass) {
 				objLastPass.style.borderColor="red";
-				alert("la contraseña no es correcta");
+				btn.disabled=false;
+				alertP("Contraseña incorrecta.","La contraseña no es correcta.");
 				return;
 			}
 			else{
 				if (lastPass==newPass) {
 					objLastPass.style.borderColor="red";
-					alert("La nueva contraseña no puede ser igual a la antigüa contraseña.");
+					btn.disabled=false;
+					alertP("Misma contraseña.","La nueva contraseña no puede ser igual a la contraseña antigüa.");
 					return;
 				}
 				else{
@@ -106,11 +112,11 @@ function editar(){
 
 	}
 	if (data==""){
-		alert("Ningún cambio que guardar.");
+		btn.disabled=false;
+		alertP("Sin cambios.","Ningún cambio qué guardar.");
 		return;
 	}
 	data = data.substring(0, data.length - 1);
-	alert(data);
   	var url = config['url']+"Usuario/editarPerfil";
   	perfil = new XMLHttpRequest();
     perfil.open("POST", url ,true);
@@ -120,10 +126,11 @@ function editar(){
     perfil.onreadystatechange = function (){
       if (perfil.readyState == 4) {
         if (parseInt(perfil.responseText)==0) {
-        	alert('Cambios guardados exitosamente.');
-
+        	alertP("Perfil actualizado.",'Cambios guardados exitosamente.',1);
+        	window.location.href=config['url']+"usuario/perfil"
         }else{
-        	alert("Ocurrió un problema al editar su perfil. Por favor intente más tarde.");
+        	btn.disabled=false;
+        	alertP("Error desconocido.","Ocurrió un problema al editar su perfil. Por favor intente más tarde.");
         }
       }
     }
@@ -133,7 +140,7 @@ function estImg(){
 	var img = baseName(objImg.value);
 	if (img!="" && img.indexOf(".jpeg")==-1 && img.indexOf(".jpg")==-1 && img.indexOf(".png")==-1) {
 		objImg.nextSibling.nextSibling.style.borderColor="red";
-		alert("La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
+		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
 		return;
 	}else{
 		objImg.nextSibling.nextSibling.style.borderColor=colorImg;

@@ -74,8 +74,12 @@ $t = $this->tarjetas;
 				<p>'.$t['descripcionCorta'].'</p>
 				<div class="detalles-proyecto">
 					<div class="icono-detalles">
-						<img src="'.IMG.'vistas.svg">
+						<img src="'.IMG.'eye.svg">
 						<p>'.$t['vistas']['num'].'</p>
+					</div>
+					<div class="icono-detalles">
+						<img src="'.IMG.'mensajes.svg">
+						<p>'.$coments.'</p>
 					</div>
 					<div class="icono-detalles">
 						<img src="'.IMG.'/reacciones/excelente.svg">
@@ -96,10 +100,6 @@ $t = $this->tarjetas;
 					<div class="icono-detalles">
 						<img src="'.IMG.'/reacciones/wacala.svg">
 						<p>'.$w.'</p>
-					</div>
-					<div class="icono-detalles">
-						<img src="'.IMG.'mensajes.svg">
-						<p>'.$coments.'</p>
 					</div>
 					<div class="icono-detalles-ver">
 						<a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>

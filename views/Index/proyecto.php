@@ -1,17 +1,22 @@
 <?php
-if(!is_array($this->info)){
-	header("Location: ".URL);
-}
+$yaComentado=false;
 if (isset($this->username)) {
 	$username=$this->username;
 	$nombreCompleto = $this->nombreCompleto;
+	$yaComentado=$this->yaComentado;
 }
 $info=$this->info;
 $vistas=$this->vistas;
 $comentarios=$this->comentarios;
 $reacciones=$this->reacciones;
 $tiposReacciones=$this->tiposReacciones;
-// print_r($reacciones);
+
+$coments = 0;
+if (!is_null($reacciones)) {
+	foreach ($reacciones as $v) {
+		$coments+=(int)$v;
+	}
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +31,7 @@ $tiposReacciones=$this->tiposReacciones;
 </head>
 <body>
 <?=$this->render('Default','alert',true);?>
-<?=$this->render('Index','top-bar-sin',true);?>
+<?=$this->render('Default','userorlogin',true);?>
 	<h1><?echo $info['nombrePublicacion']?></h1>
 
 	<!-- slider -->
@@ -54,11 +59,23 @@ $tiposReacciones=$this->tiposReacciones;
 
 <div id="fondoGeneral">
 	<div id="info">
-		<div id="puntaje">
-			<div class="reacciones">
-				<img src="<?=IMG?>eye.svg" alt="">
-				<p><?php echo $vistas['num']?></p>
+		<div id="autor">
+			<div>
+				<p>Autor:</p>
+				<p><?php echo $info['nombreCompleto']?></p>
 			</div>
+			<div>
+				<div class="reacciones">
+					<img src="<?=IMG?>eye.svg" alt="">
+					<p><?php echo $vistas['num']?></p>
+				</div>
+				<div class="reacciones">
+					<img src="<?=IMG?>mensajes.svg" alt="">
+					<p><?php echo $coments?></p>
+				</div>
+			</div>
+		</div>
+		<div id="puntaje">
 			<div class="reacciones">
 				<img src="<?=IMG?>reacciones/excelente.svg" alt="">
 				<p><?=(isset($reacciones['Excelente']))?$reacciones['Excelente']:0?></p>
@@ -80,17 +97,13 @@ $tiposReacciones=$this->tiposReacciones;
 				<p><?=(isset($reacciones['Wacala']))?$reacciones['Wacala']:0?></p>
 			</div>
 		</div>
-		<div id="autor">
-			<p>Autor:</p>
-			<p><?php echo $info['nombreCompleto']?></p>
-		</div>
 	</div>
 
 
 	<div id="fondoDescripcion">
 	<div id="descripcion">
 		<h2>Descripción del proyecto</h2>
-		<p><?echo nl2br($info['descripcionLarga'])?></p>
+		<p><?echo nl2br(str_replace("\n", "</b>\n", str_replace("#", "<b>", $info['descripcionLarga'])))?></p>
 	</div>
 	</div>
 	<div id="fondoComentarios">
@@ -136,17 +149,22 @@ $tiposReacciones=$this->tiposReacciones;
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
 				<?php 
-					if (isset($username)) {
+					if (isset($username) && ($yaComentado)) {
+						echo "<p>Ya has evaluado este proyecto</p>";
+					}
+					elseif (isset($username)) {
 						$s='
 						<form name=nuevoComentario onsubmit="return false">
 					<h3>'.$nombreCompleto.' | @'.$username.'</h3>
-					<textarea maxlength="400" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent" name="comentario"></textarea>
+					<textarea maxlength="500" placeholder="Escriba una nueva evalución del proyecto" id="nuevoComentComent" name="comentario"></textarea>
 					<h5>Seleccione una reacción</h5>';
 					foreach ($tiposReacciones as $tr) {
-						$s.= '<input type="radio" name="reaccion" id='.$tr['idTipoReaccion'].' class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
+						$s.= '<input type="radio" name="reaccion" id="'.$tr['idTipoReaccion'].'" class="nuevoComentEval" value="'.$tr['idTipoReaccion'].'"><label for='.$tr['idTipoReaccion'].' onclick="regresarEstilo()"><img src='.IMG.$tr['img'].' alt=""><p>'.$tr['reaccion'].'</p></label>';
 					}
 					$s.='
 					<input type="hidden" name="idPublicacion" value="'.$info['idPublicacion'].'">
+					<input type="hidden" name="nombreCompleto" value="'.$nombreCompleto.'">
+					<input type="hidden" name="username" value="'.$username.'">
 					<button id="nuevoComentSend" onclick="comentar()">Evaluar</button>
 					</form>';
 						echo $s;

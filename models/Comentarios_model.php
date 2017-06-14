@@ -40,6 +40,11 @@ class Comentarios_model extends Model
 		 	return 1;
 		 }
 	}
+
+	public function yaComentado($idUsuario,$idPublicacion){
+		$r = $this->db->select('count(idUsuario) as num','comentarios','idUsuario='.$idUsuario.' AND idPublicacion='.$idPublicacion);
+		return $r['num']>0 ? true : false;
+	}
 }
 
 ?>
