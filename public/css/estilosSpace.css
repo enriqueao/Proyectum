@@ -756,37 +756,52 @@ footer > p{
 }
 
 .registro{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 100%;
 	height: 100%;
 }
+.registro>h1{
+		text-align: center;
+		font-size: 40px;
+		font-family: 'Aller', sans-serif;
+		margin-top: 40px;
+		margin-bottom: 8px;
+	}
 
 .formulario-regitro{
-	padding-top: 20px;
+	padding: 0px 40px;
+	border-radius: 12px;
+	padding-top: 40px;
 	position: relative;
 	float: left;
 	margin-top: 20px;
-	margin-left: 25%;
-  margin-bottom: 50px;
-	width: 50%;
-	height: 75%;
-	box-shadow: 5px 4px 20px 0px rgba(0,0,0,.5);
+	/*margin-left: 25%;*/
+  	margin-bottom: 50px;
+	width: calc(700px - 80px);
+	/*height: 75%;*/
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,.3);
 }
 
 .registro-inputs{
-	width: 350px !important;
-  height: 10px !important;
-  display: block !important;
-  margin: 10px auto !important;
-  border: none !important;
-  outline: none !important;
-  background-color: transparent !important;
-  border-bottom: 1px solid #1c2f44 !important;
-  padding-left: 2px !important;
-  transition: 1s all !important;
-  color: #172b43 !important;
-  margin-top: 10px;
-  padding: 10px 10px 5px 10px;
-  font-size: 1em;
+	font-family: 'Muli', sans-serif;
+	padding-left: 14px;
+	font-size: 15px;
+	width: 100%;
+	margin-bottom: 20px;
+  	/*height: 10px !important;*/
+  	display: block !important;
+/*  margin: 10px auto !important;*/
+  	border: none !important;
+  	outline: none !important;
+/*  background-color: transparent !important;*/
+  	border-bottom: 1px solid rgba(0,0,0,0.3) !important;
+  /*padding-left: 2px !important;*/
+  	transition: 1s all !important;
+  	color: #172b43 !important;
+  	/*margin-top: 10px;*/
+  	/*padding: 10px 10px 5px 10px;*/
 }
 
 .registro-submit{
@@ -800,12 +815,26 @@ footer > p{
 }
 
 .formulario-regitro > p{
-	margin-top: 10px;
-	text-align: center;
-	color: #d25d13;
-	font-size: 1em;
+	font-family: 'Muli', sans-serif;
+	/*font-size: 17px;*/
+	margin-bottom: 0px;
 }
-
+.formulario-regitro > h5{
+	font-family: 'Muli', sans-serif;
+	/*font-size: 17px;*/
+	margin-bottom: 0px;
+}
+.formulario-regitro > textarea{
+	padding: 1.2vw;
+	width: calc(100% - 2.4vw);
+	border-radius: 8px;
+	outline: none;
+	font-family: 'Muli', sans-serif;
+	font-size: 14px;
+	margin-bottom: 1vw;
+	border-color: rgba(0,0,0,0.15);
+	resize: none;
+}
 #estado{
 	color: #2d4b5a !important;
   transition: .2 all;

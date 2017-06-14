@@ -1,4 +1,4 @@
-<?php 
+<?php
 $categorias = $this->categorias;
  ?>
 <!DOCTYPE html>

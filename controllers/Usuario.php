@@ -138,11 +138,21 @@ class Usuario extends Controller{
     // }
 
     public function subeProyecto(){
-        $this->view->render($this,'subirProyecto');
+      if (!Session::exist()) {
+        header("Location: ".URL);
+      }
+      $this->loadOtherModel('Categorias');
+      $this->view->categorias=$this->Categorias->obtenerCategorias();
+      $this->view->render($this,'subirProyecto');
     }
 
     public function editaPerfil(){
-        $this->view->render($this,'editarPerfil');
+      if (!Session::exist()) {
+        header("Location: ".URL);
+      }
+      $this->view->datos = $this->model->statusUsername(Session::getValue('username'));
+      $this->view->render($this,'editarPerfil');
+      $this->view->render($this,'editarPerfil');
     }
 
     public function editarPerfil(){
