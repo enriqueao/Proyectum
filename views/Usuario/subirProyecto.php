@@ -25,7 +25,7 @@ $categorias = $this->categorias;
 			<!-- <p id="selectImg">&#8964</p> -->
 			<select name="categoria" onchange="estCat()">
 				<option value="">Seleccione una categoría</option>
-				<?php 
+				<?php
 
 				function formatoCat($id,$nom){
 					return '<option value="'.$id.'">'.$nom.'</option>';

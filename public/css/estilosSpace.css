@@ -736,11 +736,10 @@ footer > p{
 	width: 80%;
 	height: 20%;
 	margin: 10px 10%;
-	/*border-radius: 2px;*/
 	border: none;
 	outline: none;
 	background-color: transparent;
-	border-bottom: 1px solid #d25d13;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
 	padding-left: 2px;
 	transition: 1s all;
 }
@@ -816,17 +815,17 @@ footer > p{
 
 .formulario-regitro > p{
 	font-family: 'Muli', sans-serif;
-	/*font-size: 17px;*/
 	margin-bottom: 0px;
 }
-.formulario-regitro > h5{
+#fondo h5{
 	font-family: 'Muli', sans-serif;
-	/*font-size: 17px;*/
-	margin-bottom: 0px;
+	margin-top: -20px;
+	margin-bottom: 9px;
 }
-.formulario-regitro > textarea{
+#fondo textarea{
 	padding: 1.2vw;
 	width: calc(100% - 2.4vw);
+	/*height: 50px;*/
 	border-radius: 8px;
 	outline: none;
 	font-family: 'Muli', sans-serif;
@@ -834,6 +833,32 @@ footer > p{
 	margin-bottom: 1vw;
 	border-color: rgba(0,0,0,0.15);
 	resize: none;
+}
+
+#fondo input[type="password"] {
+	/*width: 80%;*/
+	/*height: 20%;*/
+	margin: 10px 0px;
+/*	border: none;
+	outline: none;
+	background-color: transparent;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	padding-left: 2px;
+	transition: 1s all;*/
+}
+
+#botonSu{
+  width: 120px;
+  height: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #40A3C1;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: calc(50% - 60px);
 }
 #estado{
 	color: #2d4b5a !important;
