@@ -5,7 +5,7 @@
   </div>
   <div class="top-buscador">
     <div class="top-buscador-input">
-      <input type="search" name="busqueda" placeholder="Buscar">
+      <input type="search" name="busqueda" placeholder="Buscar" id="buscador">
     </div>
   </div>
       <div class="top-SignIn">
@@ -13,10 +13,11 @@
         <input type="submit" value="Iniciar Sesión" id="boton">
       </div>
       <div class="inicio-sesion" id="capa" style="display:none;">
-        <!-- <label for="username">Correo o Nombre de Usuario</label> -->
         <input id="username" type="text" name="" value="" placeholder="Correo o Nombre de Usuario">
-        <!-- <label for="password">Contraseña</label> -->
         <input id="password" type="password" name="" value="" placeholder="Contraseña">
         <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
+      </div>
+      <div class="top-bar-caja-buscador" id="contenedorBusqueda">
+        <p class="info-busqueda">Titulo del proyecto o nombre del usuario</p>
       </div>
 </div>

@@ -18,6 +18,12 @@ window.addEventListener('load',function() {
 	click.src = config['url']+"public/js/click.js";
 	click.type="text/javascript";
 	document.head.appendChild(click);
+
+	var buscador = document.createElement("script");
+	buscador.src = config['url']+"public/js/buscador.js";
+	buscador.type="text/javascript";
+	buscador.setAttribute("defer", "defer");
+	document.head.appendChild(buscador);
 },false);
 
 function addFunctionWindowOnload(callback){

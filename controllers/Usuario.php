@@ -138,17 +138,11 @@ class Usuario extends Controller{
     // }
 
     public function subeProyecto(){
-        $this->loadOtherModel('Categorias');
-        $this->view->categorias=$this->Categorias->obtenerCategorias();
         $this->view->render($this,'subirProyecto');
     }
 
     public function editaPerfil(){
-      if (!Session::exist()) {
-        header("Location: ".URL);
-      }
-      $this->view->datos = $this->model->statusUsername(Session::getValue('username'));
-      $this->view->render($this,'editarPerfil');
+        $this->view->render($this,'editarPerfil');
     }
 
     public function editarPerfil(){
@@ -177,6 +171,40 @@ class Usuario extends Controller{
         } else {
           return 1;
         }
+    }
+
+    public function buscar(){
+      if(isset($_POST['search'])){
+        $publicaciones = $this->model->publicaciones($_POST['search']);
+        $usuarios = $this->model->usuarios($_POST['search']);
+        // print_r($publicaciones);
+        // print_r($usuarios);
+        $resultados =
+        '<p class="info-busqueda">Titulo del proyecto o nombre del usuario</p>
+        <hr>
+        <p>Proyectos</p>
+        <hr>';
+        if(is_array($publicaciones)){
+          foreach ($publicaciones as $key => $value) {
+            $resultados .= "<p>+<a href='".URL."Index/proyecto/{$value['idPublicacion']}'>{$value['nombrePublicacion']}</a></p>";
+          }
+        } else{
+          $resultados .= "<p>Sin resultados</p>";
+        }
+
+        $resultados .=
+        '<hr>
+        <p>Usuarios</p>
+        <hr>';
+        if(is_array($usuarios)){
+          foreach ($usuarios as $key => $value) {
+            $resultados .= "<p>@<a href='".URL."Usuario/perfil/{$value['username']}'>{$value['username']}</a></p>";
+          }
+        } else{
+          $resultados .= "<p>Sin resultados</p>";
+        }
+        echo $resultados.'<hr>';
+      }
     }
 
 }

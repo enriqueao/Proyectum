@@ -716,7 +716,6 @@ footer > p{
   right: 25px;
   background-color: #f2f1ef;
   z-index: 99;
-  transition: 10s all;
   border-radius: 0px 0 10px 10px;
   box-shadow: 2px 1px 9px 0px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
@@ -889,4 +888,25 @@ footer > p{
 
 .perfil-proyecto > p{
   text-align: justify;
+}
+
+
+.top-bar-caja-buscador{
+  position: absolute;
+  max-width: 285px;
+  min-width: 280px;
+  top: 55px;
+  padding: 15px;
+  left: 250px;
+  background-color: #f2f1ef;
+  z-index: 99;
+  border-radius: 0px 0 5px 5px;
+  box-shadow: 2px 1px 9px 0px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  transition: .2s all;
+  opacity: 0;
+}
+
+.info-busqueda{
+  font-size: .8em;
 }

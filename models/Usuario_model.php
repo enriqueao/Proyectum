@@ -102,6 +102,12 @@ class Usuario_model extends Model
 		return $this->db->printInsert($data,'vistas');
 	}
 
+	public function publicaciones($search){
+		return $this->db->queryStrict('SELECT nombrePublicacion,idPublicacion FROM publicaciones WHERE nombrePublicacion LIKE "%'.$search.'%" LIMIT 5');
+	}
 
+	public function usuarios($search){
+		return $this->db->queryStrict('SELECT username FROM usuarios WHERE username LIKE "%'.$search.'%" LIMIT 5');
+	}
 }
 ?>
