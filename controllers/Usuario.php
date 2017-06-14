@@ -177,13 +177,11 @@ class Usuario extends Controller{
       if(isset($_POST['search'])){
         $publicaciones = $this->model->publicaciones($_POST['search']);
         $usuarios = $this->model->usuarios($_POST['search']);
-        // print_r($publicaciones);
-        // print_r($usuarios);
+
         $resultados =
         '<p class="info-busqueda">Titulo del proyecto o nombre del usuario</p>
         <hr>
-        <p>Proyectos</p>
-        <hr>';
+        <h5>Proyectos</h5>';
         if(is_array($publicaciones)){
           foreach ($publicaciones as $key => $value) {
             $resultados .= "<p>+<a href='".URL."Index/proyecto/{$value['idPublicacion']}'>{$value['nombrePublicacion']}</a></p>";
@@ -193,8 +191,7 @@ class Usuario extends Controller{
         }
 
         $resultados .=
-        '<hr>
-        <p>Usuarios</p>
+        '<h5>Usuarios</h5>
         <hr>';
         if(is_array($usuarios)){
           foreach ($usuarios as $key => $value) {
@@ -203,7 +200,7 @@ class Usuario extends Controller{
         } else{
           $resultados .= "<p>Sin resultados</p>";
         }
-        echo $resultados.'<hr>';
+        echo $resultados;
       }
     }
 

@@ -894,10 +894,10 @@ footer > p{
 .top-bar-caja-buscador{
   position: absolute;
   max-width: 285px;
-  min-width: 280px;
+  min-width: 30%;
   top: 55px;
   padding: 15px;
-  left: 250px;
+  left: 270px;
   background-color: #f2f1ef;
   z-index: 99;
   border-radius: 0px 0 5px 5px;
@@ -906,6 +906,11 @@ footer > p{
   transition: .2s all;
   opacity: 0;
 }
+
+  .top-bar-caja-buscador h5{
+    text-align: right;
+    color: #d25d13;
+  }
 
 .info-busqueda{
   font-size: .8em;

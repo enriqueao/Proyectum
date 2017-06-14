@@ -1,7 +1,5 @@
 var buscador = document.getElementById('buscador');
 var contenedorBusqueda = document.getElementById('contenedorBusqueda');
-buscador.addEventListener('keyup',buscar,true);
-buscador.addEventListener('keypress',buscar,true);
 buscador.addEventListener('keydown',buscar,true);
 
 buscador.addEventListener('focus',function(){

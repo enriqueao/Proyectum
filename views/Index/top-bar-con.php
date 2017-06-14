@@ -5,7 +5,7 @@
   </div>
   <div class="top-buscador">
     <div class="top-buscador-input">
-      <input type="search" name="busqueda" placeholder="Buscar">
+      <input type="search" name="busqueda" placeholder="Buscar" id="buscador">
     </div>
   </div>
       <div class="top-SignIn">
