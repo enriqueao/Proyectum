@@ -8,8 +8,8 @@ textarea.oninput = function(){
 
 function baseName(str){
 	str=str.toString();
-   var base = new String(str).substring(str.lastIndexOf('\\') + 1); 
-    // if(base.lastIndexOf(".") != -1)       
+   var base = new String(str).substring(str.lastIndexOf('\\') + 1);
+    // if(base.lastIndexOf(".") != -1)
     //     base = base.substring(0, base.lastIndexOf("."));
    return base;
 }
@@ -47,11 +47,11 @@ function editar(){
 	if (img!="" && img.indexOf(".jpeg")==-1 && img.indexOf(".jpg")==-1 && img.indexOf(".png")==-1) {
 		objImg.nextSibling.nextSibling.style.borderColor="red";
 		btn.disabled=false;
-		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
+		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png).");
 		return;
 	}
 	else if(img!=""){
-		data += "imgPorfile=usuarios/"+img+"&";
+		data += "imgPorfile="+img+"&"; /**********************************AQUÍ***************/
 	}
 
 	if (desc!="") {
@@ -72,7 +72,7 @@ function editar(){
 				alertP("Verificación incorrecta.","La nueva contraseña no concuerda con la escrita en el campo de verificación.");
 				return;
 		}
-		else{ 
+		else{
 			// ajax de verificacion de pass
 			var isThePass = false;
 			dts="pass="+lastPass;
@@ -140,7 +140,7 @@ function estImg(){
 	var img = baseName(objImg.value);
 	if (img!="" && img.indexOf(".jpeg")==-1 && img.indexOf(".jpg")==-1 && img.indexOf(".png")==-1) {
 		objImg.nextSibling.nextSibling.style.borderColor="red";
-		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png)."); 
+		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png).");
 		return;
 	}else{
 		objImg.nextSibling.nextSibling.style.borderColor=colorImg;

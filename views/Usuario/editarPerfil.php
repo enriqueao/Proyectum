@@ -1,4 +1,4 @@
-<?php 
+<?php
 $datos=$this->datos;
  ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ $datos=$this->datos;
 		<div id="contenedorInputFile">
 		<input type="file" id="file1" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file1">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="img" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		</div>
@@ -55,5 +55,29 @@ $datos=$this->datos;
 </div>
 </div>
 <?=$this->render('Index','footer',true)?>
+
+<script type="text/javascript">
+function archivo(evt) {
+    var img = document.getElementById('img');
+    var files = evt.target.files; // FileList object
+    // Obtenemos la imagen del campo "file".
+    for (var i = 0, f; f = files[i]; i++) {
+      //Solo admitimos imágenes.
+      if (!f.type.match('image.*')) {
+          continue;
+      }
+      var reader = new FileReader();
+      reader.onload = (function(theFile) {
+          return function(e) {
+            // Insertamos la imagen
+           img.src = e.target.result;
+           img.title = escape(theFile.name);
+          };
+      })(f);
+      reader.readAsDataURL(f);
+    }
+}
+document.getElementById('file1').addEventListener('change', archivo, false);
+</script>
 </body>
 </html>

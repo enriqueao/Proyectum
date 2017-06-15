@@ -51,27 +51,27 @@ $categorias = $this->categorias;
 		<div id="contenedorInputFile">
 		<input type="file" id="file1" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file1">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="1" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		<input type="file" id="file2" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file2">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="2" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		<input type="file" id="file3" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file3">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="3" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		<input type="file" id="file4" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file4">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="4" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		<input type="file" id="file5" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file5">
-				<img src="<?=IMG?>camara.svg" alt="">
+				<img id="5" src="<?=IMG?>camara.svg" alt="">
 				<p>Subir imagen</p>
 			</label>
 		</div>
@@ -90,4 +90,31 @@ $categorias = $this->categorias;
 </div>
 <?=$this->render('Index','footer',true)?>
 </body>
+<script type="text/javascript">
+function archivo(evt) {
+    var id = evt.srcElement.id;
+    var idElement = id.split("file")[1];
+    var img = document.getElementById(idElement);
+    var files = evt.target.files;
+    for (var i = 0, f; f = files[i]; i++) {
+      if (!f.type.match('image.*')) {
+          continue;
+      }
+      var reader = new FileReader();
+      reader.onload = (function(theFile) {
+          return function(e) {
+            // Insertamos la imagen
+           img.src = e.target.result;
+           img.title = escape(theFile.name);
+          };
+      })(f);
+      reader.readAsDataURL(f);
+    }
+}
+document.getElementById('file1').addEventListener('change', archivo, false);
+document.getElementById('file2').addEventListener('change', archivo, false);
+document.getElementById('file3').addEventListener('change', archivo, false);
+document.getElementById('file4').addEventListener('change', archivo, false);
+document.getElementById('file5').addEventListener('change', archivo, false);
+</script>
 </html>
