@@ -37,7 +37,7 @@ class Usuario_model extends Model
 	public function registro($registro){
 			if(isset($registro)){
 				$pass = Hash::create(ALGOR, $registro[3],KEY);
-				$data = array('nombrecompleto'=>$registro[0],'username'=>$registro[1],'correo'=>$registro[2],'pass'=>$pass);
+				$data = array('nombrecompleto'=>$registro[0],'username'=>$registro[1],'correo'=>$registro[2],'pass'=>$pass, 'descripcion'=>$registro[4]);
 				return $this->db->insert($data,'usuarios');
 			}
 	}

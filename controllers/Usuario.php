@@ -18,7 +18,7 @@ class Usuario extends Controller{
     public function registro(){
       if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
         if($this->checkStatusUsername($_POST['username'])){
-          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass']);
+          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass'],$_POST['descrpcion']);
           echo $this->model->registro($registro);
         } else {
           echo '0';
@@ -119,7 +119,9 @@ class Usuario extends Controller{
 
     public function cerrarSesion(){
         Session::destroy();
-        echo '1';
+        $_SESSION = [];
+        // header("Refresh:0");
+        header("Location: ".URL);
     }
 
     public function comentar(){
@@ -166,11 +168,11 @@ class Usuario extends Controller{
     public function statusUsername(){
       if(isset($_POST['username'])){
         if(is_array($this->model->statusUsername($_POST['username']))){
-          echo '<p class="ocupado">No Disponible</p>';
-          return 0;
+          // echo '<p class="ocupado">No Disponible</p>';
+          echo 0;
         } else {
-          echo '<p class="disponible">Disponible</p>';
-          return 1;
+          // echo '<p class="disponible">Disponible</p>';
+          echo 1;
         }
       }
     }

@@ -60,6 +60,9 @@ class Index extends Controller{
     }
 
     public function registro(){
+        if (Session::exist()) {
+            header("Location: ".URL);
+        }
         $this->view->render($this,'registro');
     }
 

@@ -16,35 +16,21 @@ function iniciarSesion() {
 					console.log(logIn.responseText);
 					switch(parseInt(logIn.responseText)){
             case 1:
-            location.reload();
+            	location.reload();
             break;
 
             case 2:
-						alert('Verifica tu usuario y/o Contraseña');
+				alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
 
             default:
-            alert('Verifica tu usuario y/o Contraseña');
+            	alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
         	}
 				}
 			}
 		}
 	} else {
-		alert('Completa los campos');
-	}
-}
-
-function cerrarSesion() {
-	var url = config.url+"Usuario/cerrarSesion/";
-	logOut = new XMLHttpRequest();
-	logOut.open("POST", url ,true);
-	logOut.send();
-	logOut.onreadystatechange = function (){
-		if (logOut.readyState == 4) {
-			if(parseInt(logOut.responseText) == 1){
-				location.reload();
-			}
-		}
+		alertP('Campos vacíos.','Completa los campos para iniciar sesión.');
 	}
 }

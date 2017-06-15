@@ -83,7 +83,12 @@ h5{
 		font-size: 15px;
 		outline: none;
 		border:none;
-		background-color: #f1521a;
+		/*kk*/
+		background: #E44D26;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		/*background-color: #d25d13;*/
 		/*border: 1px solid #f1521a;*/
 		color: white;
 	}
@@ -91,18 +96,22 @@ h5{
 			font-size: 30px;
 			right: 0px;
 			height: 50%;
-			width: auto;
 			position: absolute;
 		}
 	#contenedorInputFile{
+		position: relative;
 		width: 100%;
-		overflow: auto;
+		height: auto;
+		float: left;
+		/*overflow: auto;*/
 	}
 	.inputfile {
-		width: 0.1px;
-		height: 0.1px;
+		top: 0;
+		left: 0;
+		width: 0.1px !important;
+		height: 0.1px !important;
 		opacity: 0;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		position: absolute;
 		z-index: -1;
 	}
@@ -120,8 +129,13 @@ h5{
 		padding: 2px;
 		font-size: 15px;
 		outline: none;
-		border: solid 2px #3A6073;
-		background-color: #3A6073;
+		/*kk*/
+		background: #E44D26;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right top, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right top, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		/*border: solid 2px #3A6073;
+		background-color: #3A6073;*/
 /*		border:none;
 		background-color: #f1521a;*/
 		opacity: 1;

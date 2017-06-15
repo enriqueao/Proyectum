@@ -19,18 +19,18 @@
     	<div id="fondo">
     		<form name="subirProyecto" onsubmit="return false">
           <p>Nombre Completo</p>
-          <input class="registro-inputs" type="text" id="nombreCompleto" autocomplete="off">
+          <input class="registro-inputs" placeholder="Ej. Empresa S.A. de C.V." type="text" id="nombreCompleto" autocomplete="off" onchange="est('objNomc')">
           <p>Nombre de Usuario</p>
-          <input class="registro-inputs" type="text" id="user" autocomplete="off">
-          <h5 id="usernamecomp">Introduce tu nombre de usuario mayor a 5 caracteres</h5>
+          <input class="registro-inputs" type="text" id="user" autocomplete="off" onchange="est('objUsername')">
+          <h4 id="usernamecomp">Introduce tu nombre de usuario mayor a 5 caracteres</h4>
           <p>Correo</p>
-          <input class="registro-inputs" type="email" id="correo" value="" autocomplete="off">
+          <input class="registro-inputs" type="email" id="correo" placeholder="Ej. correo@ejemplo.com" value="" autocomplete="off" onchange="est('objCorreo')">
           <p>Descripción de usuario:</p>
-          <textarea maxlength="250" size="250" type="text" placeholder="Ej. Empresa S.A. de C.V. es una empresa vanguardista dedicada a la innovación en el campo de las tecnologías de información, comprometida 100% con la sociedad..." id="inputDesc"></textarea>
+          <textarea maxlength="250" onchange="est('objDesc')" size="250" type="text" placeholder="Ej. Empresa S.A. de C.V. es una empresa vanguardista dedicada a la innovación en el campo de las tecnologías de información, comprometida 100% con la sociedad..." id="inputDesc"></textarea>
           <p>Contraseña</p>
-          <input class="registro-inputs" type="password" id="pass" value="">
+          <input class="registro-inputs" type="password" id="pass" value="" onchange="est('objPass')">
           <p>Confirma Tu Contraseña</p>
-          <input class="registro-inputs" type="password" value="">
+          <input class="registro-inputs" type="password" id="pass2" value="" onchange="est('objPass2')">
     		<div id="contFinal">
     			<button id="botonSu" onclick="registrar()">Registrarme</button>
     		</div>

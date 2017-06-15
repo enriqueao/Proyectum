@@ -35,7 +35,7 @@ $t = $this->tarjetas;
 				<li>
 					<div class="titulos-slider">
 						<h2>Haz que tu proyecto crezca y sea un éxito</h2>
-						<h4>Solo publicalo y deja que la comunitad te ayude</4>
+						<h4>Solo publícalo y deja que la comunidad te ayude</4>
 						<h6></h6>
 					</div>
 					<img src="<?=IMG?>1.png">
@@ -43,7 +43,7 @@ $t = $this->tarjetas;
 				<li>
 					<div class="titulos-slider">
 						<h2>Únete a esta gran comunidad</h2>
-						<h4>Se parte de Proyectum</4>
+						<h4>Sé parte de Proyectum</4>
 						<h6></h6>
 					</div>
 					<img src="<?=IMG?>webstr.png">

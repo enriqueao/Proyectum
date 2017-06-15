@@ -12,7 +12,7 @@
         <img src="<?=IMG.Session::getValue('imagenPerfil')?>">
         <div class="top-perfil">
             <a href="" id="boton"><?=Session::getValue('nombreUsuario')?></a>
-            <a href="" onclick="cerrarSesion()">Cerrar Sesión</a>
+            <a href="<?=URL?>Usuario/cerrarSesion">Cerrar Sesión</a>
           </div>
       </div>
       <div class="inicio-sesion perfil-menu" id="capa" style="display:none;">
