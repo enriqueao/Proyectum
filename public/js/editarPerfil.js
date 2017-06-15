@@ -50,9 +50,6 @@ function editar(){
 		alertP("Formato de imagen no soportado.","La imagen no tiene un formato soportado (jpg, jpeg o png).");
 		return;
 	}
-	else if(img!=""){
-		data += "imgPorfile="+img+"&"; /**********************************AQUÍ***************/
-	}
 
 	if (desc!="") {
 		data += "descripcion="+desc+"&";
