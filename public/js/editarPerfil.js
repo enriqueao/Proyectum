@@ -160,3 +160,57 @@ function estNPass(){
 function estDivPass(){
 	divPass.style.borderColor=colorPass;
 }
+
+var input = document.getElementById('file1'),
+		formdata = false;
+
+function mostrarImagenSubida(source){
+		img  = document.getElementById('img');
+		imgPerfilPrev  = document.getElementById('imgPro');
+		img.src = source;
+		imgPerfilPrev.src = source;
+}
+
+
+if(window.FormData){
+		formdata = new FormData();
+}
+
+if(input.addEventListener){
+		input.addEventListener('change', function(evt){
+				var i = 0, len = this.files.length, img, reader, file;
+				document.getElementById('status').innerHTML = 'Subiendo...';
+				for( ; i < len; i++){
+						file = this.files[i];
+						if(!!file.type.match(/image.*/)){
+								if(window.FileReader){
+										reader = new FileReader();
+										reader.onloadend = function(e){
+												mostrarImagenSubida(e.target.result);
+										};
+										reader.readAsDataURL(file);
+								}
+
+								if(formdata)
+										formdata.append('images', file);
+						}
+				}
+				if(formdata){
+					var url = config['url']+"Usuario/updateImgPro";
+					perfil = new XMLHttpRequest();
+					perfil.open("POST", url ,true);
+					perfil.send(formdata);
+
+					perfil.onreadystatechange = function (){
+						if (perfil.readyState == 4) {
+							console.log(perfil.responseText);
+							if(perfil.responseText == '1'){
+								document.getElementById('status').innerHTML = 'Correcto';
+							} else {
+								document.getElementById('status').innerHTML = 'Error'+perfil.responseText;
+							}
+						}
+					}
+				}
+		}, false);
+}

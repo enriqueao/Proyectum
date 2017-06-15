@@ -28,11 +28,12 @@ $datos=$this->datos;
 		<p>Correo:</p>
 		<input type="email" name="correo" value="<?=$datos['correo']?>" placeholder="Ej. info@empresa.com">
 		<p>Imagen de perfil:</p>
+		<h5>Selecciona la imagen para subir...</h5>
 		<div id="contenedorInputFile">
 		<input type="file" id="file1" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file1">
 				<img id="img" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="status">Subir imagen</p>
 			</label>
 		</div>
 		<p>Descripción de usuario:</p>
@@ -55,29 +56,5 @@ $datos=$this->datos;
 </div>
 </div>
 <?=$this->render('Index','footer',true)?>
-
-<script type="text/javascript">
-function archivo(evt) {
-    var img = document.getElementById('img');
-    var files = evt.target.files; // FileList object
-    // Obtenemos la imagen del campo "file".
-    for (var i = 0, f; f = files[i]; i++) {
-      //Solo admitimos imágenes.
-      if (!f.type.match('image.*')) {
-          continue;
-      }
-      var reader = new FileReader();
-      reader.onload = (function(theFile) {
-          return function(e) {
-            // Insertamos la imagen
-           img.src = e.target.result;
-           img.title = escape(theFile.name);
-          };
-      })(f);
-      reader.readAsDataURL(f);
-    }
-}
-document.getElementById('file1').addEventListener('change', archivo, false);
-</script>
 </body>
 </html>

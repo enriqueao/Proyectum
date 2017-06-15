@@ -33,7 +33,7 @@ class Controller {
     }
 
     function pageNotFound(){
-        $this->view->render('Default', 'errorSitio', true); 
+        $this->view->render('Default', 'errorSitio', true);
     }
 
     function pageHistoryBack(){
@@ -69,7 +69,7 @@ class Controller {
     *
     */
     function sessionExist(){
-        if(Session::exist()){return true; } else {header('location:'.URL); } 
+        if(Session::exist()){return true; } else {header('location:'.URL); }
     }
 
     /**
@@ -97,7 +97,7 @@ class Controller {
         $email = include ('./views/Default/correo.php');
         $email = ob_get_clean();
         $mail->Body = utf8_decode($email);
-        
+
         $exito = $mail->Send();
         return $exito;
     }
@@ -137,7 +137,7 @@ class Controller {
                 $alto_final = $max_alto;
             }
 
-            $lienzo=imagecreatetruecolor($ancho_final,$alto_final); 
+            $lienzo=imagecreatetruecolor($ancho_final,$alto_final);
 
             imagecopyresampled($lienzo,$original,0,0,0,0,$ancho_final, $alto_final,$ancho,$alto);
             imagedestroy($original);
@@ -164,7 +164,7 @@ class Controller {
 
             //------------Obtiene el número de paginas que se podrán utilizar.
             $totalPaginas = floor($totalRegistros / 15);
-            $registrosSobrantes = $totalRegistros - ($totalPaginas * 15); 
+            $registrosSobrantes = $totalRegistros - ($totalPaginas * 15);
             if($registrosSobrantes != 0) $totalPaginas++;
 
             $pagInicial = ($pagActiva <= 10) ? 1 : (floor( ($pagActiva-1) / 10) * 10)+1;
@@ -172,21 +172,21 @@ class Controller {
             $paginacion .='<div class="numeros div7">';
 
             //------------Agrega el botón para ver las siguientes páginas.
-            if( ($pagInicial+9) < $totalPaginas) { 
+            if( ($pagInicial+9) < $totalPaginas) {
                 $paginacion.= '<button class="div1 btn-opciones" onclick="setPage('.$totalPaginas.')">>|</button>
                 <button class="div1 btn-opciones" onclick="setPage('.($pagActiva+1).')">></button>';
             }
-            
+
             //------------Agrega las páginas que se mostrarán.
             $paginaFinal = (($totalPaginas-$pagInicial) >= 10) ? $pagInicial+9 : $totalPaginas ;
             for ( $pagina = $paginaFinal ; $pagina >= $pagInicial ; $pagina-- ) {
-                $pagActiva == $pagina ? 
+                $pagActiva == $pagina ?
                 $paginacion.='<button class="div1 btn-numero-activo" onclick="setPage('.$pagina.')">'.$pagina.'</button>' :
                 $paginacion.='<button class="div1 btn-numero" onclick="setPage('.$pagina.')">'.$pagina.'</button>' ;
             }
 
             //------------Agrega el botón para ver las páginas anteriores.
-            if( $pagInicial != 1) { 
+            if( $pagInicial != 1) {
                 $paginacion.= '<button class="div1 btn-opciones" onclick="setPage('.($pagActiva-1).')"><</button>
                 <button class="div1 btn-opciones" onclick="setPage(1)">|<</button>';
             }

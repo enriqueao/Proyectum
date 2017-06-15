@@ -9,7 +9,7 @@
     </div>
   </div>
       <div class="top-SignIn">
-        <img src="<?=IMG.Session::getValue('imagenPerfil')?>">
+        <img id="imgPro" src="<?=IMG.'usuarios/'.Session::getValue('imagenPerfil')?>">
         <div class="top-perfil">
             <a href="" id="boton"><?=Session::getValue('nombreUsuario')?></a>
             <a href="<?=URL?>Usuario/cerrarSesion">Cerrar Sesión</a>

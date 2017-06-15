@@ -31,17 +31,17 @@ class Usuario extends Controller{
     *
     */
     public function updateImgPro(){
-        if(isset($_FILES['imagen']) ){
-          if ($_FILES['imagen']['size'] < 16777216) {
-            $imagenType = $_FILES['imagen']['type'];
+        if(isset($_FILES['images']) ){
+          if ($_FILES['images']['size'] < 16777216) {
+            $imagenType = $_FILES['images']['type'];
             if ($imagenType == "image/jpeg" || $imagenType == "image/jpg" || $imagenType == "image/png"){
-                $ext     = explode(".", $_FILES['imagen']['name']);
+                $ext     = explode(".", $_FILES['images']['name']);
                 $dir     = 'IMG_'.$this->getKeyImg(Session::getValue('idUsuario')).".".end($ext);
-                $dirmove = "public/images/".$dir;
+                $dirmove = "public/images/usuarios/".$dir;
 
-                $upload  = $this->comprimirImagenAndUpload($imagenType,$dirmove,$_FILES['imagen']['tmp_name']);
+                $upload  = $this->comprimirImagenAndUpload($imagenType,$dirmove,$_FILES['images']['tmp_name']);
                 if($upload){
-                    $this->model->actualizarInformacion('imagen',$dir,Session::getValue('idUsuario'),'personas');
+                    $this->model->actualizarInformacion('imgProfile','usuarios/'.$dir,Session::getValue('idUsuario'),'usuarios');
                     $this->deleteAnterior(Session::getValue('imagenPerfil'));
                     Session::setValue('imagenPerfil',$dir);
                 } else {
@@ -62,11 +62,26 @@ class Usuario extends Controller{
     *
     */
     private function deleteAnterior($img){
-        if(file_exists('./public/images/'.$img)){
-            if($img != 'man.svg' && $img != 'girl.svg'){
-                unlink('./public/images/'.$img);
+        if(file_exists('./public/images/usuarios'.$img)){
+            if($img != 'user.svg'){
+                unlink('./public/images/usuarios'.$img);
             }
         }
+    }
+
+    /**
+    * @author Enrique Aguilar Orozco
+    *
+    */
+    private function getKeyImg($cuenta){
+        $key = implode(getDate());
+        $key.=$cuenta;
+        $ran = rand(1,6);
+        for ($i=0; $i < $ran; $i++) {
+            $key = base64_encode($key);
+        }
+        $key = substr($key,5,40);
+        return $key;
     }
 
     public function perfil($user = ''){

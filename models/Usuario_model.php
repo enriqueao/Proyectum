@@ -109,5 +109,10 @@ class Usuario_model extends Model
 	public function usuarios($search){
 		return $this->db->queryStrict('SELECT username FROM usuarios WHERE username LIKE "%'.$search.'%" LIMIT 5');
 	}
+
+	public function actualizarInformacion($campo,$valor,$idUsuario,$table){
+		$data[$campo]= $valor;
+		return $this->db->update($data,$table,'idUsuario="'.$idUsuario.'"');
+	}
 }
 ?>
