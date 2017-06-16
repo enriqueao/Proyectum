@@ -148,6 +148,7 @@ if (!is_null($reacciones)) {
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
+				<?=$this->render('Default','loading',true);?>
 				<?php 
 					if (isset($username) && ($yaComentado)) {
 						echo "<p>Ya has evaluado este proyecto</p>";

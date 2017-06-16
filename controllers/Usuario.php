@@ -18,7 +18,7 @@ class Usuario extends Controller{
     public function registro(){
       if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
         if($this->checkStatusUsername($_POST['username'])){
-          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass'],$_POST['descrpcion']);
+          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass'],$_POST['descripcion']);
           echo $this->model->registro($registro);
         } else {
           echo '0';
@@ -173,11 +173,16 @@ class Usuario extends Controller{
     }
 
     public function editarPerfil(){
-        echo $this->model->editarPerfil($_POST,Session::getValue('idUsuario'));
-    }
-
-    public function revisarPass(){
-        echo $this->model->revisarPass(Session::getValue('idUsuario'),$_POST['pass']);
+      if (isset($_POST['pass'])) {
+        $r = $this->model->revisarPass(Session::getValue('idUsuario'),$_POST['pass']);
+        if ($r==1) {
+          echo '1';
+          return;
+        }     
+      }
+      $_POST['pass']=$_POST['newPass'];
+      unset($_POST['newPass']);
+      echo $this->model->editarPerfil($_POST,Session::getValue('idUsuario'));
     }
 
     public function statusUsername(){

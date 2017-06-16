@@ -19,8 +19,8 @@ $datos=$this->datos;
 <div id="contenedorPrincipal">
 	<h1>Editar perfil</h1>
 	<div id="fondo">
+		<?=$this->render('Default','loading',true);?>
 		<form name="editarPerfil" onsubmit="return false">
-
 		<p>Nombre Completo:</p>
 		<input type="text" name="nombre" value="<?=$datos['nombrecompleto']?>" placeholder="Ej. Empresa S.A. de C.V.">
 		<p>User name (No puede cambiarse):</p>

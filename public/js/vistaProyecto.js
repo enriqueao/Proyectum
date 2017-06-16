@@ -39,7 +39,7 @@ function comentar() {
   	objBtn.disabled = false;
     return;
   }
-
+  loading(1);
   var data = "comentario="+comentario+"&idPublicacion="+idPublicacion+"&idTipoReaccion="+idTipoReaccion;
   var url = config['url']+"Usuario/comentar";
   coment = new XMLHttpRequest();
@@ -49,9 +49,11 @@ function comentar() {
 
     coment.onreadystatechange = function (){
       if (coment.readyState == 4) {
+        loading(0);
         if (parseInt(coment.responseText)==0) {
-          agregarComent(idTipoReaccion);
-        	alertP('Evaluación registrada','Muchas gracias por evaluar este proyecto.',1);
+          location.reload();
+          //agregarComent(idTipoReaccion);
+        	//alertP('Evaluación registrada','Muchas gracias por evaluar este proyecto.',1);
         }else{
           objBtn.disabled = false;
         	alertP("Error al evaluar","Ocurrió un problema al registrar su evaluación. Por favor intente más tarde.");

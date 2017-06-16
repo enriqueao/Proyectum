@@ -6,6 +6,6 @@ Class View{
     	if($estrict == false){
     		$controller = get_class($controller);
     	}
-        require_once ('./views/'.$controller.'/'.$view.'.php');
+        require ('./views/'.$controller.'/'.$view.'.php');
     }
 }

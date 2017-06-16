@@ -73,8 +73,8 @@ function registrar() {
     objBtn.disabled=false;
     return;
   }
-  console.log(usuarioDisponible);
   if (usuarioDisponible) {
+    loading(1);
     var data = "nombrecompleto="+nomc+"&username="+username+"&correo="+correo+"&pass="+pass+"&descripcion="+desc;
     var url = config['url']+"Usuario/registro";
     regist = new XMLHttpRequest();
@@ -84,6 +84,7 @@ function registrar() {
 
       regist.onreadystatechange = function (){
         if (regist.readyState == 4) {
+          loading(0);
           if (parseInt(regist.responseText)==0) {
             alertP("Error.","Ocurrió un problema al registrar su cuenta. Por favor intente más tarde.");
             objBtn.disabled=false; 

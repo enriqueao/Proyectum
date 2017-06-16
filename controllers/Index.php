@@ -49,7 +49,7 @@ class Index extends Controller{
             $this->view->yaComentado=$this->Comentarios->yaComentado(Session::getValue('idUsuario'),$idPublicacion);
             $this->Vistas->registrarVista($idPublicacion,Session::getValue('idUsuario'));
         }else{
-            $this->Vistas->registrarVista($idPublicacion,18);
+            $this->Vistas->registrarVista($idPublicacion);
         }
         $this->view->comentarios=$this->Comentarios->obtenerComentariosPublicacion($idPublicacion);
         $this->view->vistas=$this->Vistas->obtenerVistasPublicacion($idPublicacion);

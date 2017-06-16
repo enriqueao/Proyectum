@@ -4,8 +4,9 @@ function iniciarSesion() {
 
 	if (username != '' && password != '') {
 		if (true) {
+			loading(1);
 			var url = config.url+"Usuario/iniciarSesion/";
-		  var datos = "username=" + username + "&password=" + password;
+		  	var datos = "username=" + username + "&password=" + password;
 
 			logIn = new XMLHttpRequest();
 			logIn.open("POST", url ,true);
@@ -18,12 +19,13 @@ function iniciarSesion() {
             case 1:
             	location.reload();
             break;
-
             case 2:
+            	loading(0);
 				alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
 
             default:
+            	loading(0);
             	alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
         	}

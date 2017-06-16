@@ -53,12 +53,12 @@ class Usuario_model extends Model
 		if(isset($datos['pass'])){
 			$datos['pass'] = Hash::create(ALGOR, $datos['pass'], KEY);
 		}
-		return($this->db->update($datos,'usuarios','idUsuario='.$idUsuario))?0:1;
+		return($this->db->update($datos,'usuarios','idUsuario='.$idUsuario))?0:2;
 	}
 
 	public function revisarPass($idUsuario,$pass){
 		$pass = Hash::create(ALGOR, $pass, KEY);
-		$res = $this->db->select("idUsuario","usuarios","idUsuario=".$idUsuario." AND pass=".$pass);
+		$res = $this->db->select('idUsuario','usuarios','idUsuario='.$idUsuario." AND pass='".$pass."'");
 		return(is_array($res))?0:1;
 	}
 
