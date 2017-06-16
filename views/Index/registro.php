@@ -17,7 +17,7 @@
     <div id="contenedorPrincipal">
     	<h1>Únete a Proyectum</h1>
     	<div id="fondo">
-        <?=$this->render('Default','loading',true);?>
+        <?=$this->render_multi('Default','loading',true);?>
     		<form name="subirProyecto" onsubmit="return false">
           <p>Nombre Completo</p>
           <input class="registro-inputs" placeholder="Ej. Empresa S.A. de C.V." type="text" id="nombreCompleto" autocomplete="off" onchange="est('objNomc')">

@@ -24,6 +24,7 @@
         </ul>
       </div>
       <div class="top-bar-caja-buscador" id="contenedorBusqueda">
+        <?=$this->render_multi('Default','loading',true);?>
         <p class="info-busqueda">Titulo del proyecto o nombre del usuario</p>
       </div>
 </div>

@@ -12,10 +12,10 @@ buscador.addEventListener('blur',function(){
 
 
 function buscar(){
+  loading(1);
   var search = document.getElementById('buscador').value;
   search = (search == '') ? '{' : search;
   var data = "search="+search;
-
   var url = config['url']+"Usuario/buscar";
     busqueda = new XMLHttpRequest();
     busqueda.open("POST", url ,true);
@@ -23,6 +23,7 @@ function buscar(){
     busqueda.send(data);
     busqueda.onreadystatechange = function (){
       if (busqueda.readyState == 4) {
+        loading(0);
         contenedorBusqueda.innerHTML = busqueda.responseText;
       }
     }
