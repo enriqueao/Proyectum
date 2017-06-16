@@ -47,7 +47,7 @@ class Usuario extends Controller{
                 } else {
                     echo '0';
                 }
-                echo ($upload) ? '1' : '0' ;
+                echo ($upload) ? 'Correcto' : '0' ;
             } else {
                 echo 2; //formato no admitido
             }
@@ -146,13 +146,8 @@ class Usuario extends Controller{
 
     public function subirProyecto(){
         $this->loadOtherModel('Publicaciones');
-        echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['idCategoria'], $_POST['nombrePublicacion'], $_POST['descripcionCorta'], $_POST['descripcionLarga'], $_POST['imgs']);
+        echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga'],json_decode($_POST['imgs']));
     }
-
-    // public function comentariosPublicacion(){
-    //   $this->loadOtherModel("Comentarios");
-    //   echo $this->Comentarios->obtenerComentariosPublicacion($_POST['id']);
-    // }
 
     public function subeProyecto(){
       if (!Session::exist()) {
@@ -178,7 +173,7 @@ class Usuario extends Controller{
         if ($r==1) {
           echo '1';
           return;
-        }     
+        }
       }
       $_POST['pass']=$_POST['newPass'];
       unset($_POST['newPass']);

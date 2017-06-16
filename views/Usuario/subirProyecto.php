@@ -5,7 +5,7 @@ $categorias = $this->categorias;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Subir proyecto</title>
+	<title>Proyectum | Nuevo proyecto</title>
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>subirProyecto.css">
 	<script defer src="<?=JS?>subirProyecto.js"></script>
@@ -18,7 +18,7 @@ $categorias = $this->categorias;
 <div id="contenedorPrincipal">
 	<h1>Nuevo Proyecto</h1>
 	<div id="fondo">
-		<form name="subirProyecto" onsubmit="return false">
+		<form name="subirProyecto" id="formPro" onsubmit="return false">
 		<p>Escoja una categoría para tu proyecto:</p>
 		<div id="divSelect">
 			<!-- <p id="selectImg">&#8964</p> -->
@@ -48,34 +48,35 @@ $categorias = $this->categorias;
 		<input type="text" name="titulo" placeholder="¡Mi proyecto genial!" onchange="estTit()">
 
 		<p>Escoja hasta 5 imágenes que representen su proyecto:</p>
+    <h5>Tienes que subir minímo 3 imágenes</h5>
 		<div id="contenedorInputFile">
 		<input type="file" id="file1" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file1">
 				<img id="1" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="10">Subir imagen</p>
 			</label>
 		<input type="file" id="file2" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file2">
 				<img id="2" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="20">Subir imagen</p>
 			</label>
 		<input type="file" id="file3" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file3">
 				<img id="3" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="30">Subir imagen</p>
 			</label>
 		<input type="file" id="file4" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file4">
 				<img id="4" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="40">Subir imagen</p>
 			</label>
 		<input type="file" id="file5" name="img" class="inputfile" onchange="estImg()">
 			<label class="labelInputFile" for="file5">
 				<img id="5" src="<?=IMG?>camara.svg" alt="">
-				<p>Subir imagen</p>
+				<p id="50">Subir imagen</p>
 			</label>
 		</div>
-		<p>Descripción corta del proyecto:</p>
+		<p>Descripción corta del proyecto <p id="contador">0/150</p></p>
 		<textarea maxlength="150" size="150" type="text" name="descCorta" placeholder="Descripción resumida en 150 caracteres de tu proyecto" class="inputDesc" id="inputDescCorta" onchange="estDC()"></textarea>
 		<p>Descripción completa del proyecto:</p>
 		<h5>Escriba un símbolo de gato "#" al principio de una oración para convertirla en un título.</h5>
@@ -91,10 +92,12 @@ $categorias = $this->categorias;
 <?=$this->render('Index','footer',true)?>
 </body>
 <script type="text/javascript">
+var fotos = [];
 function archivo(evt) {
     var id = evt.srcElement.id;
     var idElement = id.split("file")[1];
     var img = document.getElementById(idElement);
+    document.getElementById(idElement+'0').innerHTML = 'Preparada';
     var files = evt.target.files;
     for (var i = 0, f; f = files[i]; i++) {
       if (!f.type.match('image.*')) {
@@ -104,6 +107,7 @@ function archivo(evt) {
       reader.onload = (function(theFile) {
           return function(e) {
             // Insertamos la imagen
+            fotos[parseInt(idElement) - 1 ] = (e.target.result);
            img.src = e.target.result;
            img.title = escape(theFile.name);
           };
