@@ -15,8 +15,8 @@ textarea2.oninput = function(){
 
 function baseName(str){
 	str=str.toString()
-   var base = new String(str).substring(str.lastIndexOf('\\') + 1); 
-    // if(base.lastIndexOf(".") != -1)       
+   var base = new String(str).substring(str.lastIndexOf('\\') + 1);
+    // if(base.lastIndexOf(".") != -1)
     //     base = base.substring(0, base.lastIndexOf("."));
    return base;
 }
@@ -71,12 +71,12 @@ function subir(){
 			cont+=1;
 		}
 	}
-	if (cont==5) {
+	if (cont==3) {
 		for (var i = objImgs.length - 1; i >= 0; i--) {
 			objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
 		}
 		btn.disabled=false;
-		alertP("Ninguna imagen seleccionada.","Seleccione al menos una imagen para su proyecto.");
+		alertP("Ninguna imagen seleccionada.","Seleccione al menos tres imagenes para su proyecto.");
 		return;
 	}
 
@@ -92,25 +92,28 @@ function subir(){
 		alertP("Descripción larga vacía o incompleta.","Escriba una descripción completa para su proyecto de al menos 150 caracteres (Hasta 2000 caracteres).");
 		return;
 	}
-
-	var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+"&imgs="+imgs;
-  	var url = config['url']+"Usuario/subirProyecto";
-  	proyecto = new XMLHttpRequest();
-    proyecto.open("POST", url ,true);
-    proyecto.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    proyecto.send(data);
-
-    proyecto.onreadystatechange = function (){
-      if (proyecto.readyState == 4) {
-        if (parseInt(proyecto.responseText)==0) {
-        	alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
-        	window.location.href = config['url']+"/usuario/perfil";
-        }else{
-        	btn.disabled=false;
-        	alertP("Error al registrar proyecto.","Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
-        }
-      }
-    }
+		if(fotos.length >= 3){
+			var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+JSON.stringify(fotos);
+	  	var url = config['url']+"Usuario/subirProyecto";
+	  	proyecto = new XMLHttpRequest();
+	    proyecto.open("POST", url ,true);
+	    proyecto.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	    proyecto.send(data);
+	    proyecto.onreadystatechange = function (){
+	      if (proyecto.readyState == 4) {
+					console.log(proyecto.responseText);
+	        if (parseInt(proyecto.responseText)== '1') {
+	        	alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
+	        	window.location.href = config['url']+"/usuario/perfil";
+	        }else{
+	        	btn.disabled=false;
+	        	alertP("Error al registrar proyecto.","Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
+	        }
+	      }
+	    }
+		} else {
+			alertP("Requerimientos de la publicación","Seleccione al menos tres imagenes para su proyecto");
+		}
 
 }
 
@@ -126,7 +129,7 @@ function estImg(){
 	// }
 	var imgs = objImgs.map(input=>input.value);
 	imgs = imgs.map(baseName);
-	console.log(imgs);
+	// console.log(imgs);
 	cont=0;
 	for (var i = imgs.length - 1; i >= 0; i--) {
 		if (imgs[i]!="") {
@@ -147,7 +150,7 @@ function estImg(){
 		for (var i = objImgs.length - 1; i >= 0; i--) {
 			objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
 		}
-		alertP("Ninguna imagen seleccionada.","Seleccione al menos una imagen para su proyecto");
+		alertP("Ninguna imagen seleccionada.","Seleccione al menos tres imagenes para su proyecto");
 		return;
 	}
 	else{
@@ -162,3 +165,7 @@ function estDC(){
 function estDL(){
 	objDescLarga.style.borderColor=colorDesc;
 }
+
+objDescCorta.addEventListener('keydown',function(){
+	document.getElementById('contador').innerHTML = objDescCorta.value.length+'/150';
+},true);

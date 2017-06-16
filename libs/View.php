@@ -1,11 +1,11 @@
 <?php
 
 Class View{
-    
+
     public function render($controller, $view, $estrict = false){
     	if($estrict == false){
     		$controller = get_class($controller);
     	}
-        require ('./views/'.$controller.'/'.$view.'.php');
+        require_once('./views/'.$controller.'/'.$view.'.php');
     }
 }

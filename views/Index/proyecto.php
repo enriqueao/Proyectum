@@ -48,7 +48,7 @@ if (!is_null($reacciones)) {
 			for ($i=1; $i <= 5; $i++) {
 				if($info['media'.$i]!=""){
 					echo '<li>
-					<img src="'.IMG.$info['media'.$i].'">
+					<img src="'.$info['media'.$i].'">
 					</li>';
 				}
 			}
@@ -149,7 +149,7 @@ if (!is_null($reacciones)) {
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
 				<?=$this->render('Default','loading',true);?>
-				<?php 
+				<?php
 					if (isset($username) && ($yaComentado)) {
 						echo "<p>Ya has evaluado este proyecto</p>";
 					}
