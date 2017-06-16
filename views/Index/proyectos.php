@@ -6,56 +6,39 @@ $t = $this->tarjetas;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Proyectum</title>
+	<title>Proyectos | Proyectum</title>
   <meta http-equiv="pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
-
 	<script type="text/javascript" src="<?=JS;?>config.js"></script>
-	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
+	<script type="text/javascript" src="<?=JS;?>proyectos.js"></script>
+<!-- 	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script> -->
 </head>
 <body class="principal">
 	<?=$this->render('Default','alert',true);?>
 	<?=$this->render('Default','userorlogin',true);?>
-	<div class="slider" id="slider">
-		<div class="prev">
-			<a href="#" onclick="slider(0)" ><img src="<?=IMG?>back.svg"></a>
-		</div>
-		<div class="next">
-			<a href="#" onclick="slider(1)" ><img src="<?=IMG?>next.svg"></a>
-		</div>
-			<ul id="slide">
-				<li>
-					<div class="titulos-slider">
-						<h2>Miles de proyectos</h2>
-						<h4>Comparte tu proyecto para buscar ayuda y consejos</4>
-						<h6><input type="submit" value="Unirme Ahora" onclick="registro()"></h6>
-					</div>
-					<img src="<?=IMG?>2.png"></li>
-				<li>
-					<div class="titulos-slider">
-						<h2>Haz que tu proyecto crezca y sea un éxito</h2>
-						<h4>Solo publícalo y deja que la comunidad te ayude</4>
-						<h6></h6>
-					</div>
-					<img src="<?=IMG?>1.png">
-				</li>
-				<li>
-					<div class="titulos-slider">
-						<h2>Únete a esta gran comunidad</h2>
-						<h4>Sé parte de Proyectum</4>
-						<h6></h6>
-					</div>
-					<img src="<?=IMG?>webstr.png">
-				</li>
-			</ul>
-	</div>
 	<div class="proyectos" id="proyectos">
 	<p id="titulo">Proyectos</p>
-		<div class="contenido-proyectos">
+		<div class="contenido-proyectos" id="cargarAki">
+			<?=$this->render('Default','loading',true);?>
 			<?php
 
-			function formatoTarjeta($t){
+			function formatoTarjeta($t,$des=""){
+				$d='';
+				$des1="";
+				$des2="";
+				$des3="";
+				$des4="";
+				$des5="";
+				if ($des!="") {
+					$d='<div class="desNum"><p>'.$des.'</p></div>';
+					$des="proyectoDes";
+					$des1="detDes";
+					$des2="icoDes";
+					$des3="icoDesVer";
+					$des4='<div class="desInfo">';
+					$des5="</div>";
+				}
 				$coments = 0;
 				if (!is_null($t['reacciones'])) {
 					foreach ($t['reacciones'] as $v) {
@@ -69,63 +52,73 @@ $t = $this->tarjetas;
 				$w = isset($t['reacciones']['Wacala'])?$t['reacciones']['Wacala']:'0';
 
 				return '
-				<div class="proyecto">
-				<img src="'.IMG.$t['media1'].'">
+				<div class="proyecto '.$des.'">
+				<img src="'.IMG.$t['media1'].'">'.$d.'
+				'.$des4.'
 				<h3>'.$t['nombrePublicacion'].'</h3>
 				<p>'.$t['descripcionCorta'].'</p>
-				<div class="detalles-proyecto">
-					<div class="icono-detalles">
+				<div class="detalles-proyecto '.$des1.'">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'eye.svg">
 						<p>'.$t['vistas']['num'].'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'mensajes.svg">
 						<p>'.$coments.'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'/reacciones/excelente.svg">
 						<p>'.$e.'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'/reacciones/bien.svg">
 						<p>'.$b.'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'/reacciones/regular.svg">
 						<p>'.$r.'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'/reacciones/malo.svg">
 						<p>'.$m.'</p>
 					</div>
-					<div class="icono-detalles">
+					<div class="icono-detalles '.$des2.'">
 						<img src="'.IMG.'/reacciones/wacala.svg">
 						<p>'.$w.'</p>
 					</div>
-					<div class="icono-detalles-ver">
+					<div class="icono-detalles-ver '.$des3.'">
 						<a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
 					</div>
 				</div>
+				'.$des5.'
 			</div>';
 			}
-
-
-			if (!is_array($t)){
+			$c =  count($t) > 3 ? 3 : count($t);
+			//DESTACADOS
+	        if (!is_array($t)){
             	echo("No hay ningún proyecto");
 	        }
 	        elseif (isset($t['idPublicacion'])) {
-	            echo formatoTarjeta($t);
+	            echo formatoTarjeta($t,1);
 	        }
 	        else{
-	            foreach ($t as $ta) {
-	                echo formatoTarjeta($ta);
+	            for ($i=0; $i < $c; $i++) { 
+	            	echo formatoTarjeta($t[$i],$i+1);
 	            }
 	        }
+	        //DEMÁS
+	        $s = count($t) > 3 ? count($t) : 0;
+	        if($s != 0 && (!isset($t['idPublicacion']))){
+		        for ($i=$c; $i < $s; $i++) { 
+		          	echo formatoTarjeta($t[$i]);
+		        }
+	        }
+
 			 ?>
 
 		</div>
 		<div class="proyectos-ver-mas">
-			<a href="<?=URL?>Index/proyectos">Ver más proyectos</a>
+			<a onclick="cargarMas()">Cargar más</a>
 		</div>
 	</div>
 <?=$this->render('Index','footer',true)?>

@@ -7,7 +7,7 @@ class Index extends Controller{
 
     public function index(){
         $this->loadOtherModel('Publicaciones');
-        $tar = $this->Publicaciones->tarjetasPublicacion();
+        $tar = $this->Publicaciones->tarjetasPublicacion(15);
         if (!is_array($tar)){
             $tar = null;
         }
@@ -34,6 +34,113 @@ class Index extends Controller{
             $this->loadOtherModel('Comentarios');
             return $this->Comentarios->obtenerReaccionesPublicacion($idP);
         }
+    public function proyectos(){
+        $this->loadOtherModel('Publicaciones');
+        $tar = $this->Publicaciones->tarjetasPublicacion(6);
+        if (!is_array($tar)){
+            $tar = null;
+        }
+        elseif (isset($tar['idPublicacion'])) {
+            $tar['vistas'] = $this->vistasTarjeta($tar['idPublicacion']);
+            $tar['reacciones'] = $this->reaccionesTarjeta($tar['idPublicacion']);
+        }
+        else{
+            foreach ($tar as &$t) {
+                $t['vistas'] = $this->vistasTarjeta($t['idPublicacion']);
+                $t['reacciones'] = $this->reaccionesTarjeta($t['idPublicacion']);
+            }
+        }
+        $this->view->tarjetas = $tar;
+        $this->view->render($this,'proyectos');
+    }
+    public function cargarMas(){
+        $this->loadOtherModel('Publicaciones');
+        $tar = $this->Publicaciones->tarjetasPublicacion($_POST['desde'],$_POST['saltos']);
+        if (!is_array($tar)){
+            $tar = null;
+        }
+        elseif (isset($tar['idPublicacion'])) {
+            $tar['vistas'] = $this->vistasTarjeta($tar['idPublicacion']);
+            $tar['reacciones'] = $this->reaccionesTarjeta($tar['idPublicacion']);
+        }
+        else{
+            foreach ($tar as &$t) {
+                $t['vistas'] = $this->vistasTarjeta($t['idPublicacion']);
+                $t['reacciones'] = $this->reaccionesTarjeta($t['idPublicacion']);
+            }
+        }
+        echo $this->tarjetas($tar);
+    }
+
+    function tarjetas($t){
+        $s="";
+            if (!is_array($t)){
+                return $s;
+            }
+            elseif (isset($t['idPublicacion'])) {
+                return $this->formatoTarjeta($t);
+            }
+            else{
+                foreach ($t as $ta) {
+                    $s.=$this->formatoTarjeta($ta);
+                }
+                return $s;
+            }
+    }
+
+    function formatoTarjeta($t){
+                $coments = 0;
+                if (!is_null($t['reacciones'])) {
+                    foreach ($t['reacciones'] as $v) {
+                        $coments+=(int)$v;
+                    }
+                }
+                $e = isset($t['reacciones']['Excelente'])?$t['reacciones']['Excelente']:'0';
+                $b = isset($t['reacciones']['Bueno'])?$t['reacciones']['Bueno']:'0';
+                $r = isset($t['reacciones']['Regular'])?$t['reacciones']['Regular']:'0';
+                $m = isset($t['reacciones']['Malo'])?$t['reacciones']['Malo']:'0';
+                $w = isset($t['reacciones']['Wacala'])?$t['reacciones']['Wacala']:'0';
+
+                return '
+                <div class="proyecto">
+                <img src="'.IMG.$t['media1'].'">
+                <h3>'.$t['nombrePublicacion'].'</h3>
+                <p>'.$t['descripcionCorta'].'</p>
+                <div class="detalles-proyecto">
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'eye.svg">
+                        <p>'.$t['vistas']['num'].'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'mensajes.svg">
+                        <p>'.$coments.'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'/reacciones/excelente.svg">
+                        <p>'.$e.'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'/reacciones/bien.svg">
+                        <p>'.$b.'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'/reacciones/regular.svg">
+                        <p>'.$r.'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'/reacciones/malo.svg">
+                        <p>'.$m.'</p>
+                    </div>
+                    <div class="icono-detalles">
+                        <img src="'.IMG.'/reacciones/wacala.svg">
+                        <p>'.$w.'</p>
+                    </div>
+                    <div class="icono-detalles-ver">
+                        <a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
+                    </div>
+                </div>
+            </div>';
+            }
 
     public function proyecto($idPublicacion){
         $this->loadOtherModel('Comentarios');
