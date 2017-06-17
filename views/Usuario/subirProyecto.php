@@ -8,6 +8,7 @@ $categorias = $this->categorias;
 	<title>Proyectum | Nuevo proyecto</title>
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>subirProyecto.css">
+	<?=$this->render('Default','loading',true);?>
 	<script defer src="<?=JS?>subirProyecto.js"></script>
 	<script defer src="<?=JS?>config.js"></script>
 </head>
@@ -93,6 +94,14 @@ $categorias = $this->categorias;
 </body>
 <script type="text/javascript">
 var fotos = [];
+function eventFotos(){
+	document.getElementById('file1').addEventListener('change', archivo, false);
+	document.getElementById('file2').addEventListener('change', archivo, false);
+	document.getElementById('file3').addEventListener('change', archivo, false);
+	document.getElementById('file4').addEventListener('change', archivo, false);
+	document.getElementById('file5').addEventListener('change', archivo, false);
+}
+eventFotos();
 function archivo(evt) {
     var id = evt.srcElement.id;
     var idElement = id.split("file")[1];
@@ -115,10 +124,6 @@ function archivo(evt) {
       reader.readAsDataURL(f);
     }
 }
-document.getElementById('file1').addEventListener('change', archivo, false);
-document.getElementById('file2').addEventListener('change', archivo, false);
-document.getElementById('file3').addEventListener('change', archivo, false);
-document.getElementById('file4').addEventListener('change', archivo, false);
-document.getElementById('file5').addEventListener('change', archivo, false);
+
 </script>
 </html>

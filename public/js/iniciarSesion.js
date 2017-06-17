@@ -1,10 +1,12 @@
+loadingSesion = new Loading("capa","loadingSesion");
+
 function iniciarSesion() {
 	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 
 	if (username != '' && password != '') {
 		if (true) {
-			loading(1);
+			loadingSesion.load(1);
 			var url = config.url+"Usuario/iniciarSesion/";
 		  	var datos = "username=" + username + "&password=" + password;
 
@@ -20,12 +22,12 @@ function iniciarSesion() {
             	location.reload();
             break;
             case 2:
-            	loading(0);
+            	loadingSesion.load(0);
 				alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
 
             default:
-            	loading(0);
+            	loadingSesion.load(0);
             	alertP('Error.','Verifica tu usuario y/o contraseña.');
             break;
         	}

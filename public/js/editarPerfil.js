@@ -1,3 +1,4 @@
+loadingEditar = new Loading('fondo','loadingEditar');
 var textarea = document.getElementById("inputDesc");
 
 textarea.oninput = function(){
@@ -83,7 +84,7 @@ function editar(){
 		alertP("Sin cambios.","Ningún cambio qué guardar.");
 		return;
 	}
-	loading(1);
+	loadingEditar.load(1);
 	data = data.substring(0, data.length - 1);
 	console.log(data);
   	var url = config['url']+"Usuario/editarPerfil";
@@ -93,8 +94,7 @@ function editar(){
     perfil.send(data);
 
     perfil.onreadystatechange = function (){
-      if (perfil.readyState == 4) {
-      	loading(0);
+      if (perfil.readyState == 4) { 	
         if (parseInt(perfil.responseText)==0) {
         	alertP("Perfil actualizado.",'Cambios guardados exitosamente.',1);
         	window.location.href=config['url']+"usuario/perfil";
@@ -106,6 +106,7 @@ function editar(){
         	btn.disabled=false;
         	alertP("Error desconocido.","Ocurrió un problema al editar su perfil. Por favor intente más tarde.");
         }
+        loadingEditar.load(0);
       }
     }
 }

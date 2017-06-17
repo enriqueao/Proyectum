@@ -1,3 +1,6 @@
+loadingSubir = new Loading('fondo','loadingSubir');
+eventFotos();
+
 var textarea = document.getElementById("inputDescLarga");
 var textarea2 = document.getElementById("inputDescCorta");
 
@@ -93,7 +96,8 @@ function subir(){
 		return;
 	}
 		if(fotos.length >= 3){
-			var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+JSON.stringify(fotos);
+		loadingSubir.load(1);
+		var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+JSON.stringify(fotos);
 	  	var url = config['url']+"Usuario/subirProyecto";
 	  	proyecto = new XMLHttpRequest();
 	    proyecto.open("POST", url ,true);
@@ -101,6 +105,7 @@ function subir(){
 	    proyecto.send(data);
 	    proyecto.onreadystatechange = function (){
 	      if (proyecto.readyState == 4) {
+	      	loadingSubir.load(0);
 					console.log(proyecto.responseText);
 	        if (parseInt(proyecto.responseText)== '1') {
 	        	alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);

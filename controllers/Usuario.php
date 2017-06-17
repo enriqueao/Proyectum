@@ -164,7 +164,6 @@ class Usuario extends Controller{
       }
       $this->view->datos = $this->model->statusUsername(Session::getValue('username'));
       $this->view->render($this,'editarPerfil');
-      $this->view->render($this,'editarPerfil');
     }
 
     public function editarPerfil(){
@@ -174,9 +173,9 @@ class Usuario extends Controller{
           echo '1';
           return;
         }
+        $_POST['pass']=$_POST['newPass'];
+        unset($_POST['newPass']);
       }
-      $_POST['pass']=$_POST['newPass'];
-      unset($_POST['newPass']);
       echo $this->model->editarPerfil($_POST,Session::getValue('idUsuario'));
     }
 

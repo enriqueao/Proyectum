@@ -23,6 +23,7 @@ if (!is_null($reacciones)) {
 <head>
 	<meta charset="UTF-8">
 	<title>PROYECTO</title>
+	<?=$this->render('Default','loading',true);?>
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href=<?php echo CSS.'vistaProyecto.css' ?>>
 	<script defer type="text/javascript" src="<?=JS;?>slider.js"></script>
@@ -32,7 +33,7 @@ if (!is_null($reacciones)) {
 <body>
 <?=$this->render('Default','alert',true);?>
 <?=$this->render('Default','userorlogin',true);?>
-	<h1><?echo $info['nombrePublicacion']?></h1>
+	<h1><?=$info['nombrePublicacion']?></h1>
 
 	<!-- slider -->
 	<div class="slider" id="slider">
@@ -103,7 +104,7 @@ if (!is_null($reacciones)) {
 	<div id="fondoDescripcion">
 	<div id="descripcion">
 		<h2>Descripción del proyecto</h2>
-		<p><?echo nl2br(str_replace("\n", "</b>\n", str_replace("#", "<b>", $info['descripcionLarga'])))?></p>
+		<p><?= nl2br(str_replace("\n", "</b>\n", str_replace("#", "<b>", $info['descripcionLarga'])))?></p>
 	</div>
 	</div>
 	<div id="fondoComentarios">
@@ -122,14 +123,7 @@ if (!is_null($reacciones)) {
 
 					</div>
 					</div>';
-					// <div id="commentLike">
-					// 	<p>Like</p>
-					// </div>
-					// <div id="commentDislike">
-					// 	<p>Dislike</p>
-					// </div>
 				}
-
 
 				if (!is_array($comentarios)){
 					echo '<p id="noHayComents">No hay evaluciones en este proyecto. ¡Haz una nueva!</p>';
@@ -148,7 +142,6 @@ if (!is_null($reacciones)) {
 			<hr id="saltoDeLinea">
 			<h4>Nueva evaluacion</h4>
 			<div id="nuevoComentario">
-				<?=$this->render('Default','loading',true);?>
 				<?php
 					if (isset($username) && ($yaComentado)) {
 						echo "<p>Ya has evaluado este proyecto</p>";

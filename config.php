@@ -26,6 +26,10 @@
 	define( 'DB_USER' ,'proyectum');
 	define( 'DB_PASS' ,'desarrolloweb');
 	define( 'DB_NAME' ,'proyectum');
+	// define( 'DB_HOST' ,'148.220.52.87');
+	// define( 'DB_USER' ,'proyectum');
+	// define( 'DB_PASS' ,'proyectum');
+	// define( 'DB_NAME' ,'proyectumlocal');
 
 	define( 'DB_CHARSET' ,'utf8');
 

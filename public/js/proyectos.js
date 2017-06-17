@@ -1,7 +1,8 @@
+loadingProyectos = new Loading('proyectos','loadingProyectos');
 var saltos=9;
 var desde=6;
 function cargarMas(){
-	loading(1);
+	loadingProyectos.load(1);
 	cargarAki=document.getElementById('cargarAki');
 	var url = config.url+"Index/cargarMas";
   	var datos = "desde=" + desde+"&saltos=" + saltos;
@@ -13,7 +14,7 @@ function cargarMas(){
 	cargar.onreadystatechange = function (){
 		if (cargar.readyState == 4) {
 			console.log(cargar.responseText);
-			loading(0);
+			loadingProyectos.load(0);
 			desde+=saltos;
 			cargarAki.innerHTML+=cargar.responseText;
 		}

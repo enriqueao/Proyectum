@@ -1,3 +1,4 @@
+<?=$this->render('Default','loading',true)?>
 <div class="blanco"></div>
 <div class="top-bar">
   <div class="logo-top-bar">
@@ -13,13 +14,11 @@
         <input type="submit" value="Iniciar Sesión" id="boton">
       </div>
       <div class="inicio-sesion" id="capa" style="display:none;">
-        <?=$this->render('Default','loading',true)?>
         <input id="username" type="text" name="" value="" placeholder="Correo o Nombre de Usuario">
         <input id="password" type="password" name="" value="" placeholder="Contraseña">
         <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
       </div>
       <div class="top-bar-caja-buscador" id="contenedorBusqueda">
-        <?=$this->render_multi('Default','loading',true);?>
         <p class="info-busqueda">Titulo del proyecto o nombre del usuario</p>
       </div>
 </div>

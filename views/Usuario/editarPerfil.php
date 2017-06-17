@@ -6,6 +6,7 @@ $datos=$this->datos;
 <head>
 	<meta charset="UTF-8">
 	<title>Proyectum | Editar perfil</title>
+	<?=$this->render('Default','loading',true);?>
 	<meta http-equiv="pragma" content="no-cache">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>editarPerfil.css">
@@ -19,7 +20,6 @@ $datos=$this->datos;
 <div id="contenedorPrincipal">
 	<h1>Editar perfil</h1>
 	<div id="fondo">
-		<?=$this->render('Default','loading',true);?>
 		<form name="editarPerfil" onsubmit="return false">
 		<p>Nombre Completo:</p>
 		<input type="text" name="nombre" value="<?=$datos['nombrecompleto']?>" placeholder="Ej. Empresa S.A. de C.V.">

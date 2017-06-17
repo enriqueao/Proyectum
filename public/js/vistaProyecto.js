@@ -1,3 +1,5 @@
+loadingComent = new Loading('nuevoComentario','loadingComent');
+
 var textarea = document.getElementById("nuevoComentComent");
 var divComentarios = document.getElementById('comentarios');
 var noHayComents = document.getElementById('noHayComents');
@@ -39,7 +41,7 @@ function comentar() {
   	objBtn.disabled = false;
     return;
   }
-  loading(1);
+  loadingComent.load(1);
   var data = "comentario="+comentario+"&idPublicacion="+idPublicacion+"&idTipoReaccion="+idTipoReaccion;
   var url = config['url']+"Usuario/comentar";
   coment = new XMLHttpRequest();
@@ -49,7 +51,6 @@ function comentar() {
 
     coment.onreadystatechange = function (){
       if (coment.readyState == 4) {
-        loading(0);
         if (parseInt(coment.responseText)==0) {
           location.reload();
           //agregarComent(idTipoReaccion);
@@ -58,6 +59,7 @@ function comentar() {
           objBtn.disabled = false;
         	alertP("Error al evaluar","Ocurrió un problema al registrar su evaluación. Por favor intente más tarde.");
         }
+        loadingComent.load(0);
       }
     }
 }

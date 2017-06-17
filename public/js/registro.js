@@ -1,3 +1,4 @@
+loadingReg = new Loading("fondo","loadingReg");
 var verestado = document.getElementById('user');
 verestado.addEventListener('keyup',statusUsername,true);
 verestado.addEventListener('keypress',statusUsername,true);
@@ -74,7 +75,7 @@ function registrar() {
     return;
   }
   if (usuarioDisponible) {
-    loading(1);
+    loadingReg.load(1);
     var data = "nombrecompleto="+nomc+"&username="+username+"&correo="+correo+"&pass="+pass+"&descripcion="+desc;
     var url = config['url']+"Usuario/registro";
     regist = new XMLHttpRequest();
@@ -84,7 +85,7 @@ function registrar() {
 
       regist.onreadystatechange = function (){
         if (regist.readyState == 4) {
-          loading(0);
+          loadingReg.load(0);
           if (parseInt(regist.responseText)==0) {
             alertP("Error.","Ocurrió un problema al registrar su cuenta. Por favor intente más tarde.");
             objBtn.disabled=false; 

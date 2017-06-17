@@ -1,5 +1,7 @@
 var buscador = document.getElementById('buscador');
 var contenedorBusqueda = document.getElementById('contenedorBusqueda');
+// var buscarLoading = new Loading("tpBuscador","buscarLoading");
+
 buscador.addEventListener('keydown',buscar,true);
 
 buscador.addEventListener('focus',function(){
@@ -10,9 +12,8 @@ buscador.addEventListener('blur',function(){
   contenedorBusqueda.style.opacity = 0;
 },true);
 
-
 function buscar(){
-  loading(1);
+  contenedorBusqueda.innerHTML = '<p class="info-busqueda">Buscando...</p>';
   var search = document.getElementById('buscador').value;
   search = (search == '') ? '{' : search;
   var data = "search="+search;
@@ -23,7 +24,6 @@ function buscar(){
     busqueda.send(data);
     busqueda.onreadystatechange = function (){
       if (busqueda.readyState == 4) {
-        loading(0);
         contenedorBusqueda.innerHTML = busqueda.responseText;
       }
     }

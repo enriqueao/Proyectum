@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <?=$this->render('Default','loading',true);?>
     <meta charset="utf-8">
     <meta http-equiv="pragma" content="no-cache">
     <title>Únete | Proyectum</title>
@@ -17,7 +18,6 @@
     <div id="contenedorPrincipal">
     	<h1>Únete a Proyectum</h1>
     	<div id="fondo">
-        <?=$this->render_multi('Default','loading',true);?>
     		<form name="subirProyecto" onsubmit="return false">
           <p>Nombre Completo</p>
           <input class="registro-inputs" placeholder="Ej. Empresa S.A. de C.V." type="text" id="nombreCompleto" autocomplete="off" onchange="est('objNomc')">
