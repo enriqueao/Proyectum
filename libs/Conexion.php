@@ -429,9 +429,9 @@
      	*
      	* @return bool $reponse: Resultado de la ejecución del Data Manipulation Lenguaje.
      	*/
-		public function delete( $table, $where){
+		public function delete($table, $where){
 
-			$stmt = "DELETE FROM {$tabla} WHERE {$where};";
+			$stmt = "DELETE FROM {$table} WHERE {$where};";
 
 			$result = $this->link->query($stmt) or die($this->link->error);
 			

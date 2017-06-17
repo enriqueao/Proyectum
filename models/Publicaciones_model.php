@@ -32,6 +32,9 @@ class Publicaciones_model extends Model
 		}
 		return $this->db->insert($datos,'publicaciones');
 	}
+	public function eliminarPublicacion($idUsuario, $idPublicacion){
+		return $this->db->delete('publicaciones','idUsuario='.$idUsuario.' AND idPublicacion='.$idPublicacion);
+	}
 }
 
 ?>

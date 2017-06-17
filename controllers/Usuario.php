@@ -109,13 +109,14 @@ class Usuario extends Controller{
 
     public function publicacionesPerfil($username){
       $publicaciones = $this->model->publicacionesPerfil($username);
-      $proyectos = "<div class='perfil-lateral'>";
+      $proyectos = "<div class='perfil-lateral' id='perf-lat'>";
       if(is_array($publicaciones)){
         foreach ($publicaciones as $key => $value) {
           $proyectos .=
           "<div class='perfil-proyecto'>
       					<h2>{$value['nombrePublicacion']}</h2>
       					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>
+                <h5><a onclick=eliminar(".$value['idPublicacion'].")>Eliminar</a></h5>
       					<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>
       				</div>";
         }
@@ -147,6 +148,11 @@ class Usuario extends Controller{
     public function subirProyecto(){
         $this->loadOtherModel('Publicaciones');
         echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga'],json_decode($_POST['imgs']));
+    }
+
+    public function eliminarProyecto(){
+        $this->loadOtherModel('Publicaciones');
+        echo $this->Publicaciones->eliminarPublicacion(Session::getValue('idUsuario'),$_POST['idPublicacion'])?1:0;
     }
 
     public function subeProyecto(){

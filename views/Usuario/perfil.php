@@ -6,11 +6,13 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
-
-	<script type="text/javascript" src="<?=JS;?>config.js"></script>
+	<?=$this->render('Default','loading',true);?>
+	<script defer type="text/javascript" src="<?=JS;?>eliminarProyecto.js"></script>
+	<script defer type="text/javascript" src="<?=JS;?>config.js"></script>
 </head>
 <body id="perfil-fondo">
 	<?=$this->render('Default','userorlogin',true);?>
+	<?=$this->render('Default','alert',true);?>
 	<div class="perfil-contenedor">
 		<div class="perfil">
 			<img src="<?=IMG.$this->datos['imgProfile']?>">
