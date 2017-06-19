@@ -39,7 +39,7 @@ class Usuario extends Controller{
             if ($imagenType == "image/jpeg" || $imagenType == "image/jpg" || $imagenType == "image/png"){
                 $ext     = explode(".", $_FILES['images']['name']);
                 $dir     = 'IMG_'.$this->getKeyImg(Session::getValue('idUsuario')).".".end($ext);
-                $dirmove = "public/images/usuarios/".$dir;
+                $dirmove = "public/images/".$dir;
 
                 $upload  = $this->comprimirImagenAndUpload($imagenType,$dirmove,$_FILES['images']['tmp_name']);
                 if($upload){
