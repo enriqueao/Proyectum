@@ -1,9 +1,9 @@
 <?php
 	date_default_timezone_set('America/Mexico_City');
 	error_reporting(E_ALL);
-	ini_set('display_errors', 'on');
+	ini_set('display_errors', 'off');
 
-	define( 'URL' ,"http://localhost/".basename(getcwd())."/");
+	define( 'URL' ,"http://osorniovelazquez.ml/".basename(getcwd())."/");
 
 	define( 'CSS' , URL."public/css/");
 	define( 'JS' , URL."public/js/" );

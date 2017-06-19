@@ -103,7 +103,7 @@ $t = $this->tarjetas;
 						<p>'.$w.'</p>
 					</div>
 					<div class="icono-detalles-ver">
-						<a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
+						<a href="'.URL.'Index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
 					</div>
 				</div>
 			</div>';

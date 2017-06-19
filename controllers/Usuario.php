@@ -120,7 +120,7 @@ class Usuario extends Controller{
       					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>";
               if(Session::getValue('idUsuario') == $value['idUsuario']){
                 $proyectos .=
-                "<h5><a id='editar' href='".URL."usuario/editarProyecto/".$value['idPublicacion']."')>Editar</a></h5>
+                "<h5><a id='editar' href='".URL."Usuario/editarProyecto/".$value['idPublicacion']."')>Editar</a></h5>
                 <h5><a id='eliminar' onclick=eliminar(".$value['idPublicacion'].")>Eliminar</a></h5>";
               }
       				$proyectos .= "<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>

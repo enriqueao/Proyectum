@@ -62,6 +62,7 @@ function subir(){
 	imgs = imgs.map(baseName);
 	cont=0;
 	for (var i = imgs.length - 1; i >= 0; i--) {
+		imgs[i] = imgs[i].toLowerCase();
 		if (imgs[i]!="") {
 			if (imgs[i].indexOf(".jpeg")==-1 && imgs[i].indexOf(".jpg")==-1 && imgs[i].indexOf(".png")==-1){
 				objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
@@ -133,6 +134,7 @@ function estImg(){
 	cont=0;
 	for (var i = imgs.length - 1; i >= 0; i--) {
 		if (imgs[i]!="") {
+			imgs[i] = imgs[i].toLowerCase();
 			if (imgs[i].indexOf(".jpeg")==-1 && imgs[i].indexOf(".jpg")==-1 && imgs[i].indexOf(".png")==-1){
 				objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
 				alertP("Formato no soportado.","El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
@@ -186,10 +188,10 @@ function subirImagenes(){
 				if (parseInt(proyecto.responseText) == 1) {
 					loadingSubir.load(0);
 					alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
-					window.location.href = config['url']+"/usuario/perfil";
+					window.location.href = config['url']+"Usuario/perfil";
 				} else {
 					alertP('Error.',"Su proyecto no fue registrado correctamente.");
-					window.location.href = config['url']+"/usuario/perfil";
+					window.location.href = config['url']+"Usuario/perfil";
 				}
 			}
 		}

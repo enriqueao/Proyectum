@@ -1,6 +1,6 @@
 loadingProyectos = new Loading('proyectos','loadingProyectos');
-var saltos=9;
-var desde=6;
+var saltos=3;
+var desde=9;
 function cargarMas(){
 	loadingProyectos.load(1);
 	cargarAki=document.getElementById('cargarAki');

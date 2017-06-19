@@ -7,7 +7,7 @@ class Index extends Controller{
 
     public function index(){
         $this->loadOtherModel('Publicaciones');
-        $tar = $this->Publicaciones->tarjetasPublicacion(15);
+        $tar = $this->Publicaciones->tarjetasPublicacion(9);
         if (!is_array($tar)){
             $tar = null;
         }
@@ -136,7 +136,7 @@ class Index extends Controller{
                         <p>'.$w.'</p>
                     </div>
                     <div class="icono-detalles-ver">
-                        <a href="'.URL.'index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
+                        <a href="'.URL.'Index/proyecto/'.$t['idPublicacion'].'">Ver Más</a>
                     </div>
                 </div>
             </div>';

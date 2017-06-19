@@ -97,7 +97,7 @@ function editar(){
       if (perfil.readyState == 4) {
         if (parseInt(perfil.responseText)==0) {
         	alertP("Perfil actualizado.",'Cambios guardados exitosamente.',1);
-        	window.location.href=config['url']+"usuario/perfil";
+        	window.location.href=config['url']+"Usuario/perfil";
         }else if(parseInt(perfil.responseText)==1){
         	btn.disabled=false;
         	alertP("Constraseña incorrecta.","La contaseña no es correcta. Por favor, verifique.");

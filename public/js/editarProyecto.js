@@ -187,10 +187,10 @@ function subirImagenes(){
 				if (parseInt(proyecto.responseText) == 1) {
 					loadingSubir.load(0);
 					alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
-					window.location.href = config['url']+"/usuario/perfil";
+					window.location.href = config['url']+"/Usuario/perfil";
 				} else {
 					alertP('Error.',"Su proyecto no fue registrado correctamente.");
-					window.location.href = config['url']+"/usuario/perfil";
+					window.location.href = config['url']+"/Usuario/perfil";
 				}
 			}
 		}
