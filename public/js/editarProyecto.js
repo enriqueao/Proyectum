@@ -1,5 +1,4 @@
 loadingSubir = new Loading('fondo','loadingSubir');
-eventFotos();
 
 var textarea = document.getElementById("inputDescLarga");
 var textarea2 = document.getElementById("inputDescCorta");
@@ -34,8 +33,8 @@ var objDescCorta = document.forms.subirProyecto.descCorta;
 var colorDesc = objDescCorta.style.borderColor;
 
 var objDescLarga = document.forms.subirProyecto.descLarga;
-var objImgs = Array.from(document.forms.subirProyecto.img);
-var colorImg = objImgs[0].nextSibling.nextSibling.style.borderColor;
+// var objImgs = Array.from(document.forms.subirProyecto.img);
+// var colorImg = objImgs[0].nextSibling.nextSibling.style.borderColor;
 
 function subir(){
 	var btn = document.getElementsByName("btnSend")[0];
@@ -58,31 +57,6 @@ function subir(){
 		return;
 	}
 
-	var imgs = objImgs.map(input=>input.value);
-	imgs = imgs.map(baseName);
-	cont=0;
-	for (var i = imgs.length - 1; i >= 0; i--) {
-		if (imgs[i]!="") {
-			if (imgs[i].indexOf(".jpeg")==-1 && imgs[i].indexOf(".jpg")==-1 && imgs[i].indexOf(".png")==-1){
-				objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
-				btn.disabled=false;
-				alertP("Formato no soportado.","El archivo "+(i+1)+" no tiene un formato de imagen soportado (jpg, jpeg o png).");
-				return;
-			}
-		}
-		else{
-			cont+=1;
-		}
-	}
-	if (cont==3) {
-		for (var i = objImgs.length - 1; i >= 0; i--) {
-			objImgs[i].nextSibling.nextSibling.style.borderColor = "red";
-		}
-		btn.disabled=false;
-		alertP("Ninguna imagen seleccionada.","Seleccione al menos tres imagenes para su proyecto.");
-		return;
-	}
-
 	if (descCorta=="") {
 		objDescCorta.style.borderColor="red";
 		btn.disabled=false;
@@ -95,24 +69,27 @@ function subir(){
 		alertP("Descripción larga vacía o incompleta.","Escriba una descripción completa para su proyecto de al menos 150 caracteres (Hasta 2000 caracteres).");
 		return;
 	}
-		if(fotos.length >= 3){
+		if(true){
 			loadingSubir.load(1);
+			var title = document.getElementById('titulo').value;
 			var idPublicacion = document.getElementById('idPublicacion').value;
-			var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+fotos.length+'&idPublicacion='+idPublicacion;
+			var data = "categoria="+categoria+"&titulo="+title+"&descCorta="+descCorta+"&descLarga="+descLarga+'&idPublicacion='+idPublicacion;
 	  	var url = config['url']+"Usuario/editarPublicacion";
 	  	proyecto = new XMLHttpRequest();
 	    proyecto.open("POST", url ,true);
 	    proyecto.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	    proyecto.send(data);
+			console.log(data);
 	    proyecto.onreadystatechange = function (){
 	      if (proyecto.readyState == 4) {
-					console.log(proyecto.responseText);
 	        if (parseInt(proyecto.responseText)== '1') {
-						subirImagenes();
+						loadingSubir.load(0);
+						alertP('Proyecto Editado.',"Su proyecto fue editado exitosamente.",1);
+						window.location.href = config['url']+"/Usuario/perfil";
 	        }else{
 	        	btn.disabled=false;
 						loadingSubir.load(0);
-	        	alertP("Error al registrar proyecto.","Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
+	        	alertP("Error al Editar proyecto.","Ocurrió un problema al editar su proyecto. Por favor intente más tarde.");
 	        }
 	      }
 	    }
@@ -174,24 +151,3 @@ objDescCorta.addEventListener('keydown',function(){
 objDescCorta.addEventListener('change',function(){
 	document.getElementById('contador').innerHTML = objDescCorta.value.length+'/150';
 },true);
-
-
-function subirImagenes(){
-		var url = config['url']+"Usuario/subirImgsProyecto";
-		proyecto = new XMLHttpRequest();
-		proyecto.open("POST", url ,true);
-		proyecto.send(fd);
-		proyecto.onreadystatechange = function (){
-			if (proyecto.readyState == 4) {
-				console.log(proyecto.responseText);
-				if (parseInt(proyecto.responseText) == 1) {
-					loadingSubir.load(0);
-					alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
-					window.location.href = config['url']+"/Usuario/perfil";
-				} else {
-					alertP('Error.',"Su proyecto no fue registrado correctamente.");
-					window.location.href = config['url']+"/Usuario/perfil";
-				}
-			}
-		}
-}

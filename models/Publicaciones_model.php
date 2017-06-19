@@ -32,12 +32,7 @@ class Publicaciones_model extends Model
 	}
 
 	public function editarPublicacion($idPublicacion, $idCategoria, $nombrePublicacion, $descripcionCorta, $descripcionLarga){
-		$datos = array('idUsuario' => $idUsuario, 'idCategoria'=>$idCategoria, 'nombrePublicacion'=>$nombrePublicacion, 'descripcionCorta'=>$descripcionCorta, 'descripcionLarga'=>$descripcionLarga);
-		// $i = 1;
-		// for($a = 0; $a < $imgs;$a++) {
-		// 		$datos['media'.$i] = 'media_'.$i;
-		// 		$i+=1;
-		// }
+		$datos = array('idCategoria'=>$idCategoria, 'nombrePublicacion'=>$nombrePublicacion, 'descripcionCorta'=>$descripcionCorta, 'descripcionLarga'=>$descripcionLarga);
 		return $this->db->update($datos,'publicaciones', "idPublicacion = {$idPublicacion}");
 	}
 
