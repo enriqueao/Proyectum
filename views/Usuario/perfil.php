@@ -15,7 +15,7 @@
 	<?=$this->render('Default','alert',true);?>
 	<div class="perfil-contenedor">
 		<div class="perfil">
-			<img src="<?=IMG.'usuarios/'.$this->datos['imgProfile']?>">
+			<img src="<?=IMG.$this->datos['imgProfile']?>">
 			<div class="perfil-informacion">
 				<h2><?=$this->datos['nombrecompleto']?></h3>
 				<h3><?=$this->datos['descripcion']?></h4>
