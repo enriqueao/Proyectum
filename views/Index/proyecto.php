@@ -22,7 +22,7 @@ if (!is_null($reacciones)) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>PROYECTO</title>
+	<title><?=$info['nombrePublicacion']?> | Proyectum</title>
 	<?=$this->render('Default','loading',true);?>
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href=<?php echo CSS.'vistaProyecto.css' ?>>

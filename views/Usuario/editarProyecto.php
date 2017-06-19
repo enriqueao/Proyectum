@@ -5,7 +5,7 @@ $data = $this->data;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Proyectum | Nuevo proyecto</title>
+	<title>Proyectum | Editar proyecto</title>
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>estilosSpace.css">
 	<link rel="stylesheet" type="text/css" href="<?=CSS;?>subirProyecto.css">
 	<?=$this->render('Default','loading',true);?>
