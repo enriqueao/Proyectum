@@ -128,7 +128,11 @@ $t = $this->tarjetas;
 			<a href="<?=URL?>Index/proyectos">Ver más proyectos</a>
 		</div>
 	</div>
-<?=$this->render('Index','footer',true)?>
+  <footer class="footer">
+    <img src="<?=IMG?>logo.png">
+    <p>© 2017 Proyectum. Aguilar Orozco Enrique, Osornio Velazquez Edgar. All Rights Reserved.</p>
+  </footer>
+
 <script type="text/javascript">
 	function registro() {
 		location.href = config.url+'Index/registro';
