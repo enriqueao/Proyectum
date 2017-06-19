@@ -45,7 +45,7 @@ $categorias = $this->categorias;
 				 ?>
 			</select>
 		</div>
-		<p>Escriba un título para tu proyecto:</p>
+		<p>Escriba un título para su proyecto:</p>
 		<input type="text" name="titulo" placeholder="¡Mi proyecto genial!" onchange="estTit()">
 
 		<p>Escoja hasta 5 imágenes que representen su proyecto:</p>
@@ -80,7 +80,7 @@ $categorias = $this->categorias;
 		<p>Descripción corta del proyecto <p id="contador">0/150</p></p>
 		<textarea maxlength="150" size="150" type="text" name="descCorta" placeholder="Descripción resumida en 150 caracteres de tu proyecto" class="inputDesc" id="inputDescCorta" onchange="estDC()"></textarea>
 		<p>Descripción completa del proyecto:</p>
-		<h5>Escriba un símbolo de gato "#" al principio de una oración para convertirla en un título.</h5>
+		<h5>Escriba un símbolo de gato "#" al principio de una oración para convertirla en un título. No usar comillas.</h5>
 		<textarea maxlength="2000" name="descLarga" placeholder="Escriba una descripción para su proyecto" class="inputDesc" id="inputDescLarga" onchange="estDL()"></textarea>
 		<div id="contFinal">
 			<button id="btnSend" onclick="window.history.back()">Cancelar</button>

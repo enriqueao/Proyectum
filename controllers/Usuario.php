@@ -39,11 +39,11 @@ class Usuario extends Controller{
             if ($imagenType == "image/jpeg" || $imagenType == "image/jpg" || $imagenType == "image/png"){
                 $ext     = explode(".", $_FILES['images']['name']);
                 $dir     = 'IMG_'.$this->getKeyImg(Session::getValue('idUsuario')).".".end($ext);
-                $dirmove = "public/images/".$dir;
+                $dirmove = "public/images/usuarios/".$dir;
 
                 $upload  = $this->comprimirImagenAndUpload($imagenType,$dirmove,$_FILES['images']['tmp_name']);
                 if($upload){
-                    $this->model->actualizarInformacion('imgProfile','usuarios/'.$dir,Session::getValue('idUsuario'),'usuarios');
+                    $this->model->actualizarInformacion('imgProfile',$dir,Session::getValue('idUsuario'),'usuarios');
                     $this->deleteAnterior(Session::getValue('imagenPerfil'));
                     Session::setValue('imagenPerfil',$dir);
                     echo 1;

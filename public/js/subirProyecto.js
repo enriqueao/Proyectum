@@ -38,6 +38,7 @@ var objImgs = Array.from(document.forms.subirProyecto.img);
 var colorImg = objImgs[0].nextSibling.nextSibling.style.borderColor;
 
 function subir(){
+	var objTitulo = document.forms.subirProyecto.titulo;
 	var btn = document.getElementsByName("btnSend")[0];
 	btn.disabled=true;
 	var categoria = objCategoria.value;
@@ -112,7 +113,7 @@ function subir(){
 	        }else{
 	        	btn.disabled=false;
 						loadingSubir.load(0);
-	        	alertP("Error al registrar proyecto.","Ocurrió un problema al registrar su proyecto. Por favor intente más tarde.");
+	        	alertP("Error al registrar proyecto.","Ocurrió un problema. Recuerde no usar ningún tipo de comillas. Por favor intente más tarde.");
 	        }
 	      }
 	    }
