@@ -158,7 +158,7 @@ class Usuario extends Controller{
 
     public function editarPublicacion(){
         $this->loadOtherModel('Publicaciones');
-        echo $this->Publicaciones->editarPublicacion($_POST['idPublicacion'],Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga']);
+        echo $this->Publicaciones->editarPublicacion($_POST['idPublicacion'], $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga']);
     }
 
     public function subirImgsProyecto(){
