@@ -6,7 +6,7 @@ class Usuario extends Controller{
     }
 
     public function index(){
-      $this->view->render($this,'perfil');
+      $this->perfil();
     }
 
     public function iniciarSesion(){
@@ -16,12 +16,14 @@ class Usuario extends Controller{
     }
 
     public function registro(){
-      if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
-        if($this->checkStatusUsername($_POST['username'])){
-          $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass'],$_POST['descripcion']);
-          echo $this->model->registro($registro);
-        } else {
-          echo '0';
+      if(!$this->sessionExist()){
+        if(isset($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'])){
+          if($this->checkStatusUsername($_POST['username'])){
+            $registro = array($_POST['nombrecompleto'],$_POST['username'],$_POST['correo'],$_POST['pass'],$_POST['descripcion']);
+            echo $this->model->registro($registro);
+          } else {
+            echo '0';
+          }
         }
       }
     }
@@ -44,10 +46,10 @@ class Usuario extends Controller{
                     $this->model->actualizarInformacion('imgProfile','usuarios/'.$dir,Session::getValue('idUsuario'),'usuarios');
                     $this->deleteAnterior(Session::getValue('imagenPerfil'));
                     Session::setValue('imagenPerfil',$dir);
+                    echo 1;
                 } else {
                     echo '0';
                 }
-                echo ($upload) ? 'Correcto' : '0' ;
             } else {
                 echo 2; //formato no admitido
             }
@@ -62,9 +64,9 @@ class Usuario extends Controller{
     *
     */
     private function deleteAnterior($img){
-        if(file_exists('./public/images/usuarios'.$img)){
+        if(file_exists('./public/images/usuarios/'.$img)){
             if($img != 'user.svg'){
-                unlink('./public/images/usuarios'.$img);
+                unlink('./public/images/usuarios/'.$img);
             }
         }
     }
@@ -115,9 +117,13 @@ class Usuario extends Controller{
           $proyectos .=
           "<div class='perfil-proyecto'>
       					<h2>{$value['nombrePublicacion']}</h2>
-      					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>
-                <h5><a onclick=eliminar(".$value['idPublicacion'].")>Eliminar</a></h5>
-      					<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>
+      					<p class='perfil-parrafo'>{$value['descripcionCorta']}</p>";
+              if(Session::getValue('idUsuario') == $value['idUsuario']){
+                $proyectos .=
+                "<h5><a id='editar' href='".URL."usuario/editarProyecto/".$value['idPublicacion']."')>Editar</a></h5>
+                <h5><a id='eliminar' onclick=eliminar(".$value['idPublicacion'].")>Eliminar</a></h5>";
+              }
+      				$proyectos .= "<h5><a href='".URL."Index/proyecto/".$value['idPublicacion']."'>Ver más</a></h5>
       				</div>";
         }
         return $proyectos.="</div>";
@@ -147,12 +153,51 @@ class Usuario extends Controller{
 
     public function subirProyecto(){
         $this->loadOtherModel('Publicaciones');
-        echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga'],json_decode($_POST['imgs']));
+        echo $this->Publicaciones->subirPublicacion(Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga'],$_POST['imgs']);
+    }
+
+    public function editarPublicacion(){
+        $this->loadOtherModel('Publicaciones');
+        echo $this->Publicaciones->editarPublicacion($_POST['idPublicacion'],Session::getValue('idUsuario'), $_POST['categoria'], $_POST['titulo'], $_POST['descCorta'], $_POST['descLarga']);
+    }
+
+    public function subirImgsProyecto(){
+      $i = 1;
+      $ban = 1;
+      $this->loadOtherModel('Publicaciones');
+      $idProyecto = $this->Publicaciones->idProyectoUser()['idPublicacion'];
+      if(isset($_FILES)){
+        $estruc = './public/images/proyectos/'.$idProyecto;
+        mkdir($estruc,0700);
+        foreach ($_FILES as $img) {
+          if ($img['size'] < 16777216) {
+            $imagenType = $img['type'];
+            if ($imagenType == "image/jpeg" || $imagenType == "image/jpg" || $imagenType == "image/png"){
+                $ext     = explode(".", $img['name']);
+                $dir     = 'media_'.$i.".".end($ext);
+                $dirmove = "public/images/proyectos/{$idProyecto}/".$dir;
+                $this->Publicaciones->updateMedia('media'.$i,$dir,$idProyecto);
+                $upload  = $this->comprimirImagenAndUpload($imagenType,$dirmove,$img['tmp_name']);
+                if($upload){
+                  $ban = 1;
+                }
+            } else {
+              $ban = 0;
+            }
+            $i++;
+           } else {
+               $ban = 0;
+           }
+         }
+         return $ban;
+      }
     }
 
     public function eliminarProyecto(){
-        $this->loadOtherModel('Publicaciones');
-        echo $this->Publicaciones->eliminarPublicacion(Session::getValue('idUsuario'),$_POST['idPublicacion'])?1:0;
+      if($this->sessionExist()){
+          $this->loadOtherModel('Publicaciones');
+          echo $this->Publicaciones->eliminarPublicacion(Session::getValue('idUsuario'),$_POST['idPublicacion'])?1:0;
+      }
     }
 
     public function subeProyecto(){
@@ -233,6 +278,38 @@ class Usuario extends Controller{
           $resultados .= "<p>Sin resultados</p>";
         }
         echo $resultados;
+      }
+    }
+
+    public function editarProyecto($idPublicacion){
+      $this->sessionExist();
+      $this->loadOtherModel('Publicaciones');
+      $idUsuario = $this->Publicaciones->comprabarPublicacion($idPublicacion);
+      if(is_array($idUsuario)){
+        if($idUsuario['idUsuario'] == Session::getValue('idUsuario')){
+          $this->view->categorias = $this->categorias($idUsuario['idCategoria']);
+          $this->view->data = $idUsuario;
+          $this->view->render($this,'editarProyecto');
+        } else {
+          $this->$this->pageHistoryBack();
+        }
+      } else {
+          $this->$this->pageHistoryBack();
+      }
+    }
+
+    public function categorias($idCategoria){
+      $this->loadOtherModel('Categorias');
+      $categorias = $this->Categorias->obtenerCategorias();
+      $categoria = '';
+      if (is_array($categorias)) {
+        foreach ($categorias as $cat) {
+          $select = ($cat['idCategoria'] == $idCategoria) ? 'selected' : '';
+          $categoria.= '<option value="'.$cat['idCategoria'].'" '.$select.'>'.$cat['categoria'].'</option>';
+        }
+        return $categoria;
+      } else {
+        return '<p>No hay categorias</p>';
       }
     }
 

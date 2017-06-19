@@ -24,9 +24,15 @@
 			<div class="perfil-contenido">
 				<h2>Lo Más Relevante</h2>
 				<ul>
-					<li><a href="<?=URL.'Index/proyecto/'.$this->proyectoDestacado[0]['idPublicacion']?>">Proyecto Destacado</a></li>
-					<li><a href="<?=URL.'Index/proyecto/'.$this->proyectoMasVisto[0]['idPublicacion']?>">Proyecto Más Visto</a></li>
-					<li><a href="<?=URL.'Index/proyecto/'.$this->proyectoDestacado[0]['idPublicacion']?>">Proyecto Más Comentado</a></li>
+					<?php
+						if(is_array($this->proyectoDestacado)){
+							echo '<li><a href="'.URL.'Index/proyecto/'.$this->proyectoDestacado[0]['idPublicacion'].'">Proyecto Destacado</a></li>
+							<li><a href="'.URL.'Index/proyecto/'.$this->proyectoMasVisto[0]['idPublicacion'].'">Proyecto Más Visto</a></li>
+							<li><a href="'.URL.'Index/proyecto/'.$this->proyectoDestacado[0]['idPublicacion'].'">Proyecto Más Comentado</a></li>';
+						} else {
+							echo '<li>Información aún no disponible</li>';
+						}
+					?>
 				</ul>
 				<h2>Datos Proyectum</h2>
 				<ul>

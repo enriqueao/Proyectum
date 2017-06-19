@@ -70,7 +70,7 @@ $t = $this->tarjetas;
 
 				return '
 				<div class="proyecto">
-				<img src="'.$t['media1'].'">
+				<img src="'.IMG.'proyectos/'.$t['idPublicacion'].'/'.$t['media1'].'">
 				<h3>'.$t['nombrePublicacion'].'</h3>
 				<p>'.$t['descripcionCorta'].'</p>
 				<div class="detalles-proyecto">

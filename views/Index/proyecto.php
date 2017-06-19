@@ -49,7 +49,7 @@ if (!is_null($reacciones)) {
 			for ($i=1; $i <= 5; $i++) {
 				if($info['media'.$i]!=""){
 					echo '<li>
-					<img src="'.$info['media'.$i].'">
+					<img src="'.IMG."proyectos/".$info['idPublicacion'].'/'.$info['media'.$i].'">
 					</li>';
 				}
 			}

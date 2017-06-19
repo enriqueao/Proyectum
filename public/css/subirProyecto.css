@@ -83,12 +83,7 @@ h5{
 		font-size: 15px;
 		outline: none;
 		border:none;
-		/*kk*/
-		background: #E44D26;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right top, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right top, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		/*background-color: #d25d13;*/
+		background-color: #f1521a;
 		/*border: 1px solid #f1521a;*/
 		color: white;
 	}

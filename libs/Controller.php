@@ -145,7 +145,7 @@ class Controller {
             if($tipo == "image/jpeg" || $tipo == 'image/jpg'){
                 imagejpeg($lienzo,$destino);
             } elseif($tipo == 'image/png'){
-                imagepng($lienzo,$destino); 
+                imagepng($lienzo,$destino);
             }
             return true;
         } else {

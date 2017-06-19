@@ -96,9 +96,10 @@ function subir(){
 		return;
 	}
 		if(fotos.length >= 3){
-		loadingSubir.load(1);
-		var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+fotos.length;
-	  	var url = config['url']+"Usuario/subirProyecto";
+			loadingSubir.load(1);
+			var idPublicacion = document.getElementById('idPublicacion').value;
+			var data = "categoria="+categoria+"&titulo="+titulo+"&descCorta="+descCorta+"&descLarga="+descLarga+'&imgs='+fotos.length+'&idPublicacion='+idPublicacion;
+	  	var url = config['url']+"Usuario/editarPublicacion";
 	  	proyecto = new XMLHttpRequest();
 	    proyecto.open("POST", url ,true);
 	    proyecto.setRequestHeader("Content-type","application/x-www-form-urlencoded");

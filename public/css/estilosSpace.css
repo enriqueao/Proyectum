@@ -576,7 +576,7 @@ img{
 	.proyectoDes img{
 		float: left;
 		height: 100%;
-		width: 600px; 
+		width: 600px;
 	}
 	 .proyectoDes > div > p{
 	 	/*font-size: 15px;*/
@@ -1006,7 +1006,8 @@ footer > p{
 }
 
 .perfil-proyecto{
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   position: relative;
   float: left;
   width: 90%;
@@ -1052,4 +1053,18 @@ footer > p{
 
 .info-busqueda{
   font-size: .8em;
+}
+
+#eliminar{
+  color: #1f323d;
+}
+
+#eliminar:hover{
+  cursor: pointer;
+  color: rgb(249, 2, 2);
+}
+
+#editar:hover{
+  cursor: pointer;
+  color: #10ad24;
 }

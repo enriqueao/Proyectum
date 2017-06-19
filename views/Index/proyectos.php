@@ -53,7 +53,7 @@ $t = $this->tarjetas;
 
 				return '
 				<div class="proyecto '.$des.'">
-				<img src="'.IMG.$t['media1'].'">'.$d.'
+				<img src="'.IMG.'proyectos/'.$t['idPublicacion'].'/'.$t['media1'].'">'.$d.'
 				'.$des4.'
 				<h3>'.$t['nombrePublicacion'].'</h3>
 				<p>'.$t['descripcionCorta'].'</p>
@@ -102,14 +102,14 @@ $t = $this->tarjetas;
 	            echo formatoTarjeta($t,1);
 	        }
 	        else{
-	            for ($i=0; $i < $c; $i++) { 
+	            for ($i=0; $i < $c; $i++) {
 	            	echo formatoTarjeta($t[$i],$i+1);
 	            }
 	        }
 	        //DEMÁS
 	        $s = count($t) > 3 ? count($t) : 0;
 	        if($s != 0 && (!isset($t['idPublicacion']))){
-		        for ($i=$c; $i < $s; $i++) { 
+		        for ($i=$c; $i < $s; $i++) {
 		          	echo formatoTarjeta($t[$i]);
 		        }
 	        }

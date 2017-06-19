@@ -24,17 +24,40 @@ class Publicaciones_model extends Model
 	public function subirPublicacion($idUsuario, $idCategoria, $nombrePublicacion, $descripcionCorta, $descripcionLarga, $imgs){
 		$datos = array('idUsuario' => $idUsuario, 'idCategoria'=>$idCategoria, 'nombrePublicacion'=>$nombrePublicacion, 'descripcionCorta'=>$descripcionCorta, 'descripcionLarga'=>$descripcionLarga);
 		$i = 1;
-		foreach ($imgs as $img) {
-			if ($img!="") {
-				$datos['media'.$i] = $img;
+		for($a = 0; $a < $imgs;$a++) {
+				$datos['media'.$i] = 'media_'.$i;
 				$i+=1;
-			}
 		}
 		return $this->db->insert($datos,'publicaciones');
 	}
+
+	public function editarPublicacion($idPublicacion, $idCategoria, $nombrePublicacion, $descripcionCorta, $descripcionLarga){
+		$datos = array('idUsuario' => $idUsuario, 'idCategoria'=>$idCategoria, 'nombrePublicacion'=>$nombrePublicacion, 'descripcionCorta'=>$descripcionCorta, 'descripcionLarga'=>$descripcionLarga);
+		// $i = 1;
+		// for($a = 0; $a < $imgs;$a++) {
+		// 		$datos['media'.$i] = 'media_'.$i;
+		// 		$i+=1;
+		// }
+		return $this->db->update($datos,'publicaciones', "idPublicacion = {$idPublicacion}");
+	}
+
+	public function idProyectoUser(){
+		return $this->db->query('SELECT idPublicacion FROM publicaciones WHERE idUsuario = '.Session::getValue('idUsuario').' ORDER BY idPublicacion DESC LIMIT 1');
+	}
+
+	public function updateMedia($campo,$valor,$idProyecto){
+		$data[$campo] = $valor;
+		return $this->db->update($data,'publicaciones',"idPublicacion = {$idProyecto}");
+	}
+
 	public function eliminarPublicacion($idUsuario, $idPublicacion){
+		$this->db->delete('vistas','idUsuario='.$idUsuario.' AND idPublicacion='.$idPublicacion);
 		return $this->db->delete('publicaciones','idUsuario='.$idUsuario.' AND idPublicacion='.$idPublicacion);
 	}
-}
 
+	public function comprabarPublicacion($idPublicacion){
+		return $this->db->select('*','publicaciones',"idPublicacion={$idPublicacion}");
+	}
+
+}
 ?>

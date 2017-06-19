@@ -94,7 +94,7 @@ function editar(){
     perfil.send(data);
 
     perfil.onreadystatechange = function (){
-      if (perfil.readyState == 4) { 	
+      if (perfil.readyState == 4) {
         if (parseInt(perfil.responseText)==0) {
         	alertP("Perfil actualizado.",'Cambios guardados exitosamente.',1);
         	window.location.href=config['url']+"usuario/perfil";
@@ -141,16 +141,16 @@ var input = document.getElementById('file1'),
 
 function mostrarImagenSubida(source){
 		img  = document.getElementById('img');
-		imgPerfilPrev  = document.getElementById('imgPro');
+		// imgPerfilPrev  = document.getElementById('imgPro');
 		img.src = source;
-		imgPerfilPrev.src = source;
+		// imgPerfilPrev.src = source;
 }
 
 
 if(window.FormData){
 		formdata = new FormData();
 }
-
+var so = '';
 if(input.addEventListener){
 		input.addEventListener('change', function(evt){
 				var i = 0, len = this.files.length, img, reader, file;
@@ -162,6 +162,7 @@ if(input.addEventListener){
 										reader = new FileReader();
 										reader.onloadend = function(e){
 												mostrarImagenSubida(e.target.result);
+												so = e.target.result;
 										};
 										reader.readAsDataURL(file);
 								}
@@ -179,10 +180,11 @@ if(input.addEventListener){
 					perfil.onreadystatechange = function (){
 						if (perfil.readyState == 4) {
 							console.log(perfil.responseText);
-							if(perfil.responseText == '1'){
-								document.getElementById('status').innerHTML = 'Correcto';
+							if(parseInt(perfil.responseText) == 1){
+								document.getElementById('imgPro').src = so;
+								document.getElementById('status').innerHTML = 'Correcto!';
 							} else {
-								document.getElementById('status').innerHTML = 'Error'+perfil.responseText;
+								document.getElementById('status').innerHTML = 'Error '+perfil.responseText;
 							}
 						}
 					}
