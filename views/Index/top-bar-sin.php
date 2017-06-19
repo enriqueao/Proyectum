@@ -13,7 +13,7 @@
         <a href="<?=URL;?>Index/registro">Unirme Ahora</a>
         <input type="submit" value="Iniciar Sesión" id="boton">
       </div>
-      <div class="inicio-sesion" id="capa" style="display:none;">
+      <div class="inicio-sesion" id="capa" style="display:none;" onKeyPress="if(event.keyCode==13) iniciarSesion();">
         <input id="username" type="text" name="" value="" placeholder="Correo o Nombre de Usuario">
         <input id="password" type="password" name="" value="" placeholder="Contraseña">
         <input type="submit" id="botonSu" value="Iniciar Sesión" onclick="iniciarSesion();">
