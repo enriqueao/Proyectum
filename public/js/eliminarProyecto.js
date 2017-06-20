@@ -20,7 +20,7 @@ function eliminarOk(idProyecto){
 				alertP("Proyecto eliminado.","El proyecto fue eliminado exitosamente",1);
 				setTimeout(function(){
 					location.reload();
-				},6000);
+				},2000);
 			}else{
 				alertP("Error.","Ocurrió una errror al eliminar el proyecto. Intente más tarde.");
 			}

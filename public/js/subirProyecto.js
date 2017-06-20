@@ -118,6 +118,7 @@ function subir(){
 	      }
 	    }
 		} else {
+			btn.disabled=false;
 			alertP("Requerimientos de la publicación","Seleccione al menos tres imagenes para su proyecto");
 		}
 
@@ -194,7 +195,7 @@ function subirImagenes(){
 					alertP('Error.',proyecto.responseText);
 					setTimeout(function(){
 						window.location.href = config['url']+"Usuario/perfil";
-					},6000);
+					},2000);
 				}
 			}
 		}

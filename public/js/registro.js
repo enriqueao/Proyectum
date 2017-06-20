@@ -93,7 +93,7 @@ function registrar() {
             alertP("Bienvenido a Proyectum.","Tu cuenta ha sido registrada exitósamente.",1);
             setTimeout(function(){
   						window.location.href = config['url'];
-  					},6000);
+  					},2000);
 
           }
         }

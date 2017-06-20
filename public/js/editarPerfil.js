@@ -99,7 +99,7 @@ function editar(){
         	alertP("Perfil actualizado.",'Cambios guardados exitosamente.',1);
 					setTimeout(function(){
 						window.location.href=config['url']+"Usuario/perfil";
-					},6000);
+					},2000);
         }else if(parseInt(perfil.responseText)==1){
         	btn.disabled=false;
         	alertP("Constraseña incorrecta.","La contaseña no es correcta. Por favor, verifique.");

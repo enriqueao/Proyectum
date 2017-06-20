@@ -87,7 +87,7 @@ function subir(){
 						alertP('Proyecto Editado.',"Su proyecto fue editado exitosamente.",1);
 						setTimeout(function(){
 							window.location.href = config['url']+"/Usuario/perfil";
-						},6000);
+						},2000);
 	        }else{
 	        	btn.disabled=false;
 						loadingSubir.load(0);
