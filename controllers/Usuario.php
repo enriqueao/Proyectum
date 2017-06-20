@@ -192,15 +192,14 @@ class Usuario extends Controller{
            }
          }
          echo $ban;
+      } else {
+        $this->deleteForError($idProyecto);
+        echo 'Error Desconocido intenta más tarde.';
       }
-      $this->deleteForError($idProyecto);
-      echo 'Error Desconocido intenta más tarde.';
     }
 
     public function deleteForError($idPublicacion){
-      if (is_dir('./public/images/proyectos/'.$idPublicacion)){
-          rmdir('./public/images/proyectos/'.$idPublicacion);
-      }
+      rmdir('./public/images/proyectos/'.$idPublicacion);
       $this->loadOtherModel('Publicaciones');
       $this->Publicaciones->eliminarPublicacion(Session::getValue('idUsuario'),$idPublicacion);
     }

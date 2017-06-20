@@ -46,7 +46,7 @@ $categorias = $this->categorias;
 			</select>
 		</div>
 		<p>Escriba un título para su proyecto:</p>
-		<input type="text" name="titulo" placeholder="¡Mi proyecto genial!" onchange="estTit()">
+		<input type="text" name="titulo" placeholder="¡Mi proyecto genial!" onchange="estTit()" maxlength="100">
 
 		<p>Escoja hasta 5 imágenes que representen su proyecto:</p>
     <h5>Tienes que subir minímo 3 imágenes</h5>

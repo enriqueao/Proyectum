@@ -85,7 +85,9 @@ function subir(){
 	        if (parseInt(proyecto.responseText)== '1') {
 						loadingSubir.load(0);
 						alertP('Proyecto Editado.',"Su proyecto fue editado exitosamente.",1);
-						window.location.href = config['url']+"/Usuario/perfil";
+						setTimeout(function(){
+							window.location.href = config['url']+"/Usuario/perfil";
+						},6000);
 	        }else{
 	        	btn.disabled=false;
 						loadingSubir.load(0);

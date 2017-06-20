@@ -465,6 +465,7 @@ img{
 	 }
 
 	 .proyecto > p{
+    word-break: break-all;
 	 	font-family: 'Muli-Light';
 	 	margin: 0px 30px;
 	 	/*color: #e3e0da;*/
@@ -474,6 +475,7 @@ img{
 	 }
 
 	 .proyecto > h3{
+     word-break: break-all;
 	 	font-family: 'Aller';
 	 	margin: 13px 30px;
 	 	font-size: 17px;
@@ -579,9 +581,11 @@ img{
 		width: 600px;
 	}
 	 .proyectoDes > div > p{
+     word-break: break-all;
 	 	/*font-size: 15px;*/
 	 }
 	 .proyectoDes  > div > h3{
+     word-break: break-all;
 	 	/*width: 100%;*/
 	 	/*margin: 13px 30px;*/
 	 	font-size: 17px;
@@ -779,6 +783,7 @@ footer > p{
   }
 
   .perfil-proyecto h2{
+    word-break: break-all;
     color: #1f323d;
   }
 
@@ -990,6 +995,7 @@ footer > p{
 
 .perfil-informacion h3{
   white-space: nowrap;
+  word-break: break-all;
 }
 
 .perfil-contenido{
@@ -1045,6 +1051,7 @@ footer > p{
 }
 
 .perfil-proyecto > p{
+  word-break: break-all;
   text-align: justify;
   white-space: normal;
 }

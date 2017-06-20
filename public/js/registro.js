@@ -88,10 +88,13 @@ function registrar() {
           loadingReg.load(0);
           if (parseInt(regist.responseText)==0) {
             alertP("Error.","Ocurrió un problema al registrar su cuenta. Por favor intente más tarde.");
-            objBtn.disabled=false; 
+            objBtn.disabled=false;
           }else{
             alertP("Bienvenido a Proyectum.","Tu cuenta ha sido registrada exitósamente.",1);
-            window.location.href = config['url'];
+            setTimeout(function(){
+  						window.location.href = config['url'];
+  					},6000);
+
           }
         }
       }
@@ -113,7 +116,7 @@ function statusUsername(){
   status.innerHTML = 'Verificando nombre de usuario...'
   var url = config['url']+"Usuario/statusUsername";
   if(username != '' && username.length >= 5){
-    
+
     comprobar.open("POST", url ,true);
     comprobar.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     comprobar.send(data);

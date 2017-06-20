@@ -18,7 +18,9 @@ function eliminarOk(idProyecto){
 		if (cargar.readyState == 4) {
 			if(parseInt(cargar.responseText)==1){
 				alertP("Proyecto eliminado.","El proyecto fue eliminado exitosamente",1);
-				location.reload();
+				setTimeout(function(){
+					location.reload();
+				},6000);
 			}else{
 				alertP("Error.","Ocurrió una errror al eliminar el proyecto. Intente más tarde.");
 			}
