@@ -191,8 +191,10 @@ function subirImagenes(){
 					alertP('Proyecto registrado.',"Su proyecto fue registrado exitosamente.",1);
 					window.location.href = config['url']+"Usuario/perfil";
 				} else {
-					alertP('Error.',"Su proyecto no fue registrado correctamente.");
-					window.location.href = config['url']+"Usuario/perfil";
+					alertP('Error.',proyecto.responseText);
+					setTimeout(function(){
+						window.location.href = config['url']+"Usuario/perfil";
+					},6000);
 				}
 			}
 		}

@@ -182,16 +182,29 @@ class Usuario extends Controller{
                   $ban = 1;
                 }
             } else {
-              $ban = 0;
+              $this->deleteForError($idProyecto);
+              echo 'Formato de Imagenes Incorrecto';
             }
             $i++;
            } else {
-               $ban = 0;
+              $this->deleteForError($idProyecto);
+              echo 'Las Imagenes han superado el tamañano máximo permitido.';
            }
          }
-         return $ban;
+         echo $ban;
       }
+      $this->deleteForError($idProyecto);
+      echo 'Error Desconocido intenta más tarde.';
     }
+
+    public function deleteForError($idPublicacion){
+      if (is_dir('./public/images/proyectos/'.$idPublicacion)){
+          rmdir('./public/images/proyectos/'.$idPublicacion);
+      }
+      $this->loadOtherModel('Publicaciones');
+      $this->Publicaciones->eliminarPublicacion(Session::getValue('idUsuario'),$idPublicacion);
+    }
+
 
     public function eliminarProyecto(){
       if($this->sessionExist()){

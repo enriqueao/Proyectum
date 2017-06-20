@@ -333,6 +333,8 @@ h1{
 	text-align: justify;
 	font-family: 'Muli-light', sans-serif;
 	font-size: 14px;
+  /*white-space: nowrap;*/
+  word-break: break-all;
 }
 #descripcion b{
 	text-align: justify;

@@ -19,6 +19,7 @@ $datos=$this->datos;
 <div id="fakeBody">
 <div id="contenedorPrincipal">
 	<h1>Editar perfil</h1>
+  <h5>Algunas acciones requieren cerrar sesión para reflejar cambios</h5>
 	<div id="fondo">
 		<form name="editarPerfil" onsubmit="return false">
 		<p>Nombre Completo:</p>
